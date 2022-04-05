@@ -15,3 +15,21 @@
 # the interpretations above. e.g. underweight, normal weight, overweight, 
 # obese, clinically obese.
 
+# 🚨 Don't change the code below 👇
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+bmi = round(weight / (height ** 2))
+strMessage = f"Your BMI is {bmi}"
+if (bmi > 35):
+    print(strMessage + ", you are clinically obese.")
+elif (bmi <= 35 and bmi > 30):
+    print(strMessage + ", you are obese.")
+elif (bmi <= 30 and bmi > 25):
+    print(strMessage + ", you are slightly overweight.")
+elif (bmi <= 25 and bmi > 20):
+    print(strMessage + ", you have a normal weight.")
+else:
+    print(strMessage + ", you are underweight.")
