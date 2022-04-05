@@ -21,3 +21,16 @@
 # 80 / (1.75 * 1.75) = 26.122448979591837
 # 26
 
+# 🚨 Don't change the code below 👇
+height = input("enter your height in m: ")
+weight = input("enter your weight in kg: ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+# Calculate BMI with float values using casting
+bmi = float(weight) / (float(height) ** 2)
+
+# Return BMI as a whole number using int casting
+print(int(bmi))
+
