@@ -43,7 +43,11 @@ bill_per_person = (total_bill / total_people)
 # Add Bill and tip per person
 total_per_person = bill_per_person + tip_per_person
 
+# Lets clean up the calculation
+final_result = (total_bill / total_people) * (1 + tip_percentage)
+
 # Return value, rounded to nearest 2 decimal places
-print(f"Each person should pay: ${round(total_per_person, 2)}")
+#print(f"Each person should pay: ${round(total_per_person, 2)}")
+print(f"Each person should pay: ${round(final_result, 2)}")
 
 
