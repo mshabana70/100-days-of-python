@@ -1,5 +1,12 @@
 # Life in Weeks
 
+# PEMDAS (Left to Right)
+# 
+# ()
+# **
+# * /
+# + -
+
 # Create a program using maths and f-Strings that 
 # tells us how many days, weeks, months we have left 
 # if we live until 90 years old.
@@ -22,3 +29,20 @@
 # 
 # You have 12410 days, 1768 weeks, and 408 months left.
 
+
+# 🚨 Don't change the code below 👇
+age = input("What is your current age?")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+# Find how many years left with casted age value
+yearsLeft = 90 - int(age)
+
+# Convert yearsLeft to day, months and weeks
+days = yearsLeft * 365
+months = yearsLeft * 12
+weeks = yearsLeft * 52
+
+# Return values in a concated return string
+print("You have ", days, " days, ", weeks, " weeks, ", months, " months left.")
