@@ -30,3 +30,5 @@ import random
 randomInt = random.randint(100, 200)
 print(randomInt)
 # returns a random between 100 and 200 (both inclusive)
+
+# Lets solve the exercise here
