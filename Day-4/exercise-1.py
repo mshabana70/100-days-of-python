@@ -21,4 +21,11 @@
 # Heads
 # Tails
 
-#
+# First, we much generate some randomness.
+# To do that, we need to import the random module
+import random
+
+# Lets look at some examples before we solve the challenge
+# Generating a randome integer
+randomInt = random.randint(100, 200)
+# returns a random between 100 and 200 (both inclusive)
