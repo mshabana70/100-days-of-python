@@ -45,3 +45,30 @@
 # 
 # Print: "Your score is 53."
 
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+import re
+
+both_names = name1.lower() + name2.lower()
+trueCount = 0
+loveCount = 0
+totalScore = ""
+
+# Findall() reads in the pattern to search for and the string, then returns an array of all the instances of that pattern in the string
+# len() gives us the count of that array
+trueCount = len(re.findall("t", both_names)) + len(re.findall("r", both_names)) + len(re.findall("u", both_names)) + len(re.findall("e", both_names))
+loveCount = len(re.findall("l", both_names)) + len(re.findall("o", both_names)) + len(re.findall("v", both_names)) + len(re.findall("e", both_names))
+
+totalScore = int(str(trueCount) + str(loveCount))
+
+if (totalScore < 10 or totalScore > 90):
+    print(f"Your score is {totalScore}, you go together like coke and mentos.")
+elif (totalScore > 40 and totalScore < 50):
+    print(f"Your score is {totalScore}, you are alright together.")
+else:
+    print(f"Your score is {totalScore}.")
