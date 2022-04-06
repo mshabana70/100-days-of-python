@@ -1,4 +1,4 @@
-# Day 3 Project - Treasure Island
+# Day 3 Project - Stranded
 #
 # Create a "choose your own adventure" program
 # Must take in user input and result in different endings
