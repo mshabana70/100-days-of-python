@@ -24,4 +24,21 @@
 # 
 # Michael is going to buy the meal today!
 
+# Lets handle our imports first
+import random
 
+# Lets ask our user for input of a list
+names_string = input("What are everyone's names, separated by a comma. ")
+
+# We must split our string by using the comma as the delimiter
+names = names_string.split(", ") # names will be a list of the names in names_string
+
+# Now we must generate a random integer from 0 to the index of the last name in the list
+
+randomInt = random.randint(0, (len(names) - 1))
+# we must subract the length of the list by one 
+
+# Now we search for a random name in the list
+randomName = names[randomInt]
+
+print(f"{randomName} is going to buy the meal today!")
