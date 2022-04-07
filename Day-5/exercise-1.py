@@ -39,10 +39,12 @@ for n in range(0, len(student_heights)):
 
 #Write your code below this row 👇
 sum_of_heights = 0
+length = 0
 
 for height in student_heights:
     sum_of_heights += height
+    length += 1
 
-avg_height_rounded = round((sum_of_heights / len(student_heights)))
+avg_height_rounded = round((sum_of_heights / length))
 
 print(avg_height_rounded)
