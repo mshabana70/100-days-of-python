@@ -66,10 +66,18 @@ position = input("Where do you want to put the treasure? ")
 
 #Write your code below this row 👇
 
+# Lets first create the map 
+treasureMap = [row1, row2, row3]
 
+# Lets test that this returns the map we have in mind
+#print(treasureMap)
 
+# Lets get the values from our user input
+xCoord = int(position[0])
+yCoord = int(position[1])
 
-
+# Reassign the position to "X" if the coordinates are valid
+treasureMap[yCoord - 1][xCoord - 1] = "X"
 
 #Write your code above this row 👆
 
