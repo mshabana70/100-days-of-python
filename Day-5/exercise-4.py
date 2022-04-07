@@ -15,4 +15,21 @@
 # instead of the number it should print "FizzBuzz"
 # 
 # e.g. it might start off like this:
+# 
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
 
+# My implementation
