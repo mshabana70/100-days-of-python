@@ -7,7 +7,8 @@ num_char = len("Hello")
 print(num_char)
 
 # What if we want to make our own functions
-# first start with keyword: def
+# First start with keyword: def
+# This helps us define the function
 def my_function():
     print("Hello")
     print("Bye")
