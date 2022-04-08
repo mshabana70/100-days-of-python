@@ -81,6 +81,23 @@ for i in range(0, total_count):
 
 print(f"Hard version of password generator(using choice()): {final_password_hard}")
 
+# Hard Version using list
+final_password_list = []
+for i in range(0, nr_letters):
+    final_password_list += random.choice(letters)
+
+for i in range(0, nr_symbols):
+    final_password_list += random.choice(symbols)
+
+for i in range(0, nr_numbers):
+    final_password_list += random.choice(numbers)
+
+# shuffle list using random.shuffle()
+random.shuffle(final_password_list)
+password = ""
+password = password.join(final_password_list)
+print(f"Hard version of password generator(using shuffle()): {password}")
+
 
 
 
