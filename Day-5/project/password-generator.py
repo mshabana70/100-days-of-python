@@ -32,7 +32,19 @@ for i in range(0, nr_numbers):
     randomIndex = random.randint(0, (len(numbers) - 1))
     final_password += numbers[randomIndex]
 
-print(final_password)
+print(f"Easy version of password generator: {final_password}")
+# Easy Version using choice()
+final_password_choice = ""
+for i in range(0, nr_letters):
+    final_password_choice += random.choice(letters)
+
+for i in range(0, nr_symbols):
+    final_password_choice += random.choice(symbols)
+
+for i in range(0, nr_numbers):
+    final_password_choice += random.choice(numbers)
+
+print(f"Easy version of password generator(using choice()): {final_password_choice}")
 
 # Hard version
 # f2hf&g3^r
@@ -45,20 +57,33 @@ symbol_count = 0
 number_count = 0
 for i in range(0, total_count):
     randomRow = random.randint(0, 3)
+    # if (randomRow == 0 and letter_count < nr_letters):
+    #     randomNum = randomIndex = random.randint(0, (len(letters) - 1))
+    #     final_password_hard += letters[randomNum]
+    #     letter_count += 1
+    # elif (randomRow == 1 and symbol_count < nr_symbols):
+    #     randomNum = randomIndex = random.randint(0, (len(symbols) - 1))
+    #     final_password_hard += symbols[randomNum]
+    #     symbol_count += 1
+    # elif (randomRow == 2 and number_count < nr_numbers):
+    #     randomNum = randomIndex = random.randint(0, (len(numbers) - 1))
+    #     final_password_hard += numbers[randomNum]
+    #     number_count += 1
     if (randomRow == 0 and letter_count < nr_letters):
-        randomNum = randomIndex = random.randint(0, (len(letters) - 1))
-        final_password_hard += letters[randomNum]
+        final_password_hard += random.choice(letters)
         letter_count += 1
     elif (randomRow == 1 and symbol_count < nr_symbols):
-        randomNum = randomIndex = random.randint(0, (len(symbols) - 1))
-        final_password_hard += symbols[randomNum]
+        final_password_hard += random.choice(symbols)
         symbol_count += 1
     elif (randomRow == 2 and number_count < nr_numbers):
-        randomNum = randomIndex = random.randint(0, (len(numbers) - 1))
-        final_password_hard += numbers[randomNum]
+        final_password_hard += random.choice(numbers)
         number_count += 1
 
-print(final_password_hard)
+print(f"Hard version of password generator(using choice()): {final_password_hard}")
+
+
+
+
 
 
 
