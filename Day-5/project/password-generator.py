@@ -36,6 +36,29 @@ print(final_password)
 
 # Hard version
 # f2hf&g3^r
+final_password_hard = ""
+
+passwordMap = [letters, symbols, numbers]
+total_count = nr_letters + nr_symbols + nr_numbers
+letter_count = 0
+symbol_count = 0
+number_count = 0
+for i in range(0, total_count):
+    randomRow = random.randint(0, 3)
+    if (randomRow == 0 and letter_count < nr_letters):
+        randomNum = randomIndex = random.randint(0, (len(letters) - 1))
+        final_password_hard += letters[randomNum]
+        letter_count += 1
+    elif (randomRow == 1 and symbol_count < nr_symbols):
+        randomNum = randomIndex = random.randint(0, (len(symbols) - 1))
+        final_password_hard += symbols[randomNum]
+        symbol_count += 1
+    elif (randomRow == 2 and number_count < nr_numbers):
+        randomNum = randomIndex = random.randint(0, (len(numbers) - 1))
+        final_password_hard += numbers[randomNum]
+        number_count += 1
+
+print(final_password_hard)
 
 
 
