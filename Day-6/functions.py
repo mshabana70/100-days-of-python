@@ -15,3 +15,8 @@ def my_function():
 
 # Nothing will happen until we call the function
 my_function()
+
+# It is important to note that the interpreter looks 
+# at the call of a function first before it looks for 
+# where the function is defined
+
