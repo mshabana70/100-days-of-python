@@ -92,7 +92,9 @@ display = []
 for _ in range(word_length):
     display.append("_")
 
-while "_" in display:
+end_game = False
+
+while not end_game:
     # ask for a letter
     guess = input("Please guess a letter: ").lower()
     for index in range(word_length):
@@ -100,5 +102,6 @@ while "_" in display:
             display[index] = guess
     print(display)
 
-if "_" not in display:
-    print("YAY! You win!")
+    if "_" not in display:
+        end_game = True
+        print("YAY! You win!")
