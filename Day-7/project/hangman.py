@@ -88,20 +88,118 @@ print(f"Psssst... The target word is {target_word}") # For testing
 # can tell the user they've won.
 
 # display
+# display = []
+# for _ in range(word_length):
+#     display.append("_")
+
+# end_game = False
+
+# while not end_game:
+#     # ask for a letter
+#     guess = input("Please guess a letter: ").lower()
+#     for index in range(word_length):
+#         if target_word[index] == guess:
+#             display[index] = guess
+#     print(display)
+
+#     if "_" not in display:
+#         end_game = True
+#         print("YAY! You win!")
+
+
+# Step 4
+
+# TODO-1 - Create a variable called 'lives' to keep track of the 
+# number of lives left. Set 'lives' equal to 6
+
+# TODO-2 - If guess is not a letter in the target_word, then reduce 
+# 'lives' by 1. If lives goes down to 0 then the game should stop and
+# it should print "You lose."
+
+# TODO-3 - print the ASCII art from 'stages' that corresponds to the 
+# current number of 'lives' the user has remaining.
+
+# Stages
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+# display
 display = []
 for _ in range(word_length):
     display.append("_")
 
+lives = 6
 end_game = False
 
 while not end_game:
+    # Current progress
+    print(stages[lives])
+    print(display)
     # ask for a letter
     guess = input("Please guess a letter: ").lower()
     for index in range(word_length):
         if target_word[index] == guess:
-            display[index] = guess
-    print(display)
+            display[index] = guess 
 
+    if guess not in target_word:
+        lives -= 1   
     if "_" not in display:
         end_game = True
         print("YAY! You win!")
+    elif lives == 0:
+        end_game = True
+        print("You lose!")
