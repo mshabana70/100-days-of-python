@@ -11,11 +11,20 @@
 # answer to a variable called guess. Make guess lowercase
 
 # TODO-3 - Check if the letter the user guessed (guess) is 
-# one of the letters in the chosen_word
+# one of the letters in the target_word
 
 # Import random module
 import random
 
 word_list = ["ardvark", "baboon", "camel"]
+
+# Choose a random word for target_word
+randomInt = random.randint(0, len(word_list))
+target_word = word_list[randomInt]
+
+
+
+
+
 
 
