@@ -16,18 +16,20 @@ def turn_around():
 
 # Loop through logic till you are at the flag and have escaped the maze
 while not at_goal():
-    
+    # always move if front is clear
     while (front_is_clear()):
         move()
-        turn_left()
+        turn_left() # check every left if it is clear
         if (front_is_clear()):
-            move()
+            move() # if left is clear, move that direction
         else:
-            turn_right()
+            turn_right() # else turn back right
+    # If there is a wall on your right and the front is no longer clear
     if (wall_on_right()):
-        turn_left()
+        turn_left() # turn left
+    # If the front is no longer clear but there is no wall on right
     elif (wall_on_right() != True):
-        turn_right()
+        turn_right() # turn right
     else:
-        turn_around()
-        move()
+        turn_around() # turn around
+        move() # move 
