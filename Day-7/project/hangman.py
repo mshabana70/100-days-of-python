@@ -22,6 +22,7 @@ word_list = ["ardvark", "baboon", "camel"]
 #randomInt = random.randint(0, len(word_list))
 #target_word = word_list[randomInt]
 target_word = random.choice(word_list)
+word_length = len(target_word)
 
 print(f"Psssst... The target word is {target_word}") # For testing
 
@@ -57,19 +58,26 @@ guess = input("Please guess a letter: ").lower()
 
 # Create display list
 display = []
+display2 = []
 
 # One solution with two loops
 
 # Fill display list with underscore for each letter in target_word
-for i in range(len(target_word)):
+for i in range(word_length):
     display.append("_")
+    display2.append("_")
 
 # index and value is parsed with enumerate
 for index, letter in enumerate(target_word):
     if letter == guess:
         display[index] = guess
 
+# another way without enumerate()
+for position in range(word_length):
+    if target_word[position] == guess:
+        display2[position] = guess
 print(display)
+print(display2)
 
 
 
