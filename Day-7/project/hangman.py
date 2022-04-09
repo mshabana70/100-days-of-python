@@ -19,8 +19,9 @@ import random
 word_list = ["ardvark", "baboon", "camel"]
 
 # Choose a random word for target_word
-randomInt = random.randint(0, len(word_list))
-target_word = word_list[randomInt]
+#randomInt = random.randint(0, len(word_list))
+#target_word = word_list[randomInt]
+target_word = random.choice(word_list)
 
 # Ask for User input on a guess letter and assign it to guess
 guess = input("Please guess a letter: ").lower()
