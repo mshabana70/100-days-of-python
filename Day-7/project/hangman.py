@@ -55,7 +55,21 @@ guess = input("Please guess a letter: ").lower()
 # Hint - Dont worry about getting the user to guess the next letter.
 # We'll tackle that in step 3.
 
+# Create display list
+display = []
 
+# One solution with two loops
+
+# Fill display list with underscore for each letter in target_word
+for i in range(len(target_word)):
+    display.append("_")
+
+# index and value is parsed with enumerate
+for index, letter in enumerate(target_word):
+    if letter == guess:
+        display[index] = guess
+
+print(display)
 
 
 
