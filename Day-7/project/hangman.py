@@ -14,17 +14,17 @@
 # one of the letters in the target_word
 
 # Import random module
-import random
+# import random
 
-word_list = ["ardvark", "baboon", "camel"]
+# word_list = ["ardvark", "baboon", "camel"]
 
-# Choose a random word for target_word
-#randomInt = random.randint(0, len(word_list))
-#target_word = word_list[randomInt]
-target_word = random.choice(word_list)
-word_length = len(target_word)
+# # Choose a random word for target_word
+# #randomInt = random.randint(0, len(word_list))
+# #target_word = word_list[randomInt]
+# target_word = random.choice(word_list)
+# word_length = len(target_word)
 
-print(f"Psssst... The target word is {target_word}") # For testing
+# print(f"Psssst... The target word is {target_word}") # For testing
 
 # Ask for User input on a guess letter and assign it to guess
 #guess = input("Please guess a letter: ").lower()
@@ -120,91 +120,166 @@ print(f"Psssst... The target word is {target_word}") # For testing
 # current number of 'lives' the user has remaining.
 
 # Stages
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+# stages = ['''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  / \  |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  /    |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#   |   |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#   O   |
+#       |
+#       |
+#       |
+# =========
+# ''', '''
+#   +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========
+# ''']
 
 # display
+# display = []
+# for _ in range(word_length):
+#     display.append("_")
+
+# lives = 6
+# end_game = False
+
+# while not end_game:
+#     # Print Current progress
+#     print(stages[lives])
+#     print(display)
+
+#     # ask for a letter
+#     guess = input("Please guess a letter: ").lower()
+#     for index in range(word_length):
+#         if target_word[index] == guess:
+#             display[index] = guess 
+
+#     # If guess not in word at all, lose one life
+#     if guess not in target_word:
+#         lives -= 1   
+
+#     # Check Current Progress
+#     if "_" not in display:
+#         end_game = True
+#         print("YAY! You win!")
+#     elif lives == 0:
+#         end_game = True
+#         print("You lose!")
+#         print(stages[lives])
+
+# Step 5 (Final)
+
+# TODO-1 - Update the word_list to use the words from hangman_words.py
+
+# TODO-2 - Import the logo from hangman_art.py and print it at the start 
+# of game.
+
+# TODO-3 - Import stages from hangman_art.py to clean up current code.
+
+# Personal challenge - clean up code with functions
+
+# imports
+import random
+import hangman_words
+import hangman_art
+
+# Set random word to guess
+target_word = random.choice(hangman_words.word_list)
+word_length = len(target_word)
 display = []
-for _ in range(word_length):
-    display.append("_")
 
-lives = 6
-end_game = False
+def set_display(word_length):
+    for _ in range(word_length):
+        display.append("_")
+    return display
 
-while not end_game:
-    # Print Current progress
-    print(stages[lives])
-    print(display)
+def start_game():
+    print(hangman_art.title)
+    end_game = False
+    lives = 6
+    guesses = []
 
-    # ask for a letter
-    guess = input("Please guess a letter: ").lower()
-    for index in range(word_length):
-        if target_word[index] == guess:
-            display[index] = guess 
+    while not end_game:
+        # Print Current Progress
+        print(hangman_art.stages[lives])
+        print(display)
 
-    # If guess not in word at all, lose one life
-    if guess not in target_word:
-        lives -= 1   
+        # get user guess
+        guess = input("Guess a letter: ").lower()
 
-    # Check Current Progress
-    if "_" not in display:
-        end_game = True
-        print("YAY! You win!")
-    elif lives == 0:
-        end_game = True
-        print("You lose!")
-        print(stages[lives])
+        # Check if the letter was guessed already
+        if guess not in guesses:
+            guesses.append(guess)
+            for index in range(word_length):
+                if target_word[index] == guess:
+                    display[index] = guess
+            
+            # Check if guess is in word, if not they lose a life
+            if guess not in target_word:
+                lives -= 1
+                
+                # If the user reaches zero lives, they lose
+                if lives == 0:
+                    end_game = True
+                    print(hangman_art.stages[lives])
+                    print("You lose!")
+            
+            # If there are no more blanks in display, user wins
+            if "_" not in display:
+                end_game = True
+                print("Yay!! You win!")
+        else:
+            print("You have guessed that letter already, try again.")
+        
+
+# Start game
+
+# for testing
+#print(f"Psssst... The target word is {target_word}")
+
+display = set_display(word_length)
+start_game()
+    
+    
