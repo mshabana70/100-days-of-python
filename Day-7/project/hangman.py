@@ -27,7 +27,7 @@ word_length = len(target_word)
 print(f"Psssst... The target word is {target_word}") # For testing
 
 # Ask for User input on a guess letter and assign it to guess
-guess = input("Please guess a letter: ").lower()
+#guess = input("Please guess a letter: ").lower()
 
 # Check if guessed letter is in target_word (check each letter)
 # for letter in target_word:
@@ -57,27 +57,45 @@ guess = input("Please guess a letter: ").lower()
 # We'll tackle that in step 3.
 
 # Create display list
-display = []
-display2 = []
+# display = []
+# display2 = []
 
 # One solution with two loops
 
 # Fill display list with underscore for each letter in target_word
-for i in range(word_length):
-    display.append("_")
-    display2.append("_")
+# for i in range(word_length):
+#     display.append("_")
+#     display2.append("_")
 
 # index and value is parsed with enumerate
-for index, letter in enumerate(target_word):
-    if letter == guess:
-        display[index] = guess
+# for index, letter in enumerate(target_word):
+#     if letter == guess:
+#         display[index] = guess
 
 # another way without enumerate()
-for position in range(word_length):
-    if target_word[position] == guess:
-        display2[position] = guess
-print(display)
-print(display2)
+# for position in range(word_length):
+#     if target_word[position] == guess:
+#         display2[position] = guess
+# print(display)
+# print(display2)
 
 
+# Step 3 
 
+# TODO-1 - Use a while loop to let the user guess again. The loop 
+# should only stop once the user has guessed all the letters in 
+# the target_word and 'display' has no more blanks "_". Then you 
+# can tell the user they've won.
+
+# display
+display = []
+for _ in range(word_length):
+    display.append("_")
+
+while "_" not in display:
+    # ask for a letter
+    guess = input("Please guess a letter: ").lower()
+    for index in range(word_length):
+        if target_word[index] == guess:
+            display[index] = guess
+    print(display)
