@@ -41,9 +41,10 @@ while not at_goal():
     if (wall_on_right() != True):
         turn_right() # turn right
         move() # move forward
-    # While there is a wall o
+    # While there is a wall on the right
     while (wall_on_right()):
+        # if the front is clear
         if (front_is_clear()):
-            move()
+            move() # move forward
         else:
-            turn_left()
+            turn_left() # if front is not clear and there is a wall on right, move left
