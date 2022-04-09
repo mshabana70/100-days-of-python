@@ -258,13 +258,18 @@ def start_game():
             
             # Check if guess is in word, if not they lose a life
             if guess not in target_word:
+                print(f"You guessed the letter {guess}, that is not in the word. You lose a life.")
                 lives -= 1
                 
                 # If the user reaches zero lives, they lose
                 if lives == 0:
                     end_game = True
-                    print(hangman_art.stages[lives])
                     print("You lose!")
+                    print(hangman_art.stages[lives])
+                    print(f"The target word: {target_word}")
+                    print(f"Your progress: {display}")
+                    print(f"The letters you guessed: {guesses}")
+                    
             
             # If there are no more blanks in display, user wins
             if "_" not in display:
