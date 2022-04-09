@@ -25,8 +25,12 @@ target_word = word_list[randomInt]
 # Ask for User input on a guess letter and assign it to guess
 guess = input("Please guess a letter: ").lower()
 
-# Check if guessed letter is in target_word
-print(True if guess in target_word else False)
+# Check if guessed letter is in target_word (check each letter)
+for letter in target_word:
+    if guess == letter:
+        print("Right")
+    else:
+        print("Wrong")
 
 
 
