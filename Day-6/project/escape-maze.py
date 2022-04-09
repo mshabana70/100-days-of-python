@@ -33,3 +33,17 @@ while not at_goal():
     else:
         turn_around() # turn around
         move() # move 
+
+
+# Suggested algorithm: move along with wall on right side, when you are able to move right, move right
+while not at_goal():
+    # If no wall on right
+    if (wall_on_right() != True):
+        turn_right() # turn right
+        move() # move forward
+    # While there is a wall o
+    while (wall_on_right()):
+        if (front_is_clear()):
+            move()
+        else:
+            turn_left()
