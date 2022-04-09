@@ -186,20 +186,24 @@ lives = 6
 end_game = False
 
 while not end_game:
-    # Current progress
-    print(stages[lives])
-    print(display)
-    # ask for a letter
-    guess = input("Please guess a letter: ").lower()
-    for index in range(word_length):
-        if target_word[index] == guess:
-            display[index] = guess 
-
-    if guess not in target_word:
-        lives -= 1   
+    # Check Current Progress
     if "_" not in display:
         end_game = True
         print("YAY! You win!")
     elif lives == 0:
         end_game = True
         print("You lose!")
+
+    # Print Current progress
+    print(stages[lives])
+    print(display)
+
+    # ask for a letter
+    guess = input("Please guess a letter: ").lower()
+    for index in range(word_length):
+        if target_word[index] == guess:
+            display[index] = guess 
+
+    # If guess not in word at all, lose one life
+    if guess not in target_word:
+        lives -= 1   
