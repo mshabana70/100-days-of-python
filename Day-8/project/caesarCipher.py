@@ -78,6 +78,18 @@ def decrypt(plain_text, shift_amount):
 
 # decrypt(plain_text = text, shift_amount = shift)
 
-# Create a function that 
-        
+# Create a function called "caesar()" that puts encrypt and decrypt together
 
+def caesar(plain_text, shift_amount, direction):
+    cipher_text = ""
+    for letter in plain_text:
+        position = letters_list.index(letter)
+        if direction == "encode":
+            new_position = position + shift_amount
+        else:
+            new_position = position - shift_amount
+        new_letter = letters_list[new_position % (len(letters_list))]
+        cipher_text += new_letter
+    print(f"The {direction}d text is {cipher_text}")
+
+caesar(plain_text = text, shift_amount = shift, direction = direction)
