@@ -22,3 +22,5 @@ def greet_with_name(name):
     print(f"How is your day {name}?")
 
 greet_with_name("Mahmoud")
+
+# Function with more than 1 input
