@@ -11,3 +11,14 @@ def greet():
     print("Wish you a great day!")
 
 greet()
+
+# Wouldnt it be nice if we can add some customization 
+# to our function?
+
+# Function that allows for an input
+
+def greet_with_name(name):
+    print(f"Hello {name}")
+    print(f"How is your day {name}?")
+
+greet_with_name("Mahmoud")
