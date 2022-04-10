@@ -29,3 +29,7 @@ def greet_with(name, location):
     print(f"What is it like in {location}, {name}?")
 
 greet_with("Mahmoud", "New York City")
+greet_with("NYC", "Mahmoud") # Wrong positions of arguments, this is an issue of postional arguments
+
+# Function with keyword arguments
+greet_with(name="Mahmoud", location="NYC")
