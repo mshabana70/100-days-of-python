@@ -30,16 +30,16 @@ import math
 
 # 1 can can cover 5 sq meters
 
-def num_of_cans(height, width):
+def num_of_cans(height, width, cover):
     area = height * width
-    num_of_cans_needed = area / 5.0
+    num_of_cans_needed = area / cover
 
     return int(math.ceil(num_of_cans_needed))
 
 height_in = float(input("Enter the height of the wall in meters: "))
 width_in = float(input("Enter the width of the wall in meters: "))
 
-print(f"You'll need {num_of_cans(height_in, width_in)} cans to paint.")
+print(f"You'll need {num_of_cans(height_in, width_in, 5)} cans to paint.")
 
 
 
