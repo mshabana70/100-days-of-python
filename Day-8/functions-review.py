@@ -24,3 +24,8 @@ def greet_with_name(name):
 greet_with_name("Mahmoud")
 
 # Function with more than 1 input
+def greet_with(name, location):
+    print(f"Hello {name}")
+    print(f"What is it like in {location}, {name}?")
+
+greet_with("Mahmoud", "New York City")
