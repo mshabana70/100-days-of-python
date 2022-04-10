@@ -5,16 +5,18 @@
 # shift number
 
 # Program set up
+import caesarArt
 
 # letters for our alphabet
 letters = "abcdefghijklmnopqrstuvwxyz"
 letters_list = list(letters)
-print (letters_list)
+#print (letters_list)
 
 # User input values
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+# print(caesarArt.logo, "\n")
+# direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+# text = input("Type your message:\n").lower()
+# shift = int(input("Type the shift number:\n"))
 
 def caesar_cipher(message, shift, direction):
     index = 0
@@ -83,13 +85,26 @@ def decrypt(plain_text, shift_amount):
 def caesar(plain_text, shift_amount, direction):
     cipher_text = ""
     for letter in plain_text:
-        position = letters_list.index(letter)
-        if direction == "encode":
-            new_position = position + shift_amount
+        if letter in letters_list:
+            position = letters_list.index(letter)
+            if direction == "encode":
+                new_position = position + shift_amount
+            else:
+                new_position = position - shift_amount
+            new_letter = letters_list[new_position % (len(letters_list))]
         else:
-            new_position = position - shift_amount
-        new_letter = letters_list[new_position % (len(letters_list))]
+            new_letter = letter
         cipher_text += new_letter
     print(f"The {direction}d text is {cipher_text}")
 
-caesar(plain_text = text, shift_amount = shift, direction = direction)
+end_program = False
+print(caesarArt.logo, "\n")
+while not end_program:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    caesar(plain_text = text, shift_amount = shift, direction = direction)
+    switch = input("Do you wish to rerun the cipher? Yes or No?")
+    if switch.lower() == "yes":
+        end_program = True
+        print("Thank you for using Caesar Cipher!")
