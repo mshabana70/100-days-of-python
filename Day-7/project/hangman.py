@@ -276,7 +276,7 @@ def start_game():
                 end_game = True
                 print("Yay!! You win!")
         else:
-            print("You have guessed that letter already, try again.")
+            print(f"You have guessed {guess} already, try again.")
         
 
 # Start game
