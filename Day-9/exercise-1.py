@@ -42,7 +42,15 @@ student_grades = {}
 
 #TODO-2: Write your code below to add the grades to student_grades.👇
 for key in student_scores:
-    student_grades[key] = student_scores[key]
+    score = student_scores[key]
+    if score > 90:
+        student_grades[key] = "Outstanding"
+    elif score > 80  and score <= 90:
+        student_grades[key] = "Exceeds Expectations"
+    elif score > 70 and score <= 80:
+        student_grades[key] = "Acceptable"
+    else:
+        student_grades[key] = "Fail"
 
 # 🚨 Don't change the code below 👇
 print(f"The student grades are: {student_grades}")
