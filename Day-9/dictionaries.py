@@ -34,3 +34,38 @@ empty_dictionary = {}
 # Wipe existing dictionary
 programming_dictionary = {}
 print(programming_dictionary) # wiped dictionary
+
+# Nesting
+
+travel_log = {
+    "France": {
+        "cities_visited": ["Paris", "Lille", "Dijon"],
+        "total_vistis": 12,
+    },
+    "Germany": {
+        "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+        "coffee_bought": 28
+    }
+}
+
+travel_log_list = [
+    {
+        "country": "France",
+        "cities_visited": ["Paris", "Lille", "Dijon"],
+        "total_vistis": 12,
+    },
+    {
+        "country": "Germany",
+        "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+        "coffee_bought": 28
+    }
+]
+
+# Accessing nested collections
+print("Nested Dictionaries:")
+print(travel_log["France"]["cities_visited"])
+print(travel_log["France"]["cities_visited"][1])
+
+print("\nList of dictionaries")
+print(travel_log_list[1]["coffee_bought"])
+print(travel_log_list[0]["cities_visited"][2])
