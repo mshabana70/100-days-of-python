@@ -22,6 +22,12 @@ print(programming_dictionary["Variable"])
 programming_dictionary["Bug"] = "A pain in the butt."
 print(programming_dictionary)
 
+# Loop through a dictionary
+for key in programming_dictionary:
+    print(key)
+    # What if I want the value as well
+    print(programming_dictionary[key])
+
 # Create an empty dictionary
 empty_dictionary = {}
 
