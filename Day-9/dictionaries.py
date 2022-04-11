@@ -18,6 +18,10 @@ print(programming_dictionary)
 programming_dictionary["Variable"] = "A name to assign and store data to for future retrieval (can be one of many data types)."
 print(programming_dictionary["Variable"])
 
+# Edit existing item in dictionary
+programming_dictionary["Bug"] = "A pain in the butt."
+print(programming_dictionary)
+
 # Create an empty dictionary
 empty_dictionary = {}
 
