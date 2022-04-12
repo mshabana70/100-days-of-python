@@ -3,6 +3,9 @@
 # Test some functions with outputs
 
 def format_name(f_name, l_name):
+    # docstring (multiline)
+    """Take a first and last name and format it
+    to return the title case version of the name."""
     if f_name == "" or l_name == "":
         return "You have entered an empty string" # terminate function early
 
@@ -16,4 +19,11 @@ print(format_name("MAHMOUD", "SHABANA")) # Output: Mahmoud Shabana
 
 # Call our function with user inputs
 print(format_name(input("What is your first name?"), input("What is your last name?")))
+
+# Docstring can be used as comments when it is not assigned to anything
+"""
+This is a multiline
+comment using
+docstrings
+"""
 
