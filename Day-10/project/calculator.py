@@ -53,4 +53,14 @@ num2 = int(input("What is the second number?: "))
 # Take operation_symbol and pick the value (function) associated to it
 calculator_function = operations[operation_symbol]
 
-print(f"{num1} {operation_symbol} {num2} = {calculator_function(num1, num2)}")
+# Set up continuous calculation
+first_answer = calculator_function(num1, num2)
+
+print(f"{num1} {operation_symbol} {num2} = {first_answer}")
+
+operation_symbol = input("Pick another operation: ")
+num3 = int(input("What is the next number?: "))
+calculator_function = operations[operation_symbol]
+second_answer = calculator_function(first_answer, num3)
+
+print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
