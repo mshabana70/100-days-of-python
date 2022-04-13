@@ -39,7 +39,6 @@ operations = {
 
 # Ask for user input
 num1 = int(input("What is the first number?: "))
-num2 = int(input("What is the second number?: "))
 
 # Loop through dictionary and show what symbols are available to the user
 print("Here are the operations available to you.")
@@ -47,6 +46,9 @@ for operator in operations:
     print(operator, "\n") # +, -, *, /
 
 operation_symbol = input("Pick an operation from the line above: ")
+
+# Ask user for second num
+num2 = int(input("What is the second number?: "))
 
 # Take operation_symbol and pick the value (function) associated to it
 calculator_function = operations[operation_symbol]
