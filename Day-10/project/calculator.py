@@ -37,40 +37,38 @@ operations = {
 #function = operations["*"]
 #function(2, 3) # Same as calling multiply(2, 3)
 
-# Ask for user input
-num1 = int(input("What is the first number?: "))
+# Calculator function starts here (for recursion purposes)
+def calculator():
 
-# Loop through dictionary and show what symbols are available to the user
-print("Here are the operations available to you.")
-for operator in operations:
-    print(operator, "\n") # +, -, *, /
+    # Ask for user input
+    num1 = int(input("What is the first number?: "))
 
-operation_symbol = input("Pick an operation from the line above: ")
+    # Loop through dictionary and show what symbols are available to the user
+    print("Here are the operations available to you.")
+    for operator in operations:
+        print(operator, "\n") # +, -, *, /
 
-# Ask user for second num
-num2 = int(input("What is the second number?: "))
+    # Continue calculation from previous expression
+    continue_calc = True
+    while continue_calc:
 
-# Take operation_symbol and pick the value (function) associated to it
-calculator_function = operations[operation_symbol]
+        # Set up continuous calculation
+        operation_symbol = input("Pick an operation: ")
+        # Ask user for second num
+        num2 = int(input("What is the next number?: "))
+        # Take operation_symbol and pick the value (function) associated to it
+        calculator_function = operations[operation_symbol]
+        answer = calculator_function(num1, num2)
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
+        
+        check_user = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new caluclation: ")
+        if check_user == 'y':
+            num1 = answer
+        else:
+            continue_cal = False
+            calculator() # recursion to start from the beginning again
+            #print("Calculator program has ended.")
 
-first_answer = calculator_function(num1, num2)
-
-print(f"{num1} {operation_symbol} {num2} = {first_answer}")
-
-continue_calc = True
-while continue_calc:
-
-    # Set up continuous calculation
-
-    operation_symbol = input("Pick another operation: ")
-    num3 = int(input("What is the next number?: "))
-    calculator_function = operations[operation_symbol]
-    second_answer = calculator_function(first_answer, num3)
-    print(f"{first_answer} {operation_symbol} {num3} = {second_answer}")
-
-    check_user = input(f"Type 'y' to continue calculating with {second_answer}, or type 'n' to exit: ")
-    if check_user == 'y':
-        first_answer = second_answer
-    else:
-        continue_cal = False
-        print("Calculator program has ended.")
+# How can we restart from the beginning rather than continue from the previous answer?
+# We would have to use recursion
+calculator()
