@@ -3,6 +3,8 @@
 # Create a classic calculator program using functions
 # with return keywords
 
+# Import Art
+import art
 
 # Calculator Functionality
 
@@ -26,12 +28,18 @@ def divide(n1, n2):
     """Returns the quotient of two integers"""
     return n1 / n2
 
+# Exponent
+def exp(n1, n2):
+    """Returns the first num to the power of the second num"""
+    return n1 ** n2
+
 # Dictionary of functions and their operators (key = operator, value = function name)
 operations = {
     "+" : add,
     "-" : subtract,
     "*" : multiply,
     "/" : divide,
+    "**": exp,
 }
 
 #function = operations["*"]
@@ -39,9 +47,9 @@ operations = {
 
 # Calculator function starts here (for recursion purposes)
 def calculator():
-
+    print(art.logo)
     # Ask for user input
-    num1 = int(input("What is the first number?: "))
+    num1 = float(input("What is the first number?: "))
 
     # Loop through dictionary and show what symbols are available to the user
     print("Here are the operations available to you.")
@@ -55,7 +63,7 @@ def calculator():
         # Set up continuous calculation
         operation_symbol = input("Pick an operation: ")
         # Ask user for second num
-        num2 = int(input("What is the next number?: "))
+        num2 = float(input("What is the next number?: "))
         # Take operation_symbol and pick the value (function) associated to it
         calculator_function = operations[operation_symbol]
         answer = calculator_function(num1, num2)
