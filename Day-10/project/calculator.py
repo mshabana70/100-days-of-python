@@ -69,9 +69,11 @@ def calculator():
         answer = calculator_function(num1, num2)
         print(f"{num1} {operation_symbol} {num2} = {answer}")
         
-        check_user = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new caluclation: ")
+        check_user = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation (if you wish to terminate type 'q'): ")
         if check_user == 'y':
             num1 = answer
+        elif check_user == 'q':
+            quit()
         else:
             continue_cal = False
             calculator() # recursion to start from the beginning again
