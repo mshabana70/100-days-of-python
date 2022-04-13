@@ -25,3 +25,16 @@ def multiply(n1, n2):
 def divide(n1, n2):
     """Returns the quotient of two integers"""
     return n1 / n2
+
+# Dictionary of functions and their operators (key = operator, value = function name)
+operations = {
+    "+" : add,
+    "-" : subtract,
+    "*" : multiply,
+    "/" : divide,
+}
+
+#function = operations["*"]
+#function(2, 3) # Same as calling multiply(2, 3)
+
+# Ask for user input
