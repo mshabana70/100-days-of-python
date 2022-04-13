@@ -49,6 +49,6 @@ for operator in operations:
 operation_symbol = input("Pick an operation from the line above: ")
 
 # Take operation_symbol and pick the value (function) associated to it
-function = operations[operation_symbol]
+calculator_function = operations[operation_symbol]
 
-print(f"{num1} {operation_symbol} {num2} = {function(num1, num2)}")
+print(f"{num1} {operation_symbol} {num2} = {calculator_function(num1, num2)}")
