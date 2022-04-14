@@ -1,0 +1,1 @@
+# Day 12 - Scope (Local - Global)
