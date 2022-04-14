@@ -15,14 +15,23 @@
 import random
 
 # Card values
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
 # 11 will count as 11 until we exceed a hand total of 21.
 
-def random_card(card_list):
-    card = random.choice(card_list)
+def random_card():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
     return card
 
 def hand_total(hand_list):
+    # Check for blackjack
+    if sum(hand_list) == 21 and len(hand_list) == 2:
+        return 0
+
+    # check for aces, if greater than 21, set ace to 1 (remove 11)
+    if 11 in hand_list and sum(hand_list) > 21:
+        hand_list.remove(11)
+        hand_list.append(1)
     return sum(hand_list)
 
 
@@ -32,58 +41,47 @@ def blackjack():
     # START
     # User and computer get two random cards
 
-    # user
-    user_hand.append(random_card(cards))
-    user_hand.append(random_card(cards))
-
-    # computer
-    computer_hand.append(random_card(cards))
-    computer_hand.append(random_card(cards))
+    for _ in range(2):
+        user_hand.append(random_card())
+        computer_hand.append(random_card())
 
     current_user_score = 0
     current_computer_score = 0
 
-    print(user_hand)
-    print(computer_hand)
-    draw_card = ""
-    while draw_card != "n":
-
-        print(f"User's current hand: {user_hand}")
+    print(f"Computers hand: {computer_hand}")
+    continue_game = True
+    while continue_game:
         # Add up the scores of the user hand and the computer hand
         current_user_score = hand_total(user_hand)
         current_computer_score = hand_total(computer_hand)
 
-        # Does either hand have an ace?
-        if 11 in user_hand and 10 in user_hand and current_user_score == 21:
-            print("Blackjack! User wins!")
-        elif 11 in computer_hand and 10 in computer_hand and current_computer_score == 21:
-            print("Blackjack! computer wins!")
+        print(f"Your hand: {user_hand}")
+        #check for blackjack
+        if current_user_score == 0:
+            print("Blackjack! user wins!")
+            break
+
+        if current_computer_score < 17:
+            computer_hand.append(random_card())
 
         if current_user_score > 21:
-            if 11 in user_hand:
-                current_user_score -= 10
-                if current_user_score > 21:
-                    print("You went over 21, you lose!")
-                    break
-            else:
-                print("You went over 21, you lose!")
-                break
+            print("You went over 21, you lose!")
+            if current_computer_score <= 21:
+                print(f"Computer wins with {computer_hand} and a total of {current_computer_score}")
+            continue_game = False
         else:
             draw_card = input("Would you like to draw another card? Type 'y' for yes, 'n' for no:").lower()
             if draw_card == "y":
-                user_hand.append(random_card(cards))
-                if current_computer_score < 17:
-                    computer_hand.append(random_card(cards))
-                continue
-            else:
-                current_computer_score = hand_total(computer_hand)
-                current_user_score = hand_total(user_hand)
-                if current_user_score == current_computer_score:
-                    print("There is a draw")
-                elif current_user_score > current_computer_score:
-                    print(f"User has won with a hand of {user_hand} and total of {current_user_score}!")
+                user_hand.append(random_card())
+            elif draw_card == "n":
+                if current_computer_score == current_user_score:
+                    print(f"It is a draw! User: {user_hand}, Computer: {computer_hand}")
+                elif current_computer_score > current_user_score and current_computer_score <= 21:
+                    print(f"Computer wins with a total of {current_computer_score} and a hand of {computer_hand}.")
                 else:
-                    print(f"Computer has won with a hand of {computer_hand} and total of {current_computer_score}!")
-                           
+                    print(f"User wins with a total of {current_user_score} and a hand of {user_hand}.")
+                    print(computer_hand)
+                continue_game = False
+                       
 
 blackjack()
