@@ -23,10 +23,7 @@ def random_card(card_list):
     return card
 
 def hand_total(hand_list):
-    score = 0
-    for i in range(len(hand_list)):
-        score += hand_list[i]
-    return score
+    return sum(hand_list)
 
 
 def blackjack():
