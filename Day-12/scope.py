@@ -24,3 +24,8 @@ increase_enemy()
 print(f"enemies outside the function: {new_enemies}")
 
 # NOTE: It is not recommened to modify global scope
+
+# Constants and Global Scope
+
+PI = 3.14159265 # Global constants are values you define and never plan to modify
+# Naming convention for global constants is all UPPERCASE
