@@ -33,21 +33,32 @@ attempts = difficulty_dict[difficulty] # 10, 7, or 5
 #print(f"You have {attempts} left to guess the number.")
 
 # Run the guessing game as long as there are attempts left (loop)
-while attempts > 0:
+player_won = False
+while not player_won:
+    # Let user know of the number of attempts left
     print(f"You have {attempts} left to guess the number.")
 
     # ask user to provide a guess
     guess_num = int(input("Guess a number: "))
 
+    # If guess matches target, user wins break loop
     if guess_num == target_num:
         print(f"Congrats you win! The number was {target_num}")
-        attempts = 0
+        player_won = True
+    # If guess is above target, return too high (decrease attempts by 1)
     elif guess_num > target_num:
         print("Too High.")
-        print("Guess another number.")
         attempts -= 1
+    # If guess is below target, return too low (decrease attempts by 1)
     else:
         print("Too Low.")
-        print("Guess another number.")
         attempts -= 1
+
+    # If user still has attempts and hasnt won, return 'Guess another number.'
+    if attempts > 0 and not player_won:
+        print("Guess another number.")
+    
+    elif attempts == 0 and not player_won:
+        player_won = True
+        print(f"You are all out of attempts. The correct number was {target_num}.")
 
