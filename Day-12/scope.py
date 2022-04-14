@@ -22,3 +22,5 @@ def increase_enemy():
 
 increase_enemy()
 print(f"enemies outside the function: {new_enemies}")
+
+# NOTE: It is not recommened to modify global scope
