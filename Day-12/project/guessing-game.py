@@ -57,7 +57,7 @@ while not player_won:
     # If user still has attempts and hasnt won, return 'Guess another number.'
     if attempts > 0 and not player_won:
         print("Guess another number.")
-    
+    # If user has 0 attempts and hasnt won, break loop and let user know.
     elif attempts == 0 and not player_won:
         player_won = True
         print(f"You are all out of attempts. The correct number was {target_num}.")
