@@ -9,3 +9,16 @@ def increase_enemies():
 
 increase_enemies()
 print(f"enemies outside the function: {enemies}") # Output: 1
+
+
+# How to modify a global scope
+
+new_enemies = 1
+
+def increase_enemy():
+    global new_enemies # takes global variable and allows us to modify it
+    new_enemies += 1
+    print(f"enemies inside the function: {new_enemies}")
+
+increase_enemy()
+print(f"enemies outside the function: {new_enemies}")
