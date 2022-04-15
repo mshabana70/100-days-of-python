@@ -1,11 +1,17 @@
 # Day 13 Notes - Debugging
 #
-# Describe the problem
+# Describe the problem: 
+# my_function is running a iterative for loop that goes through
+# the range 1 (inclusive) and 20 (exclusive).
+# The for loop has a condition that is check at each iteration. If 
+# the value of i is equal to 20, then print "you got it". 
+# The current issue is that nothing is being return by the function.
+#
+# 
 def my_function():
     for i in range(1, 20):
         if i == 20:
             print("You got it")
-
 my_function()
 
 # # Reproduce the Bug
