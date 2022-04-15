@@ -7,9 +7,12 @@
 # the value of i is equal to 20, then print "you got it". 
 # The current issue is that nothing is being return by the function.
 #
-# 
+# This issue is because in the range() func, the upper bound is exclusive.
+# This means the for loop will never reach 20 so the condition will therefore,
+# never be true.
 def my_function():
-    for i in range(1, 20):
+    #for i in range(1, 20): # 1 - 19
+    for i in range(1, 21): # bug fix
         if i == 20:
             print("You got it")
 my_function()
