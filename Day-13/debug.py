@@ -35,12 +35,19 @@
 
 # # Play Computer
 #
-# run through test cases and see how
-year = int(input("What's your year of birth?"))
-if year > 1980 and year < 1994:
-  print("You are a millenial.")
-elif year >= 1994:
-  print("You are a Gen Z.")
+# run through test cases and see how the computer will 
+# execute such tests. For example: 1994 input returns nothing.
+# This is because the computer if testing two expressions, when the
+# year is between 1980 and 1994 exlusive, and when the year is 
+# greater than 1994.
+# This means there is no condition for when the year == 1994, there is 
+# our bug.
+# year = int(input("What's your year of birth?"))
+# if year > 1980 and year < 1994:
+#   print("You are a millenial.")
+# #elif year > 1994:
+# elif year >= 1994:
+#   print("You are a Gen Z.")
 
 # # Fix the Errors
 # age = input("How old are you?")
