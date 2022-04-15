@@ -10,25 +10,37 @@
 # This issue is because in the range() func, the upper bound is exclusive.
 # This means the for loop will never reach 20 so the condition will therefore,
 # never be true.
-def my_function():
-    #for i in range(1, 20): # 1 - 19
-    for i in range(1, 21): # bug fix
-        if i == 20:
-            print("You got it")
-my_function()
 
-# # Reproduce the Bug
+# def my_function():
+#     #for i in range(1, 20): # 1 - 19
+#     for i in range(1, 21): # bug fix
+#         if i == 20:
+#             print("You got it")
+# my_function()
+
+# Reproduce the Bug
+# 
+# This program is selecting an integer between 1-6 (inclusive) to 
+# pick random faces of a dice from a list of dice images.
+# The issue could be that the randint() function is picking from 
+# a range of 1-6 inclusive, but the last index of the dice_imgs 
+# list is 5. This will potentially lead to an "index out of range"
+# error.
+
 # from random import randint
 # dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
-# dice_num = randint(1, 6)
+# #dice_num = randint(1, 6) # 1 - 6 (both inclusive)
+# dice_num = randint(0, 5) # 0 - 5 (both inclusive)
 # print(dice_imgs[dice_num])
 
 # # Play Computer
-# year = int(input("What's your year of birth?"))
-# if year > 1980 and year < 1994:
-#   print("You are a millenial.")
-# elif year > 1994:
-#   print("You are a Gen Z.")
+#
+# run through test cases and see how
+year = int(input("What's your year of birth?"))
+if year > 1980 and year < 1994:
+  print("You are a millenial.")
+elif year >= 1994:
+  print("You are a Gen Z.")
 
 # # Fix the Errors
 # age = input("How old are you?")
