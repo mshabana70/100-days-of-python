@@ -54,17 +54,23 @@
 # The program is return an indentation error and a TypeError. TypeError
 # is due to us comparing age to integer when age is still a string.
 
-# age = input("How old are you?")
-age = int(input("How old are you?"))
-if age > 18:
-# print("You can drive at age {age}.")
-    print(f"You can drive at age {age}.")
+# # age = input("How old are you?")
+# age = int(input("How old are you?"))
+# if age > 18:
+# # print("You can drive at age {age}.")
+#     print(f"You can drive at age {age}.")
 
-# #Print is Your Friend
+#Print is Your Friend
+# Using print statements to make sure the values the user is 
+# entering is being assigned properly. The word_per_page variable
+# is not being assigned properly.
 # pages = 0
 # word_per_page = 0
 # pages = int(input("Number of pages: "))
-# word_per_page == int(input("Number of words per page: "))
+# # print(f"Pages: {pages}")
+# #word_per_page == int(input("Number of words per page: "))
+# word_per_page = int(input("Number of words per page: "))
+# # print(f"Words per page: {word_per_page}")
 # total_words = pages * word_per_page
 # print(total_words)
 
