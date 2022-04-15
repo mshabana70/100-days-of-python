@@ -50,9 +50,15 @@
 #   print("You are a Gen Z.")
 
 # # Fix the Errors
+#
+# The program is return an indentation error and a TypeError. TypeError
+# is due to us comparing age to integer when age is still a string.
+
 # age = input("How old are you?")
-# if age > 18:
+age = int(input("How old are you?"))
+if age > 18:
 # print("You can drive at age {age}.")
+    print(f"You can drive at age {age}.")
 
 # #Print is Your Friend
 # pages = 0
