@@ -16,8 +16,12 @@
 
 # Imports
 import random
+import os
 from art import logo, vs
 from game_data import data
+
+# For clearing the console
+cls = lambda: print('\n' * 100)
 
 # Function to retrieve random objects
 def random_celeb():
@@ -56,6 +60,7 @@ def game():
         if user_guess == compare_result:
             celeb_a = celeb_b
             score += 1
+            cls() # clear the terminal once answer is correct
             print(f"You're correct! Current score: {score}")
         else:
             if score > 5:
