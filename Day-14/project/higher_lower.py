@@ -37,10 +37,9 @@ def game():
     score = 0
     continue_game = True
     print(logo)
-
+    celeb_a = random_celeb()
     while continue_game:
         
-        celeb_a = random_celeb()
         celeb_b = random_celeb()
         if celeb_a['name'] != celeb_b['name']:
             compare_result = compare_celeb(celeb_a, celeb_b)
@@ -55,7 +54,9 @@ def game():
         user_guess = int(input("Which Celebrity is more popular? Type '1' for One, '2' for Two: "))
 
         if user_guess == compare_result:
+            celeb_a = celeb_b
             score += 1
+            print(f"You're correct! Current score: {score}")
         else:
             if score > 5:
                 print(f"You were on a roll! Your score is {score}. Better luck next time!")
