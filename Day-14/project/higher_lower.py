@@ -44,16 +44,24 @@ def game():
         
         celeb_a = random_celeb()
         celeb_b = random_celeb()
-        compare_result = compare_celeb(celeb_a, celeb_b)
+        if celeb_a['name'] != celeb_b['name']:
+            compare_result = compare_celeb(celeb_a, celeb_b)
+        else:
+            game()
 
         # Show user what celebs to compare
-        
+        print(f"Compare One: {celeb_a['name']} is a {celeb_a['description']} from {celeb_a['country']}")
+        print(vs)
+        print(f"Compare Two: {celeb_b['name']} is a {celeb_b['description']} from {celeb_b['country']}")
 
-        user_guess = int(input("Which Celebrity is more popular? Type '1' for A, '2' for B: "))
+        user_guess = int(input("Which Celebrity is more popular? Type '1' for One, '2' for Two: "))
 
         if user_guess == compare_result:
             score += 1
         else:
-            print(f"That is incorrect. {")
+            print(f"That is incorrect. You made the wrong guess, sorry!\nYour score is {score}.")
+            continue_game = False
 
 
+#start game
+game()
