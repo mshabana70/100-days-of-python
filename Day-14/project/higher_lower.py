@@ -57,7 +57,10 @@ def game():
         if user_guess == compare_result:
             score += 1
         else:
-            print(f"That is incorrect. You made the wrong guess, sorry!\nYour score is {score}.")
+            if score > 5:
+                print(f"You were on a roll! Your score is {score}. Better luck next time!")
+            else:
+                print(f"That is incorrect. You made the wrong guess, sorry!\nYour score is {score}.")
             continue_game = False
 
 
