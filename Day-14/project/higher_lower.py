@@ -30,8 +30,6 @@ def compare_celeb(celeb_one, celeb_two):
         return 1
     elif celeb_one["follower_count"] < celeb_two["follower_count"]:
         return 2
-    else:
-        return 0
 
 # Main function to prompt user to play
 def game():
