@@ -67,3 +67,25 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+# Ask User for what flavor of coffee they would like to drink
+# If user inputs 'report', return current status of machine resources
+user_flavor = input("What would you like? (espresso/latte/cappuccino)").lower()
+
+if user_flavor == 'report':
+    print(f"Water: {resources['water']}")
+    print(f"Milk: {resources['milk']}")
+    print(f"Coffee: {resources['coffee']}")
+else:
+    # Once flavor is picked, ask user for amount of coins they would like to pay with
+    print("Please insert coins.")
+    user_quarters = int(input("How many quarters?: "))
+    user_dimes = int(input("How many dimes?: "))
+    user_nickels = int(input("How many nickels?: "))
+    user_pennies = int(input("How many pennies?: "))
+
+
+
+# If amount of coins is sufficient, deduct amount of resources from machine to make flavor (resources - recipe):
+# Return amount of money left over to user, update money in coffee machine (add amount of flavor to money property of machine)
+# Keep asking user for flavor, if money or resources are insufficent, let user know.
