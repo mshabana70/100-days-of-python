@@ -124,6 +124,7 @@ def make_coffee(flavor, coin):
             return f"Here is you change: ${str(round(change, 2))}"
 
 
+user_flavor = ""
 # Loop program while input does not equal end
 while user_flavor != "quit":
     # Ask User for what flavor of coffee they would like to drink
@@ -134,7 +135,7 @@ while user_flavor != "quit":
         machine_report()
     elif user_flavor == 'refill':
         refill_machine() 
-    else:
+    elif user_flavor in MENU:
         # Once flavor is picked, ask user for amount of coins they would like to pay with
         print("Please insert coins.")
         user_quarters = int(input("How many quarters?: "))
@@ -142,9 +143,8 @@ while user_flavor != "quit":
         user_nickels = int(input("How many nickels?: "))
         user_pennies = int(input("How many pennies?: "))
         coin_ammount = money_total(user_quarters, user_dimes, user_nickels, user_pennies)
-
-
-    if user_flavor in MENU:
+        
+        # call to make coffee and compute change
         print(make_coffee(user_flavor, coin_ammount))
     else:
         print("Invalid flavor or command, try again.")
