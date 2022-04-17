@@ -134,7 +134,8 @@ while user_flavor != "quit":
     if user_flavor == 'report':
         machine_report()
     elif user_flavor == 'refill':
-        refill_machine() 
+        refill_machine()
+        print("Coffee Machine has been refilled.")
     elif user_flavor in MENU:
         # Once flavor is picked, ask user for amount of coins they would like to pay with
         print("Please insert coins.")
