@@ -68,24 +68,83 @@ resources = {
     "coffee": 100,
 }
 
-# Ask User for what flavor of coffee they would like to drink
-# If user inputs 'report', return current status of machine resources
-user_flavor = input("What would you like? (espresso/latte/cappuccino)").lower()
 
-if user_flavor == 'report':
-    print(f"Water: {resources['water']}")
-    print(f"Milk: {resources['milk']}")
-    print(f"Coffee: {resources['coffee']}")
-else:
-    # Once flavor is picked, ask user for amount of coins they would like to pay with
-    print("Please insert coins.")
-    user_quarters = int(input("How many quarters?: "))
-    user_dimes = int(input("How many dimes?: "))
-    user_nickels = int(input("How many nickels?: "))
-    user_pennies = int(input("How many pennies?: "))
+def money_total(quarters, dimes, nickels, pennies):
+    """Returns the total of all the coins the user inputted."""
+    money_total = (quarters * 0.25) + (dimes * 0.10) + (nickels * 0.05) + (pennies * 0.01)
+    return float(money_total)
+
+def refill_machine():
+    """Function to refill the resources of our coffee machine"""
+    resources["coffee"] = 100
+    resources["milk"] = 200
+    resources["water"] = 300
+
+def machine_report():
+    """Returns a report of the current status of the coffee machine."""
+    print(f"Water: {resources['water']}ml")
+    print(f"Milk: {resources['milk']}ml")
+    print(f"Coffee: {resources['coffee']}g")
+    if "money" in resources:
+        print(f"Money: ${resources['money']}")
+
+def make_coffee(flavor, coin):
+    """Returns the remaining resources in the machine and the change to the user.
+    If the ammount of coin is insufficent, return refund and make no changes to resources."""
+    
+    # Check if user coin ammount is sufficent
+    cost = MENU[flavor]["cost"]
+    if coin < cost:
+        return f"Insuffient ammount of coins, please enter total cost. Money refunded: {coin}"
+    else:
+        # If amount of coins is sufficient, deduct amount of resources from machine to make flavor (resources - recipe):
+
+        # Get all the values from our flavor object
+        change = coin - cost
+        water_needed = MENU[flavor]["ingredients"]["water"]
+        coffee_needed = MENU[flavor]["ingredients"]["coffee"]
+        if water_needed > resources["water"] or coffee_needed > resources["coffee"]:
+            return "Issufficient resources. Type 'report' to see what resources are missing."
+        else:
+            resources["water"] -= water_needed
+            resources["coffee"] -= coffee_needed
+            if "milk" in MENU[flavor]["ingredients"]:
+                milk_needed = MENU[flavor]["ingredients"]["milk"]
+                if milk_needed > resources["milk"]:
+                    return "Issufficient resources. Type 'report' to see what resources are missing."
+                else:
+                    resources["milk"] -= milk_needed
+            
+            # Return amount of money left over to user, update money in coffee machine (add amount of flavor to money property of machine)
+            if "money" in resources:
+                resources["money"] += cost
+            else:
+                resources["money"] = cost
+
+            return f"Here is you change: ${str(round(change, 2))}"
 
 
+# Loop program while input does not equal end
+while user_flavor != "quit":
+    # Ask User for what flavor of coffee they would like to drink
+    user_flavor = input("What would you like? (espresso/latte/cappuccino)").lower()
 
-# If amount of coins is sufficient, deduct amount of resources from machine to make flavor (resources - recipe):
-# Return amount of money left over to user, update money in coffee machine (add amount of flavor to money property of machine)
-# Keep asking user for flavor, if money or resources are insufficent, let user know.
+    # If user inputs 'report', return current status of machine resources
+    if user_flavor == 'report':
+        machine_report()
+    elif user_flavor == 'refill':
+        refill_machine() 
+    else:
+        # Once flavor is picked, ask user for amount of coins they would like to pay with
+        print("Please insert coins.")
+        user_quarters = int(input("How many quarters?: "))
+        user_dimes = int(input("How many dimes?: "))
+        user_nickels = int(input("How many nickels?: "))
+        user_pennies = int(input("How many pennies?: "))
+        coin_ammount = money_total(user_quarters, user_dimes, user_nickels, user_pennies)
+
+
+    if user_flavor in MENU:
+        print(make_coffee(user_flavor, coin_ammount))
+    else:
+        print("Invalid flavor or command, try again.")
