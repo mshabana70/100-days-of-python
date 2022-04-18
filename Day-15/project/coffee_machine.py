@@ -121,7 +121,10 @@ def make_coffee(flavor, coin):
             else:
                 resources["money"] = cost
 
-            return f"Here is you change: ${str(round(change, 2))}, and here is your {flavor}! Enjoy!"
+            if change == 0:
+                return f"Here is you {flavor}, enjoy!"
+            else:
+                return f"Here is you change: ${str(round(change, 2))}, and here is your {flavor}! Enjoy!"
 
 
 user_flavor = ""
