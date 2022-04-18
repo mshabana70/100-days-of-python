@@ -8,7 +8,8 @@ timmy = Turtle() # Turtle object construction
 timmy.shape("turtle") # Turtle object method to define shape
 timmy.color("DeepSkyBlue") # Turtle object method to define color
 timmy.fd(100) # Move our turtle forward by 100 paces
-timmy.lt(100) # Move our turtle left by 100 paces
+timmy.lt(90) # Move our turtle to the left by 90 degrees
+timmy.fd(100) # Move our turtle forward by 100 paces
 
 # To access an object's attribute, you can use dot notation 
 # on the variable that holds our object
