@@ -110,9 +110,9 @@ def make_coffee(flavor, coin):
         change = coin - cost
         water_needed = MENU[flavor]["ingredients"]["water"]
         coffee_needed = MENU[flavor]["ingredients"]["coffee"]
-        
         resources["water"] -= water_needed
         resources["coffee"] -= coffee_needed
+        
         if "milk" in MENU[flavor]["ingredients"]:
             milk_needed = MENU[flavor]["ingredients"]["milk"]
             resources["milk"] -= milk_needed
