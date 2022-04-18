@@ -88,6 +88,13 @@ def machine_report():
     if "money" in resources:
         print(f"Money: ${resources['money']}")
 
+def is_sufficient(order_ingredients):
+    for item in order_ingredients:
+        if order_ingredients[item] > resources[item]:
+            print(f"Sorry, there is not enough {item} in the machine.")
+            return False
+    return True
+
 def make_coffee(flavor, coin):
     """Returns the remaining resources in the machine and the change to the user.
     If the ammount of coin is insufficent, return refund and make no changes to resources."""
