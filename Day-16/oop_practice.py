@@ -23,5 +23,13 @@ from turtle import Turtle, Screen
 
 from prettytable import PrettyTable
 
-x = PrettyTable() # Construct pretty table object
-print(x)
+table = PrettyTable() # Construct pretty table object
+print(table)
+
+# Build table column by column
+# add_column(field_name, [list of data for column])
+table.add_column("Pokemon Name", ["Pickachu", "Squirtle", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+
+# Return current table
+print(table)
