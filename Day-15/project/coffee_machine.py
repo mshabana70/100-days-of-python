@@ -110,28 +110,23 @@ def make_coffee(flavor, coin):
         change = coin - cost
         water_needed = MENU[flavor]["ingredients"]["water"]
         coffee_needed = MENU[flavor]["ingredients"]["coffee"]
-        if water_needed > resources["water"] or coffee_needed > resources["coffee"]:
-            return "Issufficient resources. Type 'report' to see what resources are missing."
-        else:
-            resources["water"] -= water_needed
-            resources["coffee"] -= coffee_needed
-            if "milk" in MENU[flavor]["ingredients"]:
-                milk_needed = MENU[flavor]["ingredients"]["milk"]
-                if milk_needed > resources["milk"]:
-                    return "Issufficient resources. Type 'report' to see what resources are missing."
-                else:
-                    resources["milk"] -= milk_needed
+        
+        resources["water"] -= water_needed
+        resources["coffee"] -= coffee_needed
+        if "milk" in MENU[flavor]["ingredients"]:
+            milk_needed = MENU[flavor]["ingredients"]["milk"]
+            resources["milk"] -= milk_needed
             
-            # Return amount of money left over to user, update money in coffee machine (add amount of flavor to money property of machine)
-            if "money" in resources:
-                resources["money"] += cost
-            else:
-                resources["money"] = cost
+        # Return amount of money left over to user, update money in coffee machine (add amount of flavor to money property of machine)
+        if "money" in resources:
+            resources["money"] += cost
+        else:
+            resources["money"] = cost
 
-            if change == 0:
-                return f"Here is you {flavor}, enjoy!"
-            else:
-                return f"Here is you change: ${str(round(change, 2))}, and here is your {flavor}! Enjoy!"
+        if change == 0:
+            return f"Here is you {flavor}, enjoy!"
+        else:
+            return f"Here is you change: ${str(round(change, 2))}, and here is your {flavor}! Enjoy!"
 
 
 user_flavor = ""
@@ -156,6 +151,8 @@ while user_flavor != "quit":
         coin_ammount = money_total(user_quarters, user_dimes, user_nickels, user_pennies)
         
         # call to make coffee and compute change
-        print(make_coffee(user_flavor, coin_ammount))
+        if is_sufficient(MENU[user_flavor]["ingredients"]):
+            print(make_coffee(user_flavor, coin_ammount))
+
     else:
         print("Invalid flavor or command, try again.")
