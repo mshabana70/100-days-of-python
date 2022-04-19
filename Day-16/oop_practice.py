@@ -32,7 +32,11 @@ table.add_column("Pokemon Name", ["Pickachu", "Squirtle", "Charmander"])
 table.add_column("Type", ["Electric", "Water", "Fire"])
 
 # Change table from centered to left-aligned
-table.align = "l"
+table.align = "l" # for while table
+
+# for one column at a time
+#table.align["Pokemon Name"] = "l"
+#table.align["Type"] = "l"
 
 # Return current table
 print(table)
