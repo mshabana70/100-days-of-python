@@ -31,5 +31,8 @@ print(table)
 table.add_column("Pokemon Name", ["Pickachu", "Squirtle", "Charmander"])
 table.add_column("Type", ["Electric", "Water", "Fire"])
 
+# Change table from centered to left-aligned
+table.align = "l"
+
 # Return current table
 print(table)
