@@ -27,8 +27,6 @@ while is_continue:
         # Check if resources are sufficient
         order_ingredients = coffee_menu.find_drink(user_choice)
         if coffee_machine.is_resource_sufficient(order_ingredients):
-            
-            
             # Find the cost of the order
             cost_of_order = coffee_menu.find_drink(user_choice).cost
 
