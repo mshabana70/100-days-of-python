@@ -73,7 +73,16 @@ def random_walk():
 #     random_walk()
 
 
-# 
+# Challenge #5: Draw a spirograph
+def draw_spiro():
+    leo.speed("fastest")
+    for i in range(0, 360, 3): # increment by 3
+        leo.setheading(i)
+        leo.color(random_color())
+        leo.circle(100)
+    
+
+draw_spiro()
 
 
 
