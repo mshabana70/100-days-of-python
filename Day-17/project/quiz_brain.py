@@ -23,6 +23,4 @@ class QuizBrain:
     
     def still_has_questions(self):
         """Method to check if there are questions left in list of questions."""
-        if self.question_number < len(self.questions_list):
-            return True
-        return False
+        return self.question_number < len(self.questions_list):
