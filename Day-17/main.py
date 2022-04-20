@@ -12,6 +12,7 @@ class User:
         # object from this class (user_1 = User())
         self.id = user_id
         self.username = username
+        self.followers = 0 # default value
 
 
     pass # just continuing
@@ -39,3 +40,4 @@ user_2 = User("002", "shabana")
 # access these attributes
 print(user_2.id)
 print(user_2.username)
+print(user_2.followers) # Output should be 0 by default
