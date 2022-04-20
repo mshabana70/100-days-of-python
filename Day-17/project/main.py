@@ -17,5 +17,10 @@ for question in question_data:
 # print(question_bank[0].text)
 
 quiz = QuizBrain(question_bank)
-quiz.next_question()
+
+# Check if quiz game still has questions left
+# keep asking the next question if there are 
+# questions left
+while quiz.still_has_questions():
+    quiz.next_question() # call for next question and prompt for user input
 
