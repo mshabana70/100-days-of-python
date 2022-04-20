@@ -19,7 +19,7 @@ class User:
 
 
 # Create an instance of our user class
-user_1 = User()
+user_1 = User("", "")
 
 # Every word is capitalized (Pascal casing for classes)
 
