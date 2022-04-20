@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import random as r
 
 leo = Turtle()
 leo.shape("turtle") # shape of turtle object
@@ -24,7 +25,23 @@ def dashed_line():
         leo.forward(10)
 
 # Call function
-dashed_line()
+#dashed_line()
+
+
+# Challenge #3: Draw Different Shapes
+def different_shape():
+    colors = ["blue", "red", "coral", "black", "green", "yellow", "orange", "purple"]
+    angle = 0
+    for i in range(3, 9):
+        angle = 360 / i
+        leo.pencolor(r.choice(colors))
+        for _ in range(i):
+            leo.forward(100)
+            leo.right(angle)
+
+# Call function
+different_shape()
+
 
 
 
