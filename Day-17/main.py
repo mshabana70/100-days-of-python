@@ -24,12 +24,18 @@ user_1 = User()
 # Every word is capitalized (Pascal casing for classes)
 
 # Lets add an attribute
-#user_1.id = "001"
-#user_1.username = "mahmoud"
-
-# Instead of creating the attributes outside of the class,
-# we will use the constructor to 
+user_1.id = "001"
+user_1.username = "mahmoud"
 
 # Accessing these attributes of our objects
 print(user_1.id)
 print(user_1.username)
+
+# Instead of creating the attributes outside of the class,
+# we will use the constructor to set values to our existing
+# attributes for our User object
+user_2 = User("002", "shabana")
+
+# access these attributes
+print(user_2.id)
+print(user_2.username)
