@@ -21,6 +21,7 @@ t.colormode(255)
 leo = Turtle()
 leo.speed('fast')
 leo.penup()
+leo.hideturtle()
 # Challenge: 10 x 10 grid of dots that are spaced 50 paces apart with random rgb vales 
 def hirst_paint(x, y):
     for i in range(y):
