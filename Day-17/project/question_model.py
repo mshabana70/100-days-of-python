@@ -15,6 +15,6 @@ class Question:
 
 
 # Test objects
-new_q = Question("2+4", "6")
-print(new_q.text)
-print(new_q.answer)
+# new_q = Question("2+4", "6")
+# print(new_q.text)
+# print(new_q.answer)
