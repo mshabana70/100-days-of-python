@@ -1,9 +1,19 @@
+import turtle as t
 from turtle import Turtle, Screen
 import random as r
 
 leo = Turtle()
 leo.shape("turtle") # shape of turtle object
 leo.color("blue") # TK color specification string
+
+# Random Color
+# We can use a python tuple to generate a random RGB value => (1, 3, 8)
+t.colormode(255)
+def random_color():
+    red = r.randint(0, 255)
+    g = r.randint(0, 255)
+    b = r.randint(0, 255)
+    return (red, g, b)
 
 # Challenge # 1: Draw a Square
 def draw_a_square():
@@ -53,7 +63,7 @@ directions = {
 colors = ["blue", "red", "coral", "black", "green", "orange", "purple"]
 def random_walk():
     random_num = r.randint(1, 4)
-    leo.color(r.choice(colors))
+    leo.color(random_color())
     leo.speed("fast")
     leo.pensize(7)
     leo.setheading(directions[random_num])
@@ -61,6 +71,10 @@ def random_walk():
 
 # while True:
 #     random_walk()
+
+
+# 
+
 
 
 
