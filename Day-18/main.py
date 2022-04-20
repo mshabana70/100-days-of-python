@@ -29,10 +29,10 @@ def dashed_line():
 
 
 # Challenge #3: Draw Different Shapes
-def different_shape():
-    colors = ["blue", "red", "coral", "black", "green", "yellow", "orange", "purple"]
+def different_shape(num_of_sides):
+    colors = ["blue", "red", "coral", "black", "green", "orange", "purple"]
     angle = 0
-    for i in range(3, 9):
+    for i in range(3, num_of_sides):
         angle = 360 / i
         leo.pencolor(r.choice(colors))
         for _ in range(i):
@@ -40,7 +40,7 @@ def different_shape():
             leo.right(angle)
 
 # Call function
-different_shape()
+different_shape(11)
 
 
 
