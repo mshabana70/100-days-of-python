@@ -12,4 +12,5 @@ for question in question_data:
     # question object = Question(question["text"], question["answer"])
     question_bank.append(Question(question["text"], question["answer"]))
 
-
+# test question bank
+print(question_bank[0].text)
