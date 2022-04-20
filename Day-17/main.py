@@ -13,9 +13,18 @@ class User:
         self.id = user_id
         self.username = username
         self.followers = 0 # default value
+        self.following = 0
+    
+    # Methods: Functions attached to an object that alters its properties 
+    # is called a method
+    # Note: a method always needs a self parameter, so it knows what object
+    # is calling it
+    def follow(self, user):
+        user.followers += 1
+        self.following += 1
 
 
-    pass # just continuing
+    
 
 
 
@@ -41,3 +50,4 @@ user_2 = User("002", "shabana")
 print(user_2.id)
 print(user_2.username)
 print(user_2.followers) # Output should be 0 by default
+
