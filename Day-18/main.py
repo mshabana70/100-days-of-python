@@ -11,8 +11,20 @@ def draw_a_square():
         leo.right(90)
 
 # Call function
-draw_a_square()
+#draw_a_square()
 
+
+# Challenge #2: Draw a Dashed Line
+def dashed_line():
+    for i in range(30):
+        if i % 2:
+            leo.pendown()
+        else:
+            leo.penup()
+        leo.forward(10)
+
+# Call function
+dashed_line()
 
 
 
