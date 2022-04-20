@@ -40,7 +40,28 @@ def different_shape(num_of_sides):
             leo.right(angle)
 
 # Call function
-different_shape(11)
+#different_shape(11)
+
+
+# Challenge #4: Random Walk
+directions = {
+    1: 0,
+    2: 90,
+    3: 180,
+    4: 270,
+}
+colors = ["blue", "red", "coral", "black", "green", "orange", "purple"]
+def random_walk():
+    random_num = r.randint(1, 4)
+    leo.color(r.choice(colors))
+    leo.speed("fast")
+    leo.pensize(7)
+    leo.setheading(directions[random_num])
+    leo.forward(20)
+
+# while True:
+#     random_walk()
+
 
 
 
