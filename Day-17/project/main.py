@@ -11,7 +11,8 @@ for question in question_data:
     # question text = question["text"]
     # question answer = question["answer"]
     # question object = Question(question["text"], question["answer"])
-    question_bank.append(Question(question["text"], question["answer"]))
+    #question_bank.append(Question(question["text"], question["answer"])) # For old question data set
+    question_bank.append(Question(question["question"], question["correct_answer"]))
 
 # test question bank
 # print(question_bank[0].text)
