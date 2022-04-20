@@ -54,7 +54,7 @@ print(user_2.followers) # Output should be 0 by default
 # Calling our method on our existing objects 
 user_1.follow(user_2) # user_2 followers goes up, user_1 followings go up
 
-# return their properties
+# return our object's properties after calling method
 print(f"User 1 Followers: {user_1.followers}")
 print(f"User 1 Following: {user_1.following}")
 print(f"User 2 Followers: {user_2.followers}")
