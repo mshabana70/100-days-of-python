@@ -5,8 +5,15 @@
 
 from turtle import Turtle, Screen
 
-leo = Turtle()
+
 screen = Screen()
-screen.setup(500, 400)
+screen.setup(width=500, height=400)
+user_bet = screen.textinput(title="Make a bet", prompt="Which do you think will win the race? Enter a color: ")
+print(user_bet)
+
+
+leo = Turtle(shape="turtle")
+leo.pu()
+leo.goto(x=-230, y=-100) # Set start position of turtle
 
 screen.exitonclick()
