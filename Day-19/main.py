@@ -31,5 +31,5 @@ def calculator(n1, n2, func):
 # In this scenario, calculator is the high order function.
 # This is because calculator() is taking a function as an input,
 # and working with it in the body of the function.
-result = calculator(2, 3, add) 
+result = calculator(2, 3, add)
 print(result)
