@@ -1,5 +1,7 @@
 # Day 19 Project - Turtle Race
 #
+# https://docs.python.org/3/library/turtle.html#turtle
+#
 # Create a turtle race game where you can bet on the winner
 # prior to the race
 
