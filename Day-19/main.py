@@ -2,14 +2,19 @@
 # 
 # Using turtle event listeners
 
-from turtle import Turtle
+from turtle import Turtle, Screen
 
-tim = Turtle()
+leo = Turtle()
 screen = Screen()
+
+# Function for our turtle
+def move_forward():
+    leo.forward(10)
 
 
 screen.listen()
 # Here we place an event listener
-
+screen.onkey(key="space", fun=move_forward) # listen for space key, when pressed, run move_forward function
+screen.exitonclick()
 
 
