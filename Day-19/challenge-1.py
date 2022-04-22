@@ -16,7 +16,7 @@ def move_forward():
 def move_right():
     sketch_pen.right(10)
 
-def move_backwards():
+def move_backward():
     sketch_pen.backward(10)
 
 def move_left():
@@ -24,7 +24,10 @@ def move_left():
 
 def clear_and_reset():
     sketch_pen.clear()
-    sketch_pen.reset()
+    sketch_pen.pu()
+    sketch_pen.home()
+    sketch_pen.pd()
+
 
 screen.listen()
 screen.onkeypress(fun=move_forward, key="w")
