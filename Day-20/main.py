@@ -30,12 +30,22 @@ for i in range(0, 3):
 
 game_is_on = True
 while game_is_on:
-    for square in snake_squares:
-        square.forward(20)
-        screen.update()
-        time.sleep(1)
 
-        # To clean up animation of moving snake
+    # To clean up animation of moving snake
+    screen.update()
+    time.sleep(0.1)
+
+    for sq_num in range(len(snake_squares) - 1, 0, -1):
+        new_x = snake_squares[sq_num - 1].xcor()
+        new_y = snake_squares[sq_num - 1].ycor()
+        snake_squares[sq_num].goto(x = new_x, y = new_y)
+    
+    snake_squares[0].forward(20)
+    snake_squares[0].left(90)
+
+    
+        
+        
 
 
     
