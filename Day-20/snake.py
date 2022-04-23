@@ -12,6 +12,7 @@ class Snake:
     def __init__(self):
         self.snake_squares = []
         self.create_snake()
+        self.head = snake_squares[0]
     
     def create_snake(self):
         for i in range(0, 3):
@@ -34,16 +35,16 @@ class Snake:
             new_y = self.snake_squares[sq_num - 1].ycor()
             self.snake_squares[sq_num].goto(x = new_x, y = new_y)
         
-        self.snake_squares[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
 
     def up(self):
-        self.snake_squares[0].setheading(90)
+        self.head.setheading(90)
     
     def down(self):
-        self.snake_squares[0].setheading(270)
+        self.head.setheading(270)
     
     def left(self):
-        self.snake_squares[0].setheading(180)
+        self.head.setheading(180)
     
     def right(self):
-        self.snake_squares[0].setheading(0)
+        self.head.setheading(0)
