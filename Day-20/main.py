@@ -13,9 +13,8 @@ screen.title("Welcome to Snake Game!")
 snake_squares = []
 
 for i in range(0, 3):
-    square = Turtle()
+    square = Turtle(shape = "square")
     square.pu()
-    square.shape("square")
     square.color("white")
     snake_squares.append(square)
 
