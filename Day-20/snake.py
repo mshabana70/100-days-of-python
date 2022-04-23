@@ -3,11 +3,15 @@
 # Class to create the snake
 from turtle import Turtle
 
+STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
+
 class Snake:
 
     def __init__(self):
         self.snake_squares = []
-        self.starting_position = [(0, 0), (-20, 0), (-40, 0)]
+        self.create_snake()
+    
+    def create_snake(self):
         for i in range(0, 3):
 
             # Make the visual for the square
@@ -17,11 +21,11 @@ class Snake:
 
             # Starting Position for squares 
             #square.goto(x = starting_position[i][0], y = starting_position[i][1])
-            self.square.goto(self.starting_position[i])
+            self.square.goto(STARTING_POSITION[i])
 
             # Add square to list of squares
             self.snake_squares.append(self.square)
-    
+
     def move(self):
         for sq_num in range(len(self.snake_squares) - 1, 0, -1):
             new_x = self.snake_squares[sq_num - 1].xcor()

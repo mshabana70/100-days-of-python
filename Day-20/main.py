@@ -13,7 +13,7 @@ screen.bgcolor("black")
 screen.title("Welcome to Snake Game!")
 screen.tracer(0) # turn animation off until told otherwise
 
-snake = Snake()
+snake = Snake() # Create snake body
 
 game_is_on = True
 while game_is_on:
@@ -22,7 +22,7 @@ while game_is_on:
     screen.update()
     time.sleep(0.1)
 
-    snake.move()
+    snake.move() # move snake
     
 
     
