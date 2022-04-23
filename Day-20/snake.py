@@ -12,7 +12,7 @@ class Snake:
     def __init__(self):
         self.snake_squares = []
         self.create_snake()
-        self.head = snake_squares[0]
+        self.head = self.snake_squares[0]
     
     def create_snake(self):
         for i in range(0, 3):
