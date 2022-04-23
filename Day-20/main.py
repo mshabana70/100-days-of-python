@@ -11,16 +11,23 @@ screen.bgcolor("black")
 screen.title("Welcome to Snake Game!")
 
 snake_squares = []
-
+starting_position = [(0, 0), (-20, 0), (-40, 0)]
 for i in range(0, 3):
+
+    # Make the visual for the square
     square = Turtle(shape = "square")
     square.pu()
     square.color("white")
+
+    # Starting Position for squares 
+    square.goto(x = starting_position[i][0], y = starting_position[i][1])
+
+    # Add square to list of squares
     snake_squares.append(square)
 
-# Starting Position for squares 
-snake_squares[1].goto(x = -20, y = 0)
-snake_squares[2].goto(x = -40, y = 0)
+    
+
+
 
 
 
