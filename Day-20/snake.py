@@ -4,6 +4,7 @@
 from turtle import Turtle
 
 STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
+MOVE_DISTANCE = 20
 
 class Snake:
 
@@ -32,5 +33,5 @@ class Snake:
             new_y = self.snake_squares[sq_num - 1].ycor()
             self.snake_squares[sq_num].goto(x = new_x, y = new_y)
         
-        self.snake_squares[0].forward(20)
+        self.snake_squares[0].forward(MOVE_DISTANCE)
         self.snake_squares[0].left(90)
