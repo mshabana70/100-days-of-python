@@ -20,7 +20,8 @@ for i in range(0, 3):
     square.color("white")
 
     # Starting Position for squares 
-    square.goto(x = starting_position[i][0], y = starting_position[i][1])
+    #square.goto(x = starting_position[i][0], y = starting_position[i][1])
+    square.goto(starting_position[i])
 
     # Add square to list of squares
     snake_squares.append(square)
