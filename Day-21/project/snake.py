@@ -18,19 +18,25 @@ class Snake:
         self.head = self.snake_squares[0]
     
     def create_snake(self):
-        for i in range(0, 3):
+        for position in STARTING_POSITION:
+            self.add_section(position)
 
-            # Make the visual for the square
-            self.square = Turtle(shape = "square")
-            self.square.pu()
-            self.square.color("white")
+            
+    def add_section(self, position):
+        # Make the visual for the square
+        self.square = Turtle(shape = "square")
+        self.square.pu()
+        self.square.color("white")
 
-            # Starting Position for squares 
-            #square.goto(x = starting_position[i][0], y = starting_position[i][1])
-            self.square.goto(STARTING_POSITION[i])
+        # Starting Position for squares 
+        #square.goto(x = starting_position[i][0], y = starting_position[i][1])
+        self.square.goto(position)
 
-            # Add square to list of squares
-            self.snake_squares.append(self.square)
+        # Add square to list of squares
+        self.snake_squares.append(self.square)
+    
+    def grow(self):
+        self.add_section(self.snake_squares[-1].position())
 
     def move(self):
         for sq_num in range(len(self.snake_squares) - 1, 0, -1):
