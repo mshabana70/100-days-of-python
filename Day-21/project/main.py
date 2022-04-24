@@ -16,7 +16,7 @@ screen.tracer(0) # turn animation off until told otherwise
 
 snake = Snake() # Create snake body
 food = Food() # Create a food object 
-score = Scoreboard()
+scoreboard = Scoreboard()
 
 # Snake controls
 screen.listen()
@@ -36,7 +36,7 @@ while game_is_on:
     # Detect collision of snake with food object
     if snake.head.distance(food) < 15:
         food.refresh() # if snake collides with food object, refresh its own location
-        score.add_score()
+        scoreboard.add_score()
         
 
     
