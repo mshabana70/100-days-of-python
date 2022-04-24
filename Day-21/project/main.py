@@ -2,8 +2,9 @@
 #
 # 
 
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 screen = Screen()
@@ -13,6 +14,7 @@ screen.title("Welcome to Snake Game!")
 screen.tracer(0) # turn animation off until told otherwise
 
 snake = Snake() # Create snake body
+food = Food() # Create a food object 
 
 # Snake controls
 screen.listen()
