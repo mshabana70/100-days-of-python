@@ -14,6 +14,11 @@ class Fish(Animal):
     def __init__(self):
         super().__init__()
 
+    # We can add on to the inherited "breathe" method like so (polymorphism?) 
+    def breathe(self):
+        super().breathe()
+        print("We are doing this under water...")
+
     def swim (self):
         print("moving in water.")
     
