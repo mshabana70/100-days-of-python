@@ -1,1 +1,0 @@
-# Day 21 - Practicing Class Inheritance
