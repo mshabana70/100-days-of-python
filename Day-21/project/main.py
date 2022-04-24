@@ -29,8 +29,11 @@ while game_is_on:
     # To clean up animation of moving snake
     screen.update()
     time.sleep(0.1)
-
     snake.move() # move snake
+
+    # Detect collision of snake with food object
+    if snake.head.distance(food) < 15:
+        print("nom nom nom")
     
 
     
