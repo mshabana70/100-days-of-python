@@ -6,5 +6,13 @@ class Animal:
     def breathe(self):
         print("Inhale, exhale...")
 
+class Fish:
 
+    def swim (self):
+        print("moving in water.")
+    
+
+# Create instances
+nemo = Fish()
+nemo.swim()
     
