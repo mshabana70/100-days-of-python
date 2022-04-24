@@ -6,7 +6,8 @@ class Animal:
     def breathe(self):
         print("Inhale, exhale...")
 
-class Fish:
+# Fish class inherits from the super class Animal
+class Fish(Animal):
 
     def swim (self):
         print("moving in water.")
