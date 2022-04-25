@@ -4,6 +4,7 @@
 
 from turtle import Screen
 from paddle import Paddle
+from ball import Ball
 import time
 
 screen = Screen()
@@ -15,6 +16,9 @@ screen.tracer(0)
 # Create paddle bar 
 r_paddle = Paddle(position = (350, 0))
 l_paddle = Paddle(position = (-350, 0))
+
+# Create Ball
+ball = Ball()
 
 # Move Paddle bar
 screen.listen()
