@@ -22,7 +22,7 @@ l_paddle = Paddle(position = (-350, 0))
 ball = Ball()
 
 # Create scoreboard
-left_score = Scoreboard()
+scoreboard = Scoreboard()
 
 # Move Paddle bar
 screen.listen()
@@ -47,12 +47,14 @@ while game_is_on:
 
     # Detect if ball hits wall behind right paddle
     if ball.xcor() > 380:
+        scoreboard.left_point()
         ball.reset() # reset ball to center
         # return ball in opposite direction
         ball.bounce_x()
     
     # Detect if ball hits wall behind left paddle
     if ball.xcor() < -380:
+        scoreboard.right_point()
         ball.reset() # reset ball to center
         # return ball in opposite direction
         ball.bounce_x()
