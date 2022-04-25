@@ -3,6 +3,7 @@
 # Create the ball object file
 
 from turtle import Turtle
+import random
 
 # Constants 
 SHAPE = "circle"
@@ -15,3 +16,8 @@ class Ball(Turtle):
         self.shape(SHAPE)
         self.color(COLOR)
         self.pu()
+    
+    def move(self):
+        new_y = self.ycor() + 10
+        new_x = self.xcor() + 10
+        self.goto(x = new_x, y = new_y)
