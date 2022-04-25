@@ -1,0 +1,9 @@
+Day 22 Project - Pong Game
+
+TODO: Breakdown the problem into separate components
+
+- We would possibly need a separate class for the scoreboard 
+that inherits from the "turtle" module
+- We would have a separate class for the paddle objects
+- We would have a separate class for the ball
+- And finally a class to create he field of play
