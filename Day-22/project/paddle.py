@@ -11,17 +11,17 @@ class Paddle(Turtle):
 
     def __init__(self, position):
         super().__init__()
-        self.paddle = Turtle(shape = SHAPE)
-        self.paddle.pu()
-        self.paddle.color(COLOR)
-        self.paddle.shapesize(stretch_wid = 5, stretch_len = 1)
-        self.paddle.goto(position) 
+        self.shape(SHAPE)
+        self.pu()
+        self.color(COLOR)
+        self.shapesize(stretch_wid = 5, stretch_len = 1)
+        self.goto(position) 
     
     # Move paddle
     def go_up(self):
-        new_y = self.paddle.ycor() + 20
-        self.paddle.goto(self.paddle.xcor(), new_y)
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
 
     def go_down(self):
-        new_y = self.paddle.ycor() - 20
-        self.paddle.goto(self.paddle.xcor(), new_y)
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
