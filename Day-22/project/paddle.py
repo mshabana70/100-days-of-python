@@ -10,6 +10,7 @@ COLOR = "white"
 class Paddle(Turtle):
 
     def __init__(self, position):
+        super().__init__()
         self.paddle = Turtle(shape = SHAPE)
         self.paddle.pu()
         self.paddle.color(COLOR)
