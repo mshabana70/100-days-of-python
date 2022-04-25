@@ -5,6 +5,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -19,6 +20,9 @@ l_paddle = Paddle(position = (-350, 0))
 
 # Create Ball
 ball = Ball()
+
+# Create scoreboard
+left_score = Scoreboard()
 
 # Move Paddle bar
 screen.listen()
