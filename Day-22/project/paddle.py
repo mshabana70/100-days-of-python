@@ -3,13 +3,18 @@
 # Create paddle object class
 from turtle import Turtle
 
+# Constants
+SHAPE = "square"
+COLOR = "white"
+SIZE = (5, 1)
+
 class Paddle(Turtle):
 
     def __init__(self):
-        self.paddle = Turtle(shape = "square")
+        self.paddle = Turtle(shape = SHAPE)
         self.paddle.pu()
-        self.paddle.color("white")
-        self.paddle.shapesize(stretch_wid = 5, stretch_len = 1)
+        self.paddle.color(COLOR)
+        self.paddle.shapesize(SIZE)
         self.paddle.goto(x = 350, y = 0) 
     
     # Move paddle

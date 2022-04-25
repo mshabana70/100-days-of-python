@@ -15,8 +15,7 @@ screen.tracer(0)
 # Create paddle bar 
 paddle = Paddle()
 
-
-
+# Move Paddle bar
 screen.listen()
 screen.onkey(paddle.go_up, "Up")
 screen.onkey(paddle.go_down, "Down")
