@@ -41,12 +41,16 @@ while game_is_on:
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
-    # Detect if ball hits wall behind paddles
-    if ball.xcor() > 380 or ball.xcor() < -380:
+    # Detect if ball hits wall behind right paddle
+    if ball.xcor() > 380:
         ball.reset() # reset ball to center
-
         # return ball in opposite direction
-        ball.bounce_y() 
+        ball.bounce_x()
+    
+    # Detect if ball hits wall behind left paddle
+    if ball.xcor() < -380:
+        ball.reset() # reset ball to center
+        # return ball in opposite direction
         ball.bounce_x()
 
 
