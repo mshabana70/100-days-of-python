@@ -13,12 +13,15 @@ screen.title("Mahmoud's Pong Game")
 screen.tracer(0)
 
 # Create paddle bar 
-paddle = Paddle()
+r_paddle = Paddle(position = (350, 0))
+l_paddle = Paddle(position = (-350, 0))
 
 # Move Paddle bar
 screen.listen()
-screen.onkey(paddle.go_up, "Up")
-screen.onkey(paddle.go_down, "Down")
+screen.onkey(r_paddle.go_up, "Up")
+screen.onkey(r_paddle.go_down, "Down")
+screen.onkey(l_paddle.go_up, "w")
+screen.onkey(l_paddle.go_down, "s")
 
 game_is_on = True
 while game_is_on:

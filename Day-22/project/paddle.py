@@ -9,12 +9,12 @@ COLOR = "white"
 
 class Paddle(Turtle):
 
-    def __init__(self):
+    def __init__(self, position):
         self.paddle = Turtle(shape = SHAPE)
         self.paddle.pu()
         self.paddle.color(COLOR)
         self.paddle.shapesize(stretch_wid = 5, stretch_len = 1)
-        self.paddle.goto(x = 350, y = 0) 
+        self.paddle.goto(position) 
     
     # Move paddle
     def go_up(self):
