@@ -7,3 +7,15 @@ that inherits from the "turtle" module
 - We would have a separate class for the paddle objects
 - We would have a separate class for the ball
 - And finally a class to create he field of play
+
+
+8 pieces:
+
+1. Create a screen
+2. Create and move a paddle
+3. Create another paddle (two player game)
+4. Create the ball and make it move
+5. Detect collision of ball with wall and bounce
+6. Detect collision with paddle
+7. Detect when paddle misses
+8. Keep Score
