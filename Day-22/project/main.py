@@ -38,12 +38,16 @@ while game_is_on:
         ball.bounce_y()
     
     # Detect collision with both paddles 
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 330 or ball.distance(l_paddle) < 50 and ball.xcor() < -330:
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
 
     # Detect if ball hits wall behind paddles
     if ball.xcor() > 380 or ball.xcor() < -380:
-        game_is_on = False
-        print("GAME OVER")
+        ball.reset() # reset ball to center
+
+        # return ball in opposite direction
+        ball.bounce_y() 
+        ball.bounce_x()
+
 
 screen.exitonclick()
