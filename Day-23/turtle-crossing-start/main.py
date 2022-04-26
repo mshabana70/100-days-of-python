@@ -11,6 +11,9 @@ screen.tracer(0)
 # Create the player object
 player_1 = Player()
 
+# Create the car object
+car = CarManager()
+
 # Move the player
 screen.listen()
 screen.onkey(player_1.move_forward,"Up")
@@ -20,6 +23,7 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
+    car.move()
     if player_1.reached_finish():
         game_is_on = False
         print("Passed Level!!")
