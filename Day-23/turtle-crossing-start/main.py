@@ -14,7 +14,6 @@ player_1 = Player()
 scoreboard = Scoreboard()
 cars = []
 
-
 # Move the player
 screen.listen()
 screen.onkey(player_1.move_forward,"Up")
@@ -25,17 +24,11 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    if generate_car_counter % 6:
-        car = CarManager()
-        cars.append(car)
-        for car in cars:
-            car.move()
-
     
     # Detect Collision with car object
     if player_1.distance(car) < 25:
         game_is_on = False
-        print("Game Over!")
+        scoreboard.game_over()
         
     if player_1.reached_finish():
         player_1.reset()
