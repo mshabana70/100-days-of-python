@@ -32,6 +32,7 @@ while game_is_on:
     for car in car_manager.all_cars:
         if player_1.distance(car) < 25:
             scoreboard.game_over()
+            game_is_on = False
         
     if player_1.reached_finish():
         player_1.reset()
@@ -40,3 +41,5 @@ while game_is_on:
         print("Passed Level!!")
     
     generate_car_counter += 1
+
+screen.exitonclick()
