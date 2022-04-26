@@ -11,6 +11,7 @@ screen.tracer(0)
 
 # Create the player object
 player_1 = Player()
+scoreboard = Scoreboard()
 cars = []
 for i in range(0, 100):
     car = CarManager()
@@ -28,16 +29,18 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    car.move()
+    if generate_car_counter % 6:
+        car.move()
 
     # Detect Collision with car object
-    if player_1.distance(car) < 20:
+    if player_1.distance(car) < 25:
         game_is_on = False
         print("Game Over!")
         
     if player_1.reached_finish():
         player_1.reset()
         car.increase_speed()
+        scoreboard.increase_level()
         print("Passed Level!!")
     
     generate_car_counter += 1
