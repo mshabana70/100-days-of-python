@@ -13,9 +13,6 @@ screen.tracer(0)
 player_1 = Player()
 scoreboard = Scoreboard()
 cars = []
-for i in range(0, 100):
-    car = CarManager()
-    cars.append(car)
 
 
 # Move the player
@@ -23,15 +20,18 @@ screen.listen()
 screen.onkey(player_1.move_forward,"Up")
 
 generate_car_counter = 0
-car = random.choice(cars)
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
 
     if generate_car_counter % 6:
-        car.move()
+        car = CarManager()
+        cars.append(car)
+        for car in cars:
+            car.move()
 
+    
     # Detect Collision with car object
     if player_1.distance(car) < 25:
         game_is_on = False

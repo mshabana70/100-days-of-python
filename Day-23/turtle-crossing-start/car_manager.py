@@ -11,7 +11,7 @@ class CarManager(Turtle):
     def __init__(self):
         super().__init__()
         self.move_speed = STARTING_MOVE_DISTANCE
-        self.y_cor = random.randint(-280, 280)
+        self.y_cor = random.randint(-250, 250)
         self.shape("square")
         self.pu()
         self.color(random.choice(COLORS))
