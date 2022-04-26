@@ -8,6 +8,13 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
+# Create the player object
+player_1 = Player()
+
+# Move the player
+screen.listen()
+screen.onkey(player_1.move_forward,"Up")
+
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
