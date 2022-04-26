@@ -16,7 +16,7 @@ class CarManager(Turtle):
         self.pu()
         self.color(random.choice(COLORS))
         self.shapesize(stretch_wid = 1, stretch_len = random.randint(1, 4))
-        self.goto(x = 300, y = self.y_cor)
+        self.goto(x = 350, y = self.y_cor)
         
     
     def move(self):

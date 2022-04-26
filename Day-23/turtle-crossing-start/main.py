@@ -1,4 +1,5 @@
 import time
+import random
 from turtle import Screen
 from player import Player
 from car_manager import CarManager
@@ -10,21 +11,33 @@ screen.tracer(0)
 
 # Create the player object
 player_1 = Player()
+cars = []
+for i in range(0, 100):
+    car = CarManager()
+    cars.append(car)
+
 
 # Move the player
 screen.listen()
 screen.onkey(player_1.move_forward,"Up")
 
+generate_car_counter = 0
+car = random.choice(cars)
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
 
-    
-    # Create the car object
-    car = CarManager()
     car.move()
+
+    # Detect Collision with car object
+    if player_1.distance(car) < 20:
+        game_is_on = False
+        print("Game Over!")
+        
     if player_1.reached_finish():
         player_1.reset()
         car.increase_speed()
         print("Passed Level!!")
+    
+    generate_car_counter += 1
