@@ -44,6 +44,7 @@ while game_is_on:
         #game_is_on = False
         #scoreboard.game_over() # Game over title for when game is over
         scoreboard.reset()
+        snake.reset()
     
     # Detect collision with tail
     for square in snake.snake_squares[1:]:
