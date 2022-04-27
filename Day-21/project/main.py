@@ -52,6 +52,7 @@ while game_is_on:
             #game_is_on = False
             #scoreboard.game_over()
             scoreboard.reset()
+            snake.reset()
     # if the head collides with any segment in the tail:
         # trigger end game sequence
     
