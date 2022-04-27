@@ -10,3 +10,6 @@ file_contents = file.read()
 
 # Print that variable
 print(file_contents)
+
+# Close the file to free up resources
+file.close()
