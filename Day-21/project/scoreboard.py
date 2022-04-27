@@ -11,7 +11,8 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.highscore = 0
+        with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-21/project/data.txt") as data:
+            self.highscore = int(data.read())
         self.color(COLOR)
         self.hideturtle()
         self.pu()
@@ -25,6 +26,8 @@ class Scoreboard(Turtle):
     def reset(self):
         if self.score > self.highscore:
             self.highscore = self.score
+            with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-21/project/data.txt", mode = 'w') as data:
+                data.write(f"{self.highscore}")
         self.score = 0
         self.update_score()
     
