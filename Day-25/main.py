@@ -27,3 +27,11 @@ with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/weath
             temp = int(row[1])
             temperatures.append(temp)
     print(temperatures)
+
+# This is alot of work to get one column of data
+# We can use 'pandas' library to avoid all this extra coding for simplicity
+import pandas as pd
+
+# Read csv data in one line of code
+weather_data_pd = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/weather_data.csv") 
+print(weather_data_pd)
