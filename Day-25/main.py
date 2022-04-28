@@ -35,3 +35,6 @@ import pandas as pd
 # Read csv data in one line of code
 weather_data_pd = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/weather_data.csv") 
 print(weather_data_pd)
+
+# Getting the temp column like we did with csv library (but using pandas)
+print(weather_data_pd["temp"])
