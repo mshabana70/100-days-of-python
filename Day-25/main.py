@@ -14,3 +14,11 @@ for weather in weather_list:
     clean_weather = weather.strip()
     clean_weather_list.append(clean_weather)
 print(clean_weather_list)
+
+# Open file using csv library
+import csv
+
+with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/weather_data.csv") as weather_data:
+    weather = csv.reader(weather_data)
+    for row in weather:
+        print(row) # print every row in csv data
