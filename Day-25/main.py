@@ -20,5 +20,10 @@ import csv
 
 with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/weather_data.csv") as weather_data:
     weather = csv.reader(weather_data)
+    temperatures = []
     for row in weather:
-        print(row) # print every row in csv data
+        #print(row) # print every row in csv data
+        if row[1] != "temp":
+            temp = int(row[1])
+            temperatures.append(temp)
+    print(temperatures)
