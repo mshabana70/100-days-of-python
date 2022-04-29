@@ -52,4 +52,11 @@ print(type(weather_data_pd["temp"])) # Pandas Series data type
 # A 1 dimensional data structure that is used to make up the 
 # 2 dimensional Dataframe. (Equivilent to a list)
 
+# Convert Dataframe to dictionary
+weather_data_dict = weather_data_pd.to_dict()
+print(weather_data_dict)
+
+# Convert series to list
+
+
 
