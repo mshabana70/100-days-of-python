@@ -26,7 +26,7 @@ while game_is_going:
         score += 1
         turtle.pu()
         turtle.goto(x = int(current_state.x), y = int(current_state.y))
-        turtle.write(answer_state.title(), font = ("Times New Roman", 10, "normal"))
+        turtle.write(current_state.state.item(), font = ("Times New Roman", 10, "normal"))
         print(f"x-coord: {int(current_state.x)}, y-coord: {int(current_state.y)}")
     
     if answer_state.lower() == "quit":
