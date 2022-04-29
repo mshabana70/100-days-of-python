@@ -82,6 +82,9 @@ print(weather_data_pd[weather_data_pd.day == "Monday"])
 # CHALLENGE: Pull row of data where weather is maximum
 print(weather_data_pd[weather_data_pd.temp == weather_data_pd.temp.max()])
 
+monday = weather_data_pd[weather_data_pd.day == "Monday"]
+fahrenheit = (monday.temp * (9 / 5)) + 32 
+print(fahrenheit)
 
 
 
