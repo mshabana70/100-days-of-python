@@ -83,8 +83,20 @@ print(weather_data_pd[weather_data_pd.day == "Monday"])
 print(weather_data_pd[weather_data_pd.temp == weather_data_pd.temp.max()])
 
 monday = weather_data_pd[weather_data_pd.day == "Monday"]
-fahrenheit = (monday.temp * (9 / 5)) + 32 
+fahrenheit = (int(monday.temp) * (9 / 5)) + 32 
 print(fahrenheit)
 
+# How to create a Dataframe from scratch
+data_dict = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
+}
+
+# create dataframe from dictionary
+data = pd.DataFrame(data_dict)
+#print(data)
+
+# We can even convert our DataFrame to a csv file (just specify path)
+data.to_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/new_data.csv")
 
 
