@@ -57,6 +57,9 @@ weather_data_dict = weather_data_pd.to_dict()
 print(weather_data_dict)
 
 # Convert series to list
+temp_list = weather_data_pd["temp"].to_list()
+print(temp_list)
+
 
 
 
