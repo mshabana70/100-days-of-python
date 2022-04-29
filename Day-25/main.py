@@ -64,5 +64,12 @@ print(temp_list)
 avg_temp = sum(temp_list) / len(temp_list)
 print(f"Average temperature: {round(avg_temp, 2)}")
 
+# simpilar way:
+avg_temp_series = weather_data_pd["temp"].mean()
+print(f"Average temp using series functions: {avg_temp_series}")
+
+
+
+
 
 
