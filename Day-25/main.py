@@ -60,6 +60,9 @@ print(weather_data_dict)
 temp_list = weather_data_pd["temp"].to_list()
 print(temp_list)
 
+# CHALLENGE: Find the average temp in our list of temp
+avg_temp = sum(temp_list) / len(temp_list)
+print(f"Average temperature: {round(avg_temp, 2)}")
 
 
 
