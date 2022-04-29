@@ -12,13 +12,13 @@ screen.addshape(img)
 turtle.shape(img)
 screen.update()
 
+states_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/us-states-game-start/50_states.csv")
+all_states = states_data.state
 guessed_states = []
 score = 0
 while len(guessed_states) < 50:
     
     answer_state = screen.textinput(title=f"{score}/50 states correct", prompt="What's the state's name?")
-
-    states_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/us-states-game-start/50_states.csv")
     current_state = states_data[states_data["state"] == answer_state.title()]
     if current_state.empty:
         print("It does not exist")
@@ -33,9 +33,20 @@ while len(guessed_states) < 50:
     if answer_state.lower() == "quit":
         print(f"Thanks for playing! Your score was {score}/50")
         print(f"Here is the list of states you guessed right: {guessed_states}")
-        quit()
+        break
 
-print(f"Congratulations you win! Here is the order of your guesses: {guessed_states}")
+# Print message if they win
+if len(guessed_states) == 50:
+    print(f"Congratulations you win! Here is the order of your guesses: {guessed_states}")
+else:
+    # States to learn in csv if they missed them
+    missed_states = []
+    for state in all_states:
+        if state not in guessed_states:
+            missed_states.append(state)
+    missed_states_df = pd.DataFrame(missed_states, columns=['missed states'])
+    missed_states_df.to_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/us-states-game-start/missed_states.csv")
+
 
 # # Get the coordinate of the states with mouse clicks
 # def get_mouse_click_coor(x, y):
