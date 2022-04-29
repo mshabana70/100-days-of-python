@@ -8,11 +8,14 @@ img = "/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/us-states
 screen.addshape(img)
 turtle.shape(img)
 
-# Get the coordinate of the states with mouse clicks
-def get_mouse_click_coor(x, y):
-    print(x, y)
+answer_state = screen.textinput(title="Guess the State:", prompt="What's the state's name?")
+print(answer_state)
 
-turtle.onscreenclick(get_mouse_click_coor)
-turtle.mainloop() # Keep screen open even after code is done executing
+# # Get the coordinate of the states with mouse clicks
+# def get_mouse_click_coor(x, y):
+#     print(x, y)
+
+# turtle.onscreenclick(get_mouse_click_coor)
+# turtle.mainloop() # Keep screen open even after code is done executing
 
 #screen.exitonclick()
