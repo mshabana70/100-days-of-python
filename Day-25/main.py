@@ -69,8 +69,7 @@ avg_temp_series = weather_data_pd["temp"].mean()
 print(f"Average temp using series functions: {avg_temp_series}")
 
 # CHALLENGE: Find the maximum temp in our temp series using a series func
-temp_series = weather_data_pd["temp"]
-max_temp = temp_series.max()
+max_temp = weather_data_pd["temp"].max()
 print(f"Maximum temperature: {max_temp}")
 
 
