@@ -72,6 +72,16 @@ print(f"Average temp using series functions: {avg_temp_series}")
 max_temp = weather_data_pd["temp"].max()
 print(f"Maximum temperature: {max_temp}")
 
+# We have seen how to access a column with bracket notation, but you can also use dot notation
+condition_series = weather_data_pd.condition
+print(condition_series)
+
+# Get data from a row
+print(weather_data_pd[weather_data_pd.day == "Monday"])
+
+# CHALLENGE: Pull row of data where weather is maximum
+print(weather_data_pd[weather_data_pd.temp == weather_data_pd.temp.max()])
+
 
 
 
