@@ -38,3 +38,16 @@ print(weather_data_pd)
 
 # Getting the temp column like we did with csv library (but using pandas)
 print(weather_data_pd["temp"])
+
+# Check the type of weather_data_pd
+print(type(weather_data_pd)) # Pandas Dataframe data type
+
+# Dataframe definition:
+# It is the entire data file that is formatted like an excel sheet or a csv.
+
+# Check the type of a column in the weather_data_pd Dataframe
+print(type(weather_data_pd["temp"])) # Pandas Series data type
+
+# Series definition
+
+
