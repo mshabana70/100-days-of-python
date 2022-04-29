@@ -48,6 +48,8 @@ print(type(weather_data_pd)) # Pandas Dataframe data type
 # Check the type of a column in the weather_data_pd Dataframe
 print(type(weather_data_pd["temp"])) # Pandas Series data type
 
-# Series definition
+# Series definition:
+# A 1 dimensional data structure that is used to make up the 
+# 2 dimensional Dataframe. (Equivilent to a list)
 
 
