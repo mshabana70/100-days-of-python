@@ -21,5 +21,5 @@ print(students_score)
 
 # Task: Take our new generated dict and create a new dictionary with all students with a passing grade
 # (using dictionary comprehension)
-passed_students = {student:grade for (student, grade) in students_score.items() if grade > 65}
+passed_students = {student:grade for (student, grade) in students_score.items() if grade >= 65}
 print(passed_students)
