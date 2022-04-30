@@ -27,4 +27,7 @@ print(name_list)
 ## string
 ## tuple 
 
+# Challenge: Iterate range(1, 5) to a new list where every value is doubled (using list comprehension)
 
+double_list = [num * 2 for num in range(1, 5)]
+print(double_list)
