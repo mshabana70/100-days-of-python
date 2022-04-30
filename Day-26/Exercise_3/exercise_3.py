@@ -26,11 +26,11 @@
 # [3, 6, 5, 33, 12, 7, 42, 13]
 
 # Read file1 and put to a list
-file_1 = open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-26/Exercise_3/file1.txt")
+file_1 = open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-26/exercise_3/file1.txt")
 file_1_list = [int(num.strip()) for num in file_1.readlines()]
 
 # Same for file2
-file_2 = open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-26/Exercise_3/file2.txt")
+file_2 = open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-26/exercise_3/file2.txt")
 file_2_list = [int(num.strip()) for num in file_2.readlines()]
 
 result = [num for num in file_1_list if num in file_2_list]
