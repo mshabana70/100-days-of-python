@@ -40,10 +40,10 @@ if len(guessed_states) == 50:
     print(f"Congratulations you win! Here is the order of your guesses: {guessed_states}")
 else:
     # States to learn in csv if they missed them
-    missed_states = []
-    for state in all_states:
-        if state not in guessed_states:
-            missed_states.append(state)
+    missed_states = [state for state in all_states if state not in guessed_states]
+    # for state in all_states:
+    #     if state not in guessed_states:
+    #         missed_states.append(state)
     missed_states_df = pd.DataFrame(missed_states, columns=['missed states'])
     missed_states_df.to_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-25/us-states-game-start/states_to_learn.csv")
 
