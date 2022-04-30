@@ -19,3 +19,12 @@ print(new_list_2)
 name = "Mahmoud"
 name_list = [letter for letter in name] # Append letter to name_list for each letter in 'name' string
 print(name_list)
+
+# Python Sequences:
+#
+## list
+## range
+## string
+## tuple 
+
+
