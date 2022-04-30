@@ -1,7 +1,6 @@
 # Day 26 - List Comprehension
 #
 
-
 # How we normally create a new list from an old one
 numbers = [1, 2, 3]
 new_list = []
