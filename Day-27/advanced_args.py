@@ -39,7 +39,15 @@ print(add(1, 2, 3, 4, 5, 6)) # Result is 21
 # Unlimited Arguments: kwargs (Many Keyworded arguments)
 
 # We use two asterks here (**)
-def calculate(**kwargs):
-    print(kwargs) # Dictionary data structure
+def calculate(n, **kwargs):
+    #print(kwargs, type(kwargs)) # Dictionary data structure
+    # for key, value in kwargs.items():
+    #     print(key)
+    #     print(value)
+    
+    n += kwargs["add"]
+    n *= kwargs["multiply"]
+    print(n)
 
-calculate(add = 3, multiply = 5) # kwargs = {'add': 3, 'multiply': 5}
+#calculate(add = 3, multiply = 5) # kwargs = {'add': 3, 'multiply': 5}
+calculate(2, add = 3, multiply = 5) # output = 25
