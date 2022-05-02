@@ -16,7 +16,7 @@ my_label = tkinter.Label(text = "I am a Label", font = ("Arial", 24, "bold"))
 
 # How will that label be displayed on screen?
 # The packer is a geometry-management mechanism
-my_label.pack() # place it on our window and automatically center it
+my_label.pack(side = "left") # place it on our window and automatically center it
 
 
 
