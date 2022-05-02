@@ -51,3 +51,25 @@ def calculate(n, **kwargs):
 
 #calculate(add = 3, multiply = 5) # kwargs = {'add': 3, 'multiply': 5}
 calculate(2, add = 3, multiply = 5) # output = 25
+
+# Create a class like Tk (using **kwargs)
+
+class Car:
+
+    def __init__(self, **kw):
+        #self.make = kw["make"]
+        #self.model = kw["model"]
+
+        # .get() is better to use here because what if there is no
+        # 'make' or 'model' arg passed? Then .get() will return None,
+        # rather than crash the program.
+        self.make = kw.get("make")
+        self.model = kw.get("model")
+
+my_car = Car(make = "Toyota", model = "Camery")
+print(my_car.make) # output = Toyota
+print(my_car.model) # output = Camery
+
+my_car_2 = Car(make = "Nissan")
+print(my_car_2.make) # output = Nissan
+print(my_car_2.model) # output = None
