@@ -5,6 +5,16 @@ import tkinter
 
 # Similar to the screen object we were creating in turtle
 window = tkinter.Tk()
+window.title("My First GUI Program") # give our window a title
+window.minsize(width = 500, height = 300)
+
+
+# Label
+
+
+
+
+
 
 
 
