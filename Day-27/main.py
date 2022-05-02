@@ -10,7 +10,10 @@ window.minsize(width = 500, height = 300)
 
 
 # Label
+my_label = tkinter.Label(text = "I am a Label", font = ("Arial", 24, "bold"))
 
+# How will that label be displayed on screen?
+my_label.pack() # place it on our window and automatically center it
 
 
 
