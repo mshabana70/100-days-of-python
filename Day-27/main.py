@@ -18,6 +18,9 @@ my_label = tkinter.Label(text = "I am a Label", font = ("Arial", 24, "bold"))
 # The packer is a geometry-management mechanism
 my_label.pack(side = "left") # place it on our window and automatically center it
 
+my_label["text"] = "New Text" # will change the text property of our label
+my_label.config(text="New Text") # does the same thing to the text property
+
 
 
 
