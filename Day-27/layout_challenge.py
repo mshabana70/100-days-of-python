@@ -9,6 +9,7 @@ window.config(padx = 20, pady = 20) # padding around
 
 my_label = Label(text = "New Text", font = ("Arial", 24, "bold"))
 my_label.grid(column = 0, row = 0)
+my_label.config(padx = 20, pady = 20) # padding around the label only
 
 my_button_1 = Button(text = "Button One")
 my_button_1.grid(column = 1, row = 1)
