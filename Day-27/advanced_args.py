@@ -17,3 +17,18 @@ def my_function_default(a = 1, b = 2, c = 3):
 print(my_function_default())
 print(my_function_default(a = 10))
 print(my_function_default(c = 12))
+
+
+# Unlimted Arguments
+
+# What if we want our function to be flexible with the number of 
+# arguments we can pass through
+# The key part is the asterk (*)
+def add(*args):
+    result = 0
+    for n in args:
+        result += n
+    return result
+
+# We can call the function with any number of arguments now
+print(add(1, 2, 3, 4, 5, 6)) # Result is 21
