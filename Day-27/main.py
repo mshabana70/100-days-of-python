@@ -28,12 +28,18 @@ my_label.config(text="New Text") # does the same thing to the text property
 def button_clicked():
     #print("I got clicked!")
     # Challenge: Change label text when button is clicked
-    my_label.config(text = "Button got clicked!")
+    #my_label.config(text = "Button got clicked!")
+    text_input = input.get()
+    my_label.config(text = text_input)
 
 button = Button(text = "Click Me", command = button_clicked)
 button.pack()
 
+# Entry
 
+# Text input entry object in tkinter
+input = Entry(width = 10)
+input.pack()
 
 
 
