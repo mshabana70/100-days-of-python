@@ -19,7 +19,7 @@ print(my_function_default(a = 10))
 print(my_function_default(c = 12))
 
 
-# Unlimted Arguments
+# Unlimted Arguments: args
 
 # What if we want our function to be flexible with the number of 
 # arguments we can pass through
@@ -32,3 +32,14 @@ def add(*args):
 
 # We can call the function with any number of arguments now
 print(add(1, 2, 3, 4, 5, 6)) # Result is 21
+
+# With this method of unlimited arguments, we access the arguments by position
+# What if we want to access arguments by name?
+
+# Unlimited Arguments: kwargs (Many Keyworded arguments)
+
+# We use two asterks here (**)
+def calculate(**kwargs):
+    print(kwargs) # Dictionary data structure
+
+calculate(add = 3, multiply = 5) # kwargs = {'add': 3, 'multiply': 5}
