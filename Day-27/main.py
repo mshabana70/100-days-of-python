@@ -1,4 +1,6 @@
 # Day 27 - GUI in Python
+#
+# https://docs.python.org/3/library/tkinter.html#the-packer
 
 # The library we will use to build a GUI will be TKinter
 import tkinter
@@ -13,6 +15,7 @@ window.minsize(width = 500, height = 300)
 my_label = tkinter.Label(text = "I am a Label", font = ("Arial", 24, "bold"))
 
 # How will that label be displayed on screen?
+# The packer is a geometry-management mechanism
 my_label.pack() # place it on our window and automatically center it
 
 
