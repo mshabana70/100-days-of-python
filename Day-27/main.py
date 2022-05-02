@@ -23,7 +23,8 @@ my_label = Label(text = "I am a Label", font = ("Arial", 24, "bold"))
 my_label["text"] = "New Text" # will change the text property of our label
 my_label.config(text="New Text") # does the same thing to the text property
 #my_label.place(x = 100, y = 0)
-my_label.grid()
+my_label.grid(column = 0, row = 0) # best to start with something you want in the top left
+
 # Button
 
 # Event listener for button
@@ -35,13 +36,15 @@ def button_clicked():
     my_label.config(text = text_input)
 
 button = Button(text = "Click Me", command = button_clicked)
-button.pack()
+#button.pack()
+button.grid(column = 1, row = 1)
 
 # Entry
 
 # Text input entry object in tkinter
 input = Entry(width = 10)
-input.pack()
+#input.pack()
+input.grid(column = 2, row = 2) # note: you cant mix up grid and pack
 
 
 
