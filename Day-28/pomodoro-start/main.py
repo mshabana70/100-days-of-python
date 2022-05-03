@@ -20,7 +20,6 @@ LONG_BREAK_MIN = 20
 window = Tk()
 window.title("Pomodoro")
 window.config(padx = 100, pady = 50, bg = YELLOW)
-
 # Create Canvas widget so we can layer components on one another
 canvas = Canvas(width = 200, height = 224, bg = YELLOW, highlightthickness = 0) # canvas roughly the size of our tomato image
 
