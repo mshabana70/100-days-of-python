@@ -31,17 +31,17 @@ canvas.create_text(100, 130, text = "00:00", fill = "white", font = (FONT_NAME, 
 canvas.grid(column = 1, row = 1)
 
 # Labels
-header_label = Label(text = "Timer", bg = YELLOW, fg = GREEN, font = (FONT_NAME, 38, "normal"))
+header_label = Label(text = "Timer", bg = YELLOW, fg = GREEN, font = (FONT_NAME, 50, "normal"))
 header_label.grid(column = 1, row = 0)
 
 checkmark_label = Label(text = "✓", bg = YELLOW, fg = GREEN, font = (FONT_NAME, 25, "normal"))
 checkmark_label.grid(column = 1, row = 3)
 
 # Buttons
-start_button = Button(text = "Start", bg = YELLOW)
+start_button = Button(text = "Start", highlightcolor=YELLOW, highlightthickness=0)
 start_button.grid(column = 0, row = 2)
 
-reset_button = Button(text = "Reset", bg = YELLOW)
+reset_button = Button(text = "Reset", highlightcolor=YELLOW, highlightthickness=0)
 reset_button.grid(column = 2, row = 2)
 
 
