@@ -38,16 +38,11 @@ checkmark_label = Label(text = "✓", bg = YELLOW, fg = GREEN, font = (FONT_NAME
 checkmark_label.grid(column = 1, row = 3)
 
 # Buttons
-start_button = Button(text = "Start", highlightcolor=YELLOW, highlightthickness=0)
+start_button = Button(text = "Start", bg = RED)
 start_button.grid(column = 0, row = 2)
 
-reset_button = Button(text = "Reset", highlightcolor=YELLOW, highlightthickness=0)
+reset_button = Button(text = "Reset", bg = RED)
 reset_button.grid(column = 2, row = 2)
-
-
-
-
-
 
 
 window.mainloop()
