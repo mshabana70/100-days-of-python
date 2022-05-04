@@ -27,18 +27,15 @@ def password_generator():
     nr_symbols = random.randint(2, 4)
     nr_numbers = random.randint(2, 4)
 
-    password_list = []
+    # Create lists of letters, numbers and symbols using list comprehension
+    password_letters = [random.choice(letters) for _ in range(0, nr_letters)]
+    password_symbols = [random.choice(symbols) for _ in range(0, nr_symbols)]
+    password_numbers = [random.choice(numbers) for _ in range(0, nr_numbers)]
+    
+    # Combine 3 lists of random chars to one big list
+    password_list = password_letters + password_numbers + password_symbols
 
-    for i in range(0, nr_letters):
-        password_list += random.choice(letters)
-
-    for i in range(0, nr_symbols):
-        password_list += random.choice(symbols)
-
-    for i in range(0, nr_numbers):
-        password_list += random.choice(numbers)
-
-    # shuffle list using random.shuffle()
+    # Shuffle list using random.shuffle()
     random.shuffle(password_list)
     password = ""
     password = password.join(password_list)
