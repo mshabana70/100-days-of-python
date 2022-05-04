@@ -31,20 +31,21 @@ password_label.grid(column = 0, row = 3)
 
 
 # Entries
-website_entry = Entry(width = 35)
+website_entry = Entry(width = 40)
 website_entry.grid(column = 1, row = 1, columnspan = 2)
+website_entry.focus() # focus cursor on this entry on launch of app
 
-email_entry = Entry(width = 35)
+email_entry = Entry(width = 40)
 email_entry.grid(column = 1, row = 2, columnspan = 2)
 
 password_entry = Entry(width = 21)
 password_entry.grid(column = 1, row = 3)
 
 # Buttons
-generate_button = Button(text = "Generate")
+generate_button = Button(text = "Generate Password")
 generate_button.grid(column = 2, row = 3)
 
-add_button = Button(text = "Add", width = 36)
+add_button = Button(text = "Add", width = 40)
 add_button.grid(column = 1, row = 4, columnspan = 2)
 
 
