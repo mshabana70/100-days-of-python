@@ -38,6 +38,9 @@ website_entry.focus() # focus cursor on this entry on launch of app
 email_entry = Entry(width = 40)
 email_entry.grid(column = 1, row = 2, columnspan = 2)
 
+# END => the very last index of the entry label
+email_entry.insert(0, "mshabana5656@gmail.com") # we want our email entry to have our most common email already inputted for convenience
+
 password_entry = Entry(width = 21)
 password_entry.grid(column = 1, row = 3)
 
