@@ -54,7 +54,7 @@ def start_timer():
         header_label.config(text = "Break!", fg = PINK)
     else:
         # If its the 1st/3rd/5th/7th rep:
-        count_down(work_seconds)
+        count_down(10)
         header_label.config(text = "Work", fg = GREEN)
         
 
