@@ -5,7 +5,13 @@ import random
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def new_password():
+    # Clear password entry first
+    password_entry.delete(0, END)
+
+    # Generate new random password
     password = password_generator()
+
+    # Insert new password to our password entry object
     password_entry.insert(0, password)
 
 def password_generator():
