@@ -17,8 +17,8 @@ def save():
     file.close()
 
     # Clear existing values from entry objects (keep existing email entry)
-    website_entry.delete(0)
-    password_entry.delete(0)
+    website_entry.delete(0, END)
+    password_entry.delete(0, END)
 
 
 
