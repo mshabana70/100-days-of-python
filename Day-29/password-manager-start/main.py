@@ -12,9 +12,9 @@ def save():
     password_value = password_entry.get()
 
     # Write values to an external file
-    file = open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-29/password-manager-start/data.txt", "a")
-    file.write(f"{website_value} | {email_value} | {password_value}\n")
-    file.close()
+    with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-29/password-manager-start/data.txt", "a") as file:
+        file.write(f"{website_value} | {email_value} | {password_value}\n")
+        file.close()
 
     # Clear existing values from entry objects (keep existing email entry)
     website_entry.delete(0, END)
@@ -66,9 +66,6 @@ generate_button.grid(column = 2, row = 3)
 
 add_button = Button(text = "Add", width = 40, command = save)
 add_button.grid(column = 1, row = 4, columnspan = 2)
-
-
-
 
 
 window.mainloop()
