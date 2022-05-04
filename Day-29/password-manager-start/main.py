@@ -21,7 +21,6 @@ def save():
     password_entry.delete(0, END)
 
 
-
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
