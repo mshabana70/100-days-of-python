@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -11,14 +12,19 @@ def save():
     email_value = email_entry.get()
     password_value = password_entry.get()
 
-    # Write values to an external file
-    with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-29/password-manager-start/data.txt", "a") as file:
-        file.write(f"{website_value} | {email_value} | {password_value}\n")
-        file.close()
+    # Message box to check if they want to save the entered info
+    is_ok = messagebox.askokcancel(title = website_value, message = f"These are the details entered: \n\n\tEmail: {email_value} \n\tPassword: {password_value} \n\nIs this ok to save?")
 
-    # Clear existing values from entry objects (keep existing email entry)
-    website_entry.delete(0, END)
-    password_entry.delete(0, END)
+    # If user is ok with entered values, run logic
+    if is_ok:
+        # Write values to an external file
+        with open("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-29/password-manager-start/data.txt", "a") as file:
+            file.write(f"{website_value} | {email_value} | {password_value}\n")
+            file.close()
+
+        # Clear existing values from entry objects (keep existing email entry)
+        website_entry.delete(0, END)
+        password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
