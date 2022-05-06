@@ -13,5 +13,11 @@
 # fruit = fruit_list[3] # out of range of list
 
 #TypeError
-text = "abc"
-print(text + 5) # different types
+# text = "abc"
+# print(text + 5) # different types
+
+# Error Handling keywords
+#
+# try: Execute block of code that might cause an exception
+# except: Execute block of code
+#
