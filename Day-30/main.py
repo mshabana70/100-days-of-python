@@ -21,3 +21,4 @@
 # try: Execute block of code that might cause an exception
 # except: Execute block of code if there was an exception thrown
 # else: Execute block of code if there was NO exception thrown
+# finally: Execute block of code no matter what happens
