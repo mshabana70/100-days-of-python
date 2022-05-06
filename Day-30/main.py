@@ -9,5 +9,9 @@
 # value = a_dictionary["non_existent_key"]
 
 #IndexError
-fruit_list = ["Apple", "Banana", "Pear"]
-fruit = fruit_list[3] # out of range of list
+# fruit_list = ["Apple", "Banana", "Pear"]
+# fruit = fruit_list[3] # out of range of list
+
+#TypeError
+text = "abc"
+print(text + 5) # different types
