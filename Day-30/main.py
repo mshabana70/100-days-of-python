@@ -19,5 +19,5 @@
 # Error Handling keywords
 #
 # try: Execute block of code that might cause an exception
-# except: Execute block of code
-#
+# except: Execute block of code if there was an exception thrown
+# else: Execute block of code if there was NO exception thrown
