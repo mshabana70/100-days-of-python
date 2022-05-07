@@ -23,3 +23,7 @@
 # text = "abc"
 # print(text + 5) # different types
 
+# Lets try to make safe code for a FileNotFound Exception
+
+
+
