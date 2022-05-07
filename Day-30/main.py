@@ -29,7 +29,9 @@ try:
     file = open("a_text_file.txt") # Should fail (file does not exist)
     a_dictionary = {"key":"value"}
     print(a_dictionary["ssnkdkn"]) # This will throw a TypeError
-except FileNotFoundError():
+except FileNotFoundError:
     # Only run this block if it is a FileNotFoundError
     file = open("Day-30/a_text_file.txt", "w") # If file does not exist, create the file
     file.write("Something")
+except KeyError:
+    print("That key does not exist.") # This will be thrown if there was a KeyError
