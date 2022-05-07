@@ -27,5 +27,6 @@
 
 try: 
     file = open("a_text_file.txt") # Should fail (file does not exist)
-
+except:
+    print("There was an error")
 
