@@ -33,5 +33,7 @@ except FileNotFoundError:
     # Only run this block if it is a FileNotFoundError
     file = open("Day-30/a_text_file.txt", "w") # If file does not exist, create the file
     file.write("Something")
-except KeyError:
-    print("That key does not exist.") # This will be thrown if there was a KeyError
+except KeyError as error_message:
+    #print("That key does not exist.") # This will be thrown if there was a KeyError
+    print(f"The key {error_message} does not exist.") # use the error message and customize it
+    
