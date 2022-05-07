@@ -28,5 +28,5 @@
 try: 
     file = open("a_text_file.txt") # Should fail (file does not exist)
 except:
-    print("There was an error")
+    file = open("a_text_file.txt", "w") # If file does not exist, create the file
 
