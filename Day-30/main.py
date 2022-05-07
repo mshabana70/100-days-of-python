@@ -1,4 +1,11 @@
 # Day 30 - Exceptions and Error Handling
+#
+# Error Handling keywords
+#
+# try: Execute block of code that might cause an exception
+# except: Execute block of code if there was an exception thrown
+# else: Execute block of code if there was NO exception thrown
+# finally: Execute block of code no matter what happens
 
 # FileNotFound
 # with open("a_file.txt") as file:
@@ -16,9 +23,3 @@
 # text = "abc"
 # print(text + 5) # different types
 
-# Error Handling keywords
-#
-# try: Execute block of code that might cause an exception
-# except: Execute block of code if there was an exception thrown
-# else: Execute block of code if there was NO exception thrown
-# finally: Execute block of code no matter what happens
