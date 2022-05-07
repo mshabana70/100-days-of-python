@@ -41,4 +41,7 @@ else:
     # This will run if now exceptions were thrown
     file_content = file.read()
     print(file_content)
+finally:
+    file.close() # Close file no matter what
+    print("File was closed.")
 
