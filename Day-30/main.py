@@ -25,5 +25,7 @@
 
 # Lets try to make safe code for a FileNotFound Exception
 
+try: 
+    file = open("a_text_file.txt") # Should fail (file does not exist)
 
 
