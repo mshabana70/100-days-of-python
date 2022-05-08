@@ -42,6 +42,11 @@ else:
     file_content = file.read()
     print(file_content)
 finally:
-    file.close() # Close file no matter what
-    print("File was closed.")
+    # file.close() # Close file no matter what
+    # print("File was closed.")
+
+    # Raising our own exception using the 'raise' keyword
+    # raise KeyError # Throw a KeyError
+    
+
 
