@@ -53,6 +53,10 @@
 height = float(input("Height (M): "))
 weight = int(input("Weight (KG): "))
 
+if height > 3:
+    # Limit values used in BMI using 'raise'
+    raise ValueError("Human height should not be over 3 meters.")
+
 bmi = weight / height ** 2
 print(bmi)
 
