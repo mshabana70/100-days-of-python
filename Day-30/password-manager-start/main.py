@@ -73,12 +73,16 @@ def save():
         # If user is ok with entered values, run logic
         if is_ok:
             # Write values to an external file
-            with open("Day-30/password-manager-start/data.json", "a") as file:
+            with open("Day-30/password-manager-start/data.json", "r") as file:
                 # file.write(f"{website_value} | {email_value} | {password_value}\n")
                 # file.close()
 
                 # Writing to json (must use a dictionary to write to json)
-                json.dump(new_data, file, indent = 4)
+                #json.dump(new_data, file, indent = 4)
+
+                # Load data from JSON
+                data = json.load(file)
+                print(data)
 
             # Clear existing values from entry objects (keep existing email entry)
             website_entry.delete(0, END)
