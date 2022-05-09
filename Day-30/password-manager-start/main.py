@@ -56,6 +56,7 @@ def find_password():
     except FileNotFoundError:
         messagebox.showerror(title = "error", message = "There is no JSON data file found.")
     else:
+        # Get website value
         website_value = website_entry.get()
 
         # Check if website is in JSON data dictionary
@@ -65,7 +66,13 @@ def find_password():
             email_value = json_data[website_value]["email"]
             password_value = json_data[website_value]["password"]
 
-            messagebox.showinfo(title = "Website Info", message = f"These are the details entered: \n\nEmail: {email_value} \nPassword: {password_value}")
+            # Check if user is satified with password and email
+            is_correct = messagebox.askyesno(title = "Website Info", message = f"These are the details entered: \n\nEmail: {email_value} \nPassword: {password_value}\n\nIs this the correct values?")
+
+            # If use is not satified, allow to overwrite existing email and password
+            if not is_correct:
+                # Run save() function
+                save()
         else:
             # Else, return warning message
             messagebox.showwarning(title = "Warning", message = "Website does not exist in JSON.")
