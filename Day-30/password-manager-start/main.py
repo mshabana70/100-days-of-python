@@ -83,7 +83,7 @@ def save():
                 # Update our JSON file with more data
                 data.update(new_data)
 
-            with open("Day-30/pass-manager-start/data.json", "w") as file:
+            with open("Day-30/password-manager-start/data.json", "w") as file:
                 # open() is in write permissions:
 
                 # Write the updated data back to JSON using dump()
