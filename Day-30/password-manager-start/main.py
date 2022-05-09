@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -54,6 +55,13 @@ def save():
     website_value = website_entry.get()
     email_value = email_entry.get()
     password_value = password_entry.get()
+    new_data = {
+        website_value: {
+            "email": email_value,
+            "password": password_value,
+        }
+    }
+
 
     # Check if any entries are empty
     if len(website_value) == 0 or len(email_value) == 0 or len(password_value) == 0:
@@ -69,8 +77,8 @@ def save():
                 # file.write(f"{website_value} | {email_value} | {password_value}\n")
                 # file.close()
 
-                # Writing to json
-                json.dump()
+                # Writing to json (must use a dictionary to write to json)
+                json.dump(new_data, file, indent = 4)
 
             # Clear existing values from entry objects (keep existing email entry)
             website_entry.delete(0, END)
