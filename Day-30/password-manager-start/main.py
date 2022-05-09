@@ -72,26 +72,39 @@ def save():
 
         # If user is ok with entered values, run logic
         if is_ok:
-            # Write values to an external file
-            with open("Day-30/password-manager-start/data.json", "r") as file:
-                # open() is in read permissions:
+            
+            # Exception handling for FileNotFoundError:
+            try:
 
-                # Load data from JSON
-                data = json.load(file)
-                #print(data) # This is of type 'dictionary'
+                # Write values to an external file
+                with open("Day-30/password-manager-start/data.json", "r") as file:
+                    # open() is in read permissions:
 
-                # Update our JSON file with more data
-                data.update(new_data)
+                    # Load data from JSON
+                    data = json.load(file)
+                    #print(data) # This is of type 'dictionary'
 
-            with open("Day-30/password-manager-start/data.json", "w") as file:
-                # open() is in write permissions:
+                    # Update our JSON file with more data
+                    data.update(new_data)
+            except FileNotFoundError:
+                print("File was not found, creating JSON now...")
+                with open("Day-30/password-manager-start/data.json", "a") as file:
+                    # Write the updated data back to JSON using dump()
+                    json.dump(new_data, file, indent = 4)
 
-                # Write the updated data back to JSON using dump()
-                json.dump(data, file, indent = 4)
+                    # Clear existing values from entry objects (keep existing email entry)
+                    website_entry.delete(0, END)
+                    password_entry.delete(0, END)
+            else:
+                with open("Day-30/password-manager-start/data.json", "w") as file:
+                    # open() is in write permissions:
 
-            # Clear existing values from entry objects (keep existing email entry)
-            website_entry.delete(0, END)
-            password_entry.delete(0, END)
+                    # Write the updated data back to JSON using dump()
+                    json.dump(data, file, indent = 4)
+
+                    # Clear existing values from entry objects (keep existing email entry)
+                    website_entry.delete(0, END)
+                    password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
