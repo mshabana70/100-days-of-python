@@ -75,7 +75,6 @@ def save():
             
             # Exception handling for FileNotFoundError:
             try:
-
                 # Write values to an external file
                 with open("Day-30/password-manager-start/data.json", "r") as file:
                     # open() is in read permissions:
