@@ -83,27 +83,27 @@ def save():
                     data = json.load(file)
                     #print(data) # This is of type 'dictionary'
 
-                    # Update our JSON file with more data
-                    data.update(new_data)
             except FileNotFoundError:
                 print("File was not found, creating JSON now...")
                 with open("Day-30/password-manager-start/data.json", "a") as file:
                     # Write the updated data back to JSON using dump()
                     json.dump(new_data, file, indent = 4)
 
-                    # Clear existing values from entry objects (keep existing email entry)
-                    website_entry.delete(0, END)
-                    password_entry.delete(0, END)
             else:
+                # Update our JSON file with more data
+                data.update(new_data)
+
                 with open("Day-30/password-manager-start/data.json", "w") as file:
                     # open() is in write permissions:
 
                     # Write the updated data back to JSON using dump()
                     json.dump(data, file, indent = 4)
+            finally:
+                # No matter what, run this block of code
 
-                    # Clear existing values from entry objects (keep existing email entry)
-                    website_entry.delete(0, END)
-                    password_entry.delete(0, END)
+                # Clear existing values from entry objects (keep existing email entry)
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
