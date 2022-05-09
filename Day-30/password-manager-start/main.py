@@ -82,7 +82,7 @@ def save():
 
                 # Load data from JSON
                 data = json.load(file)
-                print(data)
+                print(data) # This is of type 'dictionary'
 
             # Clear existing values from entry objects (keep existing email entry)
             website_entry.delete(0, END)
