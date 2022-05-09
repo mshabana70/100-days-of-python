@@ -52,10 +52,9 @@ def find_password():
     try:
         # Load in JSON
         with open("Day-30/password-manager-start/data.json", "r") as data_file:
-
             json_data = json.load(data_file)
     except FileNotFoundError:
-        messagebox.showerror(title = "error", message = "There is no JSON data file.")
+        messagebox.showerror(title = "error", message = "There is no JSON data file found.")
     else:
         website_value = website_entry.get()
 
@@ -65,6 +64,8 @@ def find_password():
             # If website exists, return email and password
             email_value = json_data[website_value]["email"]
             password_value = json_data[website_value]["password"]
+
+            messagebox.showinfo(title = "Website Info", message = f"These are the details entered: \n\nEmail: {email_value} \nPassword: {password_value}")
         else:
             # Else, return warning message
             messagebox.showwarning(title = "Warning", message = "Website does not exist in JSON.")
