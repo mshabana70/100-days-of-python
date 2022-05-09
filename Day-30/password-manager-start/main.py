@@ -74,15 +74,20 @@ def save():
         if is_ok:
             # Write values to an external file
             with open("Day-30/password-manager-start/data.json", "r") as file:
-                # file.write(f"{website_value} | {email_value} | {password_value}\n")
-                # file.close()
-
-                # Writing to json (must use a dictionary to write to json)
-                #json.dump(new_data, file, indent = 4)
+                # open() is in read permissions:
 
                 # Load data from JSON
                 data = json.load(file)
-                print(data) # This is of type 'dictionary'
+                #print(data) # This is of type 'dictionary'
+
+                # Update our JSON file with more data
+                data.update(new_data)
+
+            with open("Day-30/pass-manager-start/data.json", "w") as file:
+                # open() is in write permissions:
+
+                # Write the updated data back to JSON using dump()
+                json.dump(data, file, indent = 4)
 
             # Clear existing values from entry objects (keep existing email entry)
             website_entry.delete(0, END)
