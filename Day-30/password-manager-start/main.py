@@ -46,6 +46,7 @@ def password_generator():
     password = password.join(password_list)
 
     return password
+    
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
@@ -82,13 +83,11 @@ def save():
                     # Load data from JSON
                     data = json.load(file)
                     #print(data) # This is of type 'dictionary'
-
             except FileNotFoundError:
                 print("File was not found, creating JSON now...")
                 with open("Day-30/password-manager-start/data.json", "a") as file:
-                    # Write the updated data back to JSON using dump()
+                    # Write to JSON using dump()
                     json.dump(new_data, file, indent = 4)
-
             else:
                 # Update our JSON file with more data
                 data.update(new_data)
