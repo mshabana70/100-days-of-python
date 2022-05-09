@@ -46,7 +46,30 @@ def password_generator():
     password = password.join(password_list)
 
     return password
-    
+
+# ---------------------------- FIND PASSWORD ------------------------------- #
+def find_password():
+    try:
+        # Load in JSON
+        with open("Day-30/password-manager-start/data.json", "r") as data_file:
+
+            json_data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showerror(title = "error", message = "There is no JSON data file.")
+    else:
+        website_value = website_entry.get()
+
+        # Check if website is in JSON data dictionary
+        if website_value in json_data:
+
+            # If website exists, return email and password
+            email_value = json_data[website_value]["email"]
+            password_value = json_data[website_value]["password"]
+        else:
+            # Else, return warning message
+            messagebox.showwarning(title = "Warning", message = "Website does not exist in JSON.")
+
+        
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
@@ -132,8 +155,8 @@ password_label.grid(column = 0, row = 3)
 
 
 # Entries
-website_entry = Entry(width = 40)
-website_entry.grid(column = 1, row = 1, columnspan = 2)
+website_entry = Entry(width = 21)
+website_entry.grid(column = 1, row = 1)
 website_entry.focus() # focus cursor on this entry on launch of app
 
 email_entry = Entry(width = 40)
@@ -145,6 +168,9 @@ password_entry = Entry(width = 21)
 password_entry.grid(column = 1, row = 3)
 
 # Buttons
+search_button = Button(text = "Search", width = 13, command = find_password)
+search_button.grid(column = 2, row = 1)
+
 generate_button = Button(text = "Generate Password", command = new_password)
 generate_button.grid(column = 2, row = 3)
 
