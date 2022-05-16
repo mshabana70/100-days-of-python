@@ -26,15 +26,14 @@ translated_text = card_canvas.create_text(400, 263, text = "trouve", fill = "bla
 card_canvas.grid(column = 0, row = 0, columnspan=2)
 
 
-# Create canvas for wrong image
-wrong_canvas = Canvas(width = 400, height = 100, bg = BACKGROUND_COLOR, highlightthickness= 0)
-wrong_canvas.create_image(200, 52, image = wrong_image)
-wrong_canvas.grid(column = 0, row = 1)
+# Create button for wrong image
+wrong_button = Button(image = wrong_image, highlightcolor = BACKGROUND_COLOR, highlightthickness = 0)
+wrong_button.grid(column = 0, row = 1)
 
-# Create canvas for right image
-right_canvas = Canvas(width = 400, height = 100, bg = BACKGROUND_COLOR, highlightthickness= 0)
-right_canvas.create_image(200, 52, image = right_image)
-right_canvas.grid(column = 1, row = 1)
+# Create button for wrong image
+right_button = Button(image = right_image, highlightcolor = BACKGROUND_COLOR, highlightthickness = 0)
+right_button.grid(column = 1, row = 1)
+
 
 
 window.mainloop()
