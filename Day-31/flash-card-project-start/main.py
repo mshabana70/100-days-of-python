@@ -19,6 +19,9 @@ card_canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlight
 # Insert card_image to canvas using create image
 card_canvas.create_image(400, 265, image = front_card_image)
 
+# Insert text on our card canvas
+untranslated_text = card_canvas.create_text(400, 150, text = "French", fill = "black", font = ("Ariel", 40, "italic"))
+translated_text = card_canvas.create_text(400, 263, text = "trouve", fill = "black", font = ("Ariel", 60, "bold"))
 
 card_canvas.grid(column = 0, row = 0, columnspan=2)
 
