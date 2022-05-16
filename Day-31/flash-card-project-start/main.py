@@ -27,11 +27,11 @@ card_canvas.grid(column = 0, row = 0, columnspan=2)
 
 
 # Create button for wrong image
-wrong_button = Button(image = wrong_image, highlightcolor = BACKGROUND_COLOR, highlightthickness = 0)
+wrong_button = Button(image = wrong_image, highlightthickness = 0)
 wrong_button.grid(column = 0, row = 1)
 
 # Create button for wrong image
-right_button = Button(image = right_image, highlightcolor = BACKGROUND_COLOR, highlightthickness = 0)
+right_button = Button(image = right_image, highlightthickness = 0)
 right_button.grid(column = 1, row = 1)
 
 
