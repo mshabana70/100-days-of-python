@@ -4,11 +4,10 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 window = Tk()
 window.title("Flash Card App")
-window.config(bg = BACKGROUND_COLOR)
+window.config(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
 
 # Create Canvas for flash card image
 card_canvas = Canvas(width = 800, height = 526)
-card_canvas.config(padx = 50, pady = 50)
 
 # Card image (front)
 front_card_image = PhotoImage(file = "images/card_front.png")
