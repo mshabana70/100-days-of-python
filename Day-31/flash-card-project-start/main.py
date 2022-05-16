@@ -18,7 +18,10 @@ card_canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlight
 
 # Insert card_image to canvas using create image
 card_canvas.create_image(400, 265, image = front_card_image)
+
+
 card_canvas.grid(column = 0, row = 0, columnspan=2)
+
 
 # Create canvas for wrong image
 wrong_canvas = Canvas(width = 400, height = 100, bg = BACKGROUND_COLOR, highlightthickness= 0)
