@@ -14,15 +14,16 @@ current_card = {}
 def next_card():
     global current_card
     current_card = random.choice(list_of_words)
-    card_canvas.itemconfig(title_text, text = "French")
-    card_canvas.itemconfig(word_text, text = current_card["French"])
+    card_canvas.itemconfig(title_text, text = "French", fill = "black")
+    card_canvas.itemconfig(word_text, text = current_card["French"], fill = "black")
+    card_canvas.itemconfig(card_image, image = front_card_image)
 
 def flip_card():
     # Change image of card
     card_canvas.itemconfig(card_image, image = back_card_image)
     # Change text
-    card_canvas.itemconfig(title_text, fill = "white", text = "English")
-    card_canvas.itemconfig(word_text, fill = "white", text = current_card["English"])
+    card_canvas.itemconfig(title_text, text = "English", fill = "white")
+    card_canvas.itemconfig(word_text, text = current_card["English"], fill = "white")
 
 
 window = Tk()
