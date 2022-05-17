@@ -5,7 +5,11 @@ import random
 BACKGROUND_COLOR = "#B1DDC6"
 
 ####################### READ DATA FROM CSV ######################
-word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
+try:
+    word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/words_to_learn.csv")
+except FileNotFoundError:
+    word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
+
 list_of_words = []
 list_of_words = word_data.to_dict('records')
 current_card = list_of_words[0]
@@ -35,8 +39,9 @@ def flip_card():
 def is_known():
     # Remove known word from list of words
     list_of_words.remove(current_card)
+    print(len(list_of_words))
     new_data = pd.DataFrame(list_of_words)
-    new_data.to_csv("Day-31/flash-card-project-start/data/words_to_learn.csv") # Create new file of words left to learn
+    new_data.to_csv("Day-31/flash-card-project-start/data/words_to_learn.csv", index=False) # Create new file of words left to learn
 
 
     next_card()
