@@ -5,7 +5,9 @@ BACKGROUND_COLOR = "#B1DDC6"
 
 
 ####################### READ DATA FROM CSV ######################
+word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
 
+print(word_data)
 
 
 
