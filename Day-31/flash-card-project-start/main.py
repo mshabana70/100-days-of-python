@@ -3,6 +3,8 @@ import pandas as pd
 import random
 
 BACKGROUND_COLOR = "#B1DDC6"
+timer = None
+count = 0
 
 
 ####################### READ DATA FROM CSV ######################
@@ -20,6 +22,21 @@ def next_card():
 
     card_canvas.itemconfig(word_text, text = word["French"])
 
+def flip_card():
+    # Change image of card
+    card_canvas.itemconfig(card_image, image = back_card_image)
+
+    # Change text
+    card_canvas.itemconfig(title_text, fill = "white", text = "English")
+    card_canvas.itemconfig(word_text, fill = "white", text = )
+
+
+def timer_count():
+    if count < 3:
+        timer = window.after(1000, timer_count, count + 1)
+    else:
+        flip_card()
+
 
 
 
@@ -28,9 +45,9 @@ window.title("Flash Card App")
 window.config(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
 
 
-
 # Card image (front)
 front_card_image = PhotoImage(file = "/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/images/card_front.png")
+back_card_image = PhotoImage(file = "/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/images/card_back.png")
 wrong_image = PhotoImage(file = "/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/images/wrong.png")
 right_image = PhotoImage(file = "/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/images/right.png")
 
@@ -38,7 +55,7 @@ right_image = PhotoImage(file = "/Users/mahmoudshabana/Documents/Udemy/100-days-
 card_canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlightthickness= 0)
 
 # Insert card_image to canvas using create image
-card_canvas.create_image(400, 265, image = front_card_image)
+card_image = card_canvas.create_image(400, 265, image = front_card_image)
 
 # Insert text on our card canvas
 title_text = card_canvas.create_text(400, 150, text = "French", fill = "black", font = ("Ariel", 40, "italic"))
