@@ -35,9 +35,8 @@ def flip_card():
 def is_known():
     # Remove known word from list of words
     list_of_words.remove(current_card)
-    print(len(list_of_words))
     new_data = pd.DataFrame(list_of_words)
-    new_data.to_csv("Day-31/words_to_learn.csv") # Create new file of words left to learn
+    new_data.to_csv("Day-31/flash-card-project-start/data/words_to_learn.csv") # Create new file of words left to learn
 
 
     next_card()
