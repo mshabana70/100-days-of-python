@@ -8,7 +8,7 @@ BACKGROUND_COLOR = "#B1DDC6"
 word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
 list_of_words = []
 list_of_words = word_data.to_dict('records')
-current_card = {}
+current_card = list_of_words[0]
 
 ####################### DISPLAY WORDS FROM DATA ######################
 def next_card():
@@ -32,6 +32,18 @@ def flip_card():
     card_canvas.itemconfig(title_text, text = "English", fill = "white")
     card_canvas.itemconfig(word_text, text = current_card["English"], fill = "white")
 
+def is_known():
+    # Remove known word from list of words
+    list_of_words.remove(current_card)
+    print(len(list_of_words))
+    new_data = pd.DataFrame(list_of_words)
+    new_data.to_csv("Day-31/words_to_learn.csv") # Create new file of words left to learn
+
+
+    next_card()
+
+
+
 
 window = Tk()
 window.title("Flash Card App")
@@ -53,7 +65,7 @@ card_image = card_canvas.create_image(400, 265, image = front_card_image)
 
 # Insert text on our card canvas
 title_text = card_canvas.create_text(400, 150, text = "French", fill = "black", font = ("Ariel", 40, "italic"))
-word_text = card_canvas.create_text(400, 263, text = "trouve", fill = "black", font = ("Ariel", 60, "bold"))
+word_text = card_canvas.create_text(400, 263, text = current_card["French"], fill = "black", font = ("Ariel", 60, "bold"))
 
 card_canvas.grid(column = 0, row = 0, columnspan=2)
 
@@ -63,7 +75,7 @@ wrong_button = Button(image = wrong_image, command = next_card, highlightthickne
 wrong_button.grid(column = 0, row = 1)
 
 # Create button for wrong image
-right_button = Button(image = right_image, command = next_card, highlightthickness = 0)
+right_button = Button(image = right_image, command = is_known, highlightthickness = 0)
 right_button.grid(column = 1, row = 1)
 
 
