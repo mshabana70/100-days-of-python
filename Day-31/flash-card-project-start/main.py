@@ -13,6 +13,7 @@ def get_words():
     list_of_words = word_data.to_dict('records')
     return list_of_words
 
+####################### DISPLAY WORDS FROM DATA ######################
 def display_words():
     global counter
     list_of_words = get_words()
