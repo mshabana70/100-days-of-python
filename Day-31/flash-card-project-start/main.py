@@ -1,6 +1,17 @@
 from tkinter import *
+import pandas as pd
 
 BACKGROUND_COLOR = "#B1DDC6"
+
+
+####################### READ DATA FROM CSV ######################
+
+
+
+
+
+
+
 
 window = Tk()
 window.title("Flash Card App")
@@ -33,7 +44,6 @@ wrong_button.grid(column = 0, row = 1)
 # Create button for wrong image
 right_button = Button(image = right_image, highlightthickness = 0)
 right_button.grid(column = 1, row = 1)
-
 
 
 window.mainloop()
