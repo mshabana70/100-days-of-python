@@ -1,8 +1,8 @@
 from tkinter import *
 import pandas as pd
+import random
 
 BACKGROUND_COLOR = "#B1DDC6"
-counter = 0
 
 
 ####################### READ DATA FROM CSV ######################
@@ -15,13 +15,10 @@ def get_words():
 
 ####################### DISPLAY WORDS FROM DATA ######################
 def next_card():
-    global counter
     list_of_words = get_words()
-    word = list_of_words[counter]
+    word = random.choice(list_of_words)
 
     card_canvas.itemconfig(word_text, text = word["French"])
-
-    counter += 1
 
 
 
