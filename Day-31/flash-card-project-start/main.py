@@ -14,10 +14,11 @@ def get_words():
     return list_of_words
 
 def display_words():
+    global counter
     list_of_words = get_words()
     word = list_of_words[counter]
 
-    card_canvas.itemconfig(translated_text, text = word["French"])
+    card_canvas.itemconfig(word_text, text = word["French"])
 
     counter += 1
 
@@ -49,11 +50,11 @@ card_canvas.grid(column = 0, row = 0, columnspan=2)
 
 
 # Create button for wrong image
-wrong_button = Button(image = wrong_image, highlightthickness = 0)
+wrong_button = Button(image = wrong_image, command = display_words, highlightthickness = 0)
 wrong_button.grid(column = 0, row = 1)
 
 # Create button for wrong image
-right_button = Button(image = right_image, highlightthickness = 0)
+right_button = Button(image = right_image, command = display_words, highlightthickness = 0)
 right_button.grid(column = 1, row = 1)
 
 
