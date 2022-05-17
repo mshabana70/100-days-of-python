@@ -15,7 +15,7 @@ def next_card():
     global current_card
     current_card = random.choice(list_of_words)
     card_canvas.itemconfig(title_text, text = "French")
-    card_canvas.itemconfig(word_text, text = word["French"])
+    card_canvas.itemconfig(word_text, text = current_card["French"])
 
 def flip_card():
     # Change image of card
