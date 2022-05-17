@@ -2,17 +2,24 @@ from tkinter import *
 import pandas as pd
 
 BACKGROUND_COLOR = "#B1DDC6"
+counter = 0
 
 
 ####################### READ DATA FROM CSV ######################
-word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
+def get_words():
+    word_data = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-31/flash-card-project-start/data/french_words.csv")
 
-list_of_words = []
-list_of_words = word_data.to_dict('records')
+    list_of_words = []
+    list_of_words = word_data.to_dict('records')
+    return list_of_words
 
+def display_words():
+    list_of_words = get_words()
+    word = list_of_words[counter]
 
+    card_canvas.itemconfig(translated_text, text = word["French"])
 
-
+    counter += 1
 
 
 
@@ -35,8 +42,8 @@ card_canvas = Canvas(width = 800, height = 526, bg = BACKGROUND_COLOR, highlight
 card_canvas.create_image(400, 265, image = front_card_image)
 
 # Insert text on our card canvas
-untranslated_text = card_canvas.create_text(400, 150, text = "French", fill = "black", font = ("Ariel", 40, "italic"))
-translated_text = card_canvas.create_text(400, 263, text = "trouve", fill = "black", font = ("Ariel", 60, "bold"))
+language_text = card_canvas.create_text(400, 150, text = "French", fill = "black", font = ("Ariel", 40, "italic"))
+word_text = card_canvas.create_text(400, 263, text = "trouve", fill = "black", font = ("Ariel", 60, "bold"))
 
 card_canvas.grid(column = 0, row = 0, columnspan=2)
 
