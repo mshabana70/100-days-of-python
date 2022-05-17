@@ -12,11 +12,18 @@ current_card = {}
 
 ####################### DISPLAY WORDS FROM DATA ######################
 def next_card():
-    global current_card
+    global current_card, flip_timer
+    # Cancel flip_timer
+    window.after_cancel(flip_timer)
+
     current_card = random.choice(list_of_words)
     card_canvas.itemconfig(title_text, text = "French", fill = "black")
     card_canvas.itemconfig(word_text, text = current_card["French"], fill = "black")
     card_canvas.itemconfig(card_image, image = front_card_image)
+
+    # Rerun flip_timer
+    flip_timer = window.after(3000, flip_card)
+
 
 def flip_card():
     # Change image of card
@@ -29,7 +36,7 @@ def flip_card():
 window = Tk()
 window.title("Flash Card App")
 window.config(padx = 50, pady = 50, bg = BACKGROUND_COLOR)
-window.after(3000, func = flip_card)
+flip_timer = window.after(3000, func = flip_card)
 
 
 # Card image (front)
