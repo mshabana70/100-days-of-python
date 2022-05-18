@@ -27,6 +27,8 @@ birthday_dict = birthdays.to_dict(orient="records")
 # dictionary comprehension
 birthday_dictionary = {(data_row.month, data_row.day):data_row for (index, data_row) in birthdays.iterrows()}
 #print(birthday_dictionary)
+# today_tuple = (today_month, today_day)
+# if today_tuple in birthday_dictionary:
 
 # Check todays date
 today_date = dt.datetime.now()
@@ -60,6 +62,7 @@ for i in range(len(birthday_dict)):
             connection.sendmail(
                 from_addr= MY_EMAIL, 
                 to_addrs= to_email, 
-                msg=f"Subject: Happy Birthday {to_name}!\n\n{new_letter}")
+                msg=f"Subject: Happy Birthday {to_name}!\n\n{new_letter}"
+            )
 
         
