@@ -9,6 +9,7 @@
 # 4. Send the letter generated in step 3 to that person's email address.
 
 # 5. You can upload this program to https://www.pythonanywhere.com/ to run this program on the cloud
+# Reference video: https://www.udemy.com/course/100-days-of-code/learn/lecture/21110124#overview
 
 
 import pandas as pd
