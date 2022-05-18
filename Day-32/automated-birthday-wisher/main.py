@@ -19,7 +19,14 @@ import random
 birthdays = pd.read_csv("/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-32/automated-birthday-wisher/birthdays.csv")
 birthday_dict = birthdays.to_dict(orient="records")
 
-print(birthday_dict)
+# another way to make birthday dictionary
+# birthday_dictionary = {
+#     (birthday_month, birthday_day): data_row
+# }
+
+# dictionary comprehension
+birthday_dictionary = {(data_row.month, data_row.day):data_row for (index, data_row) in birthdays.iterrows()}
+#print(birthday_dictionary)
 
 # Check todays date
 today_date = dt.datetime.now()
