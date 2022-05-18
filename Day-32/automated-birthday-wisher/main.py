@@ -46,13 +46,13 @@ for i in range(len(birthday_dict)):
             new_letter = letter_content.replace("[NAME]", to_name)
             print(new_letter)
 
-        # # Send new letter to birthday email
-        # with smtplib.SMTP("smtp.gmail.com") as connection:
-        #     connection.starttls()
-        #     connection.login(user= MY_EMAIL, password= PASSWORD)
-        #     connection.sendmail(
-        #         from_addr= MY_EMAIL, 
-        #         to_addrs= to_email, 
-        #         msg=f"Subject: Happy Birthday {to_name}\n\n{new_message}")
+        # Send new letter to birthday email
+        with smtplib.SMTP("smtp.gmail.com", port= 587) as connection:
+            connection.starttls()
+            connection.login(user= MY_EMAIL, password= PASSWORD)
+            connection.sendmail(
+                from_addr= MY_EMAIL, 
+                to_addrs= to_email, 
+                msg=f"Subject: Happy Birthday {to_name}!\n\n{new_letter}")
 
         
