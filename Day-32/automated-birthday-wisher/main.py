@@ -40,7 +40,7 @@ for i in range(len(birthday_dict)):
         to_name = birthday_dict[i]["name"].capitalize()
 
         # Get contents of random letter
-        random_num = random.randint(1, 4)
+        random_num = random.randint(1, 3)
         with open(f"/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-32/automated-birthday-wisher/letter_templates/letter_{random_num}.txt", "r") as letter:
             letter_content = letter.read()
             new_letter = letter_content.replace("[NAME]", to_name)
