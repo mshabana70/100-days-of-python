@@ -9,24 +9,44 @@
 
 import requests
 
-response = requests.get(url= "http://api.open-notify.org/iss-now.json")
-print(response) # Response [200]
-print(response.status_code) # Returns status code
+MY_LAT = 40.712776
+MY_LONG = -74.005974
 
-# raise exception if we come across an error code
-response.raise_for_status()
+# response = requests.get(url= "http://api.open-notify.org/iss-now.json")
+# print(response) # Response [200]
+# print(response.status_code) # Returns status code
 
-# get actual response
+# # raise exception if we come across an error code
+# response.raise_for_status()
+
+# # get actual response
+# data = response.json()
+
+# # We can also use the json as a dictionary and access keys using bracket notation
+# #data = response.json()['iss_position']['latitude']
+# #print(data) # Returns latitude of ISS
+
+# longitude = data['iss_position']['longitude']
+# latitude = data['iss_position']['latitude']
+
+# # create tuple
+# iss_position = (longitude, latitude)
+
+# print(iss_position)
+
+# Create a set of parameters with a dict 
+# (must match parameters in docs: https://sunrise-sunset.org/api)
+
+
+parameters = {
+    "lat": MY_LAT,
+    "lng": MY_LONG,
+
+}
+
+response = requests.get(url = "https://api.sunrise-sunset.org/json", params= parameters)
+response.raise_for_status() # Bad request without api parameters
+
+# Our response data 
 data = response.json()
-
-# We can also use the json as a dictionary and access keys using bracket notation
-#data = response.json()['iss_position']['latitude']
-#print(data) # Returns latitude of ISS
-
-longitude = data['iss_position']['longitude']
-latitude = data['iss_position']['latitude']
-
-# create tuple
-iss_position = (longitude, latitude)
-
-print(iss_position)
+print(data)
