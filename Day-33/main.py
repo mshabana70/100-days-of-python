@@ -8,6 +8,7 @@
 # 5XX: I screwed up (Error on the server's side)
 
 import requests
+import datetime
 
 MY_LAT = 40.712776
 MY_LONG = -74.005974
@@ -41,6 +42,7 @@ MY_LONG = -74.005974
 parameters = {
     "lat": MY_LAT,
     "lng": MY_LONG,
+    "formatted": 0,
 
 }
 
@@ -49,4 +51,13 @@ response.raise_for_status() # Bad request without api parameters
 
 # Our response data 
 data = response.json()
-print(data)
+
+# Lets split our string into just hours
+sunrise = data["results"]["sunrise"].split("T")[1].split(":")[0]
+sunset = data["results"]["sunset"].split("T")[1].split(":")[0]
+
+print(sunrise, sunset)
+
+time_now = datetime.datetime.now()
+
+print(time_now.hour)
