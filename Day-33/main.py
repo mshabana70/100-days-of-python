@@ -17,8 +17,16 @@ print(response.status_code) # Returns status code
 response.raise_for_status()
 
 # get actual response
-#data = response.json()
+data = response.json()
 
 # We can also use the json as a dictionary and access keys using bracket notation
-data = response.json()['iss_position']['latitude']
-print(data) # Returns latitude of ISS
+#data = response.json()['iss_position']['latitude']
+#print(data) # Returns latitude of ISS
+
+longitude = data['iss_position']['longitude']
+latitude = data['iss_position']['latitude']
+
+# create tuple
+iss_position = (longitude, latitude)
+
+print(iss_position)
