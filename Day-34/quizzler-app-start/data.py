@@ -12,7 +12,10 @@ response = requests.get(url="https://opentdb.com/api.php", params=trivia_paramet
 response.raise_for_status # check for status error
 
 data = response.json()
-print(data)
+
+# Assign questions to question_data
+question_data = data["results"]
+
 
 
 
