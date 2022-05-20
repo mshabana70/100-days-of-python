@@ -15,13 +15,14 @@ class QuizInterface:
         # Create score label
         self.score = 0
         self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR, highlightthickness=0)
-        self.score_label.grid(row=0, column=1)
+        self.score_label.grid(row=0, column=1, pady=20)
 
         # Create canvas
-        self.canvas = Canvas(width=300, height=250)
-        self.question_text = self.canvas.create_text(150, 175, text="SAMPLE QUESTION TEXT GOES HERE", width=270, font=FONT, fill=THEME_COLOR)
+        self.canvas = Canvas(width=300, height=250, bg="white", highlightthickness=0)
+        self.question_text = self.canvas.create_text(150, 125, text="SAMPLE QUESTION TEXT GOES HERE", width=270, font=FONT, fill=THEME_COLOR)
+        self.canvas.grid(row=1, column=0, columnspan=2, pady=20)
 
-
+        # Create 
 
 
 
