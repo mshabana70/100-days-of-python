@@ -19,12 +19,19 @@ class QuizInterface:
 
         # Create canvas
         self.canvas = Canvas(width=300, height=250, bg="white", highlightthickness=0)
-        self.question_text = self.canvas.create_text(150, 125, text="SAMPLE QUESTION TEXT GOES HERE", width=270, font=FONT, fill=THEME_COLOR)
+        self.question_text = self.canvas.create_text(
+            150, 
+            125, 
+            text="SAMPLE QUESTION TEXT GOES HERE", 
+            width=270, 
+            font=FONT, 
+            fill=THEME_COLOR
+        )
         self.canvas.grid(row=1, column=0, columnspan=2, pady=20)
 
         # Create Buttons
-        self.true_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/true.png")
-        self.false_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/false.png")
+        true_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/true.png")
+        false_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/false.png")
 
         self.true_button = Button(image=self.true_img, highlightthickness=0)
         self.true_button.grid(row=2, column=0, pady=20)
