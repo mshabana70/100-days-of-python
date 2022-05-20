@@ -3,9 +3,12 @@
 
 import requests
 
+QUESTION_AMOUNT = 10
+QUESTION_TYPE = "boolean"
+
 trivia_parameters = {
-    "amount": 10,
-    "type" : "boolean"
+    "amount": QUESTION_AMOUNT,
+    "type" : QUESTION_TYPE,
 }
 
 response = requests.get(url="https://opentdb.com/api.php", params=trivia_parameters)
