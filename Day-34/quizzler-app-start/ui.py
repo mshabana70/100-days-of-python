@@ -1,11 +1,14 @@
 from tkinter import *
+from quiz_brain import QuizBrain
 
 THEME_COLOR = "#375362"
 FONT = ("Arial", 20, "italic")
 
 class QuizInterface:
 
-    def __init__(self):
+    def __init__(self, quiz_brain: QuizBrain):
+        self.quiz = quiz_brain
+
         self.window = Tk()
         self.window.title("Quizzler App")
 
@@ -14,7 +17,7 @@ class QuizInterface:
 
         # Create score label
         self.score = 0
-        self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR, highlightthickness=0)
+        self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR, font= ("Arial", 16, "normal"), highlightthickness=0)
         self.score_label.grid(row=0, column=1, pady=20)
 
         # Create canvas
@@ -33,11 +36,17 @@ class QuizInterface:
         true_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/true.png")
         false_img = PhotoImage(file="/Users/mahmoudshabana/Documents/Udemy/100-days-of-python/Day-34/quizzler-app-start/images/false.png")
 
-        self.true_button = Button(image=self.true_img, highlightthickness=0)
+        self.true_button = Button(image=true_img, highlightthickness=0)
         self.true_button.grid(row=2, column=0, pady=20)
 
-        self.false_button = Button(image=self.false_img, highlightthickness=0)
+        self.false_button = Button(image=false_img, highlightthickness=0)
         self.false_button.grid(row=2, column=1, pady=20)
 
+        # Display next_question
+        self.get_next_question()
 
         self.window.mainloop()
+    
+    def get_next_question(self):
+        q_text = self.quiz.next_question()
+        self.canvas.itemconfig(self.question_text, text=q_text)
