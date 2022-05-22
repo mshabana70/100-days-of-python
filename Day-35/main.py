@@ -1,1 +1,1 @@
-# Day 35 - Intermediate
+# Day 35 - Keys, Authentication and Environment Variables: Send sms
