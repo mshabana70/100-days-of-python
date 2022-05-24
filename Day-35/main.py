@@ -11,3 +11,6 @@
 
 # API Key from current weather service
 api_key = "709ce3f5e5bb0c34dc2af53496ed79eb"
+
+# Challenge 1 - Make an API call from python with the One Call API 
+# https://openweathermap.org/api/one-call-3
