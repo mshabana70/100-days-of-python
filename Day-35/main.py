@@ -9,5 +9,5 @@
 # to keep users from gaining access to this data for free is by using
 # a "API Key".
 
-# API Key
+# API Key from current weather service
 api_key = "709ce3f5e5bb0c34dc2af53496ed79eb"
