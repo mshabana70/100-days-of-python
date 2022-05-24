@@ -15,7 +15,20 @@
 import requests
 
 # API Key from current weather service
-api_key = "709ce3f5e5bb0c34dc2af53496ed79eb"
+API_KEY = "709ce3f5e5bb0c34dc2af53496ed79eb"
+MY_LAT = 40.712776
+MY_LONG = -74.005974
+
+# API Parameters
+parameters = {
+    "lat": MY_LAT,
+    "long": MY_LONG,
+    "appid": API_KEY,
+}
+
+# Make request
+
+
 
 
 
