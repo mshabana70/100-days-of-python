@@ -52,13 +52,14 @@ hourly_weather = weather_data["hourly"]
 # create list of weather data for next 12 hours
 half_day_list = [hourly_weather[i]["weather"] for i in range(12)]
 
-# Check if it rains at any 
+# Check if it rains at any point at the half day report
 need_umbrella = False
 
 for i in range(len(half_day_list)):
     if half_day_list[i][0]["id"] < 700:
         need_umbrella = True
 
+# if so, return that the user needs an umbrella
 if need_umbrella:
     print("Bring an umbrella.")
 
