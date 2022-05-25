@@ -46,11 +46,8 @@ weather_data = response.json()
 #
 # If weather id is less than 700, bring an umbrella (snow & rain)
 
-# get list of hourly weather reports
-hourly_weather = weather_data["hourly"]
-
 # create list of weather data for next 12 hours
-half_day_list = [hourly_weather[i]["weather"] for i in range(12)]
+half_day_list = [weather_data["hourly"][i]["weather"] for i in range(12)]
 
 # Check if it rains at any point at the half day report
 need_umbrella = False
