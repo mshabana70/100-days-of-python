@@ -26,8 +26,8 @@ TEST_LONG = -90.048981
 
 # API Parameters
 parameters = {
-    "lat": MY_LAT,
-    "lon": MY_LONG,
+    "lat": TEST_LAT,
+    "lon": TEST_LONG,
     "appid": API_KEY,
     "exclude": "current,minutely,daily",
 }
@@ -48,6 +48,19 @@ weather_data = response.json()
 
 # get list of hourly weather reports
 hourly_weather = weather_data["hourly"]
+
+# create list of weather data for next 12 hours
+half_day_list = [hourly_weather[i]["weather"] for i in range(12)]
+
+# Check if it rains at any 
+need_umbrella = False
+
+for i in range(len(half_day_list)):
+    if half_day_list[i][0]["id"] < 700:
+        need_umbrella = True
+
+if need_umbrella:
+    print("Bring an umbrella.")
 
 
 
