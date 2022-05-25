@@ -46,6 +46,11 @@ weather_data = response.json()
 #
 # If weather id is less than 700, bring an umbrella (snow & rain)
 
+# get list of hourly weather reports
+hourly_weather = weather_data["hourly"]
+
+
+
 
 
 
