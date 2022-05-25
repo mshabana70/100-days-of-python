@@ -14,8 +14,9 @@
 
 import requests
 
-# API Key from current weather service
+# CONSTANTS
 API_KEY = "709ce3f5e5bb0c34dc2af53496ed79eb"
+OWM_URL = "https://api.openweathermap.org/data/2.5/onecall"
 MY_LAT = 40.712776
 MY_LONG = -74.005974
 
@@ -24,11 +25,11 @@ parameters = {
     "lat": MY_LAT,
     "lon": MY_LONG,
     "appid": API_KEY,
-    "exclude": "minutely,daily"
+    "exclude": "minutely,daily",
 }
 
 # Make request
-response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
+response = requests.get(url=OWM_URL, params=parameters)
 
 # return HTTP status codes
 response.raise_for_status()
