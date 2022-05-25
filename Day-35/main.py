@@ -26,8 +26,8 @@ TEST_LONG = -90.048981
 
 # API Parameters
 parameters = {
-    "lat": TEST_LAT,
-    "lon": TEST_LONG,
+    "lat": MY_LAT,
+    "lon": MY_LONG,
     "appid": API_KEY,
     "exclude": "current,minutely,daily",
 }
@@ -59,6 +59,8 @@ for i in range(len(half_day_list)):
 # if so, return that the user needs an umbrella
 if need_umbrella:
     print("Bring an umbrella.")
+else:
+    print("It's a dry day today!")
 
 
 
