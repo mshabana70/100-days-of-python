@@ -22,12 +22,19 @@ MY_LONG = -74.005974
 # API Parameters
 parameters = {
     "lat": MY_LAT,
-    "long": MY_LONG,
+    "lon": MY_LONG,
     "appid": API_KEY,
 }
 
 # Make request
+response = requests.get(url="https://api.openweathermap.org/data/2.5/onecall", params=parameters)
 
+# return HTTP status codes
+response.raise_for_status()
+
+# print response to console
+json_data = response.json()
+print(json_data)
 
 
 
