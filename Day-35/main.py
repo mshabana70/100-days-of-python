@@ -24,6 +24,7 @@ parameters = {
     "lat": MY_LAT,
     "lon": MY_LONG,
     "appid": API_KEY,
+    "exclude": "minutely,daily"
 }
 
 # Make request
