@@ -20,23 +20,32 @@ OWM_URL = "https://api.openweathermap.org/data/2.5/onecall"
 MY_LAT = 40.712776
 MY_LONG = -74.005974
 
+# Test
+TEST_LAT = 35.149532
+TEST_LONG = -90.048981
+
 # API Parameters
 parameters = {
     "lat": MY_LAT,
     "lon": MY_LONG,
     "appid": API_KEY,
-    "exclude": "minutely,daily",
+    "exclude": "current,minutely,daily",
 }
 
 # Make request
 response = requests.get(url=OWM_URL, params=parameters)
 
-# return HTTP status codes
+# raise HTTP status codes
 response.raise_for_status()
 
 # print response to console
-json_data = response.json()
-print(json_data)
+weather_data = response.json()
+#print(json_data)
+
+# Challenge 2 - Check if it will rain in the next 12 hours
+#
+# If weather id is less than 700, bring an umbrella (snow & rain)
+
 
 
 
