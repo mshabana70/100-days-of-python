@@ -13,12 +13,17 @@
 # https://openweathermap.org/api/one-call-3
 
 import requests
+from twilio.rest import Client
 
 # CONSTANTS
 API_KEY = "709ce3f5e5bb0c34dc2af53496ed79eb"
 OWM_URL = "https://api.openweathermap.org/data/2.5/onecall"
 MY_LAT = 40.712776
 MY_LONG = -74.005974
+
+# TWILIO CONSTANTS
+account_sid = "AC6b18ea2b02ea95a18ea6b6526b1cae5f"
+auth_token = "438edc053038e4659c1ba5d6f8097379"
 
 # Test
 TEST_LAT = 35.149532
@@ -58,9 +63,18 @@ for i in range(len(half_day_list)):
 
 # if so, return that the user needs an umbrella
 if need_umbrella:
-    print("Bring an umbrella.")
-else:
-    print("It's a dry day today!")
+    # Create twilio message 
+    client = Client(account_sid, auth_token)
+    message = client.messages \
+                .create(
+                     body="It's going to rain today. Remember to bring an umbrella ⛈☔️",
+                     from_="+12058582732",
+                     to="+16464278840"
+                 )
+
+    # Make sure message was set successfully
+    print(message.status)
+    
 
 
 
