@@ -12,18 +12,19 @@
 # Challenge 1 - Make an API call from python with the One Call API 
 # https://openweathermap.org/api/one-call-3
 
+import os
 import requests
 from twilio.rest import Client
 
 # CONSTANTS
-API_KEY = "709ce3f5e5bb0c34dc2af53496ed79eb"
+API_KEY = os.environ.get("OMW_API_KEY") # environment variables
 OWM_URL = "https://api.openweathermap.org/data/2.5/onecall"
 MY_LAT = 40.712776
 MY_LONG = -74.005974
 
 # TWILIO CONSTANTS
 account_sid = "AC6b18ea2b02ea95a18ea6b6526b1cae5f"
-auth_token = "438edc053038e4659c1ba5d6f8097379"
+auth_token = os.environ.get("TWILIO_AUTH_KEY")
 
 # Test
 TEST_LAT = 35.149532
@@ -31,8 +32,8 @@ TEST_LONG = -90.048981
 
 # API Parameters
 parameters = {
-    "lat": MY_LAT,
-    "lon": MY_LONG,
+    "lat": TEST_LAT,
+    "lon": TEST_LONG,
     "appid": API_KEY,
     "exclude": "current,minutely,daily",
 }
