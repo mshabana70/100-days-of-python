@@ -4,7 +4,7 @@ import datetime
 
 # STOCKS CONSTANTS
 STOCK = "TSLA"
-COMPANY_NAME = "Tesla Inc"
+COMPANY_NAME = "Tesla"
 STOCK_API_KEY = os.environ.get("STOCK_API_KEY") # replace with custom api key
 STOCK_URL = "https://www.alphavantage.co/query"
 
@@ -59,7 +59,10 @@ news_paramters = {
     "apiKey": NEWS_API_KEY,
 }
 
-new_response = requests.get(url=NEWS_URL, params=news_paramters)
+news_response = requests.get(url=NEWS_URL, params=news_paramters)
+news_response.raise_for_status()
+news_data = news_response.json()
+print(news_data)
 
 
 ## STEP 3: Use https://www.twilio.com
