@@ -11,7 +11,7 @@ STOCK_URL = "https://www.alphavantage.co/query"
 
 # NEWS CONSTANTS
 NEWS_API_KEY = os.environ.get("NEWS_API_KEY") # replace with custom api key
-NEWS_URL = "https://newsapi.org/v2/top-headlines" # top headlines
+NEWS_URL = "https://newsapi.org/v2/everything" # every article
 
 # TWILIO CONSTANTS
 TWILIO_ACCOUNT_SID = "AC6b18ea2b02ea95a18ea6b6526b1cae5f"
@@ -64,7 +64,7 @@ news_response.raise_for_status()
 
 # Get top 3 news headlines regarding or company's stock
 news_data = news_response.json()
-top_news_stories = [news_data["articles"][i] for i in range(3)]
+top_news_stories = news_data["articles"][:3]
 
 # # If percent change in price is 5% or greater, print 'Get News'
 # if (percent_change >= 5):
