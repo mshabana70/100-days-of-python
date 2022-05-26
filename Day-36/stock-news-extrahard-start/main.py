@@ -1,6 +1,7 @@
 import requests
 import os
 import datetime
+from twilio.rest import Client
 
 # STOCKS CONSTANTS
 STOCK = "TSLA"
