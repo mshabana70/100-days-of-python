@@ -2,10 +2,17 @@ import requests
 import os
 import datetime
 
+# STOCKS CONSTANTS
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 STOCK_API_KEY = os.environ.get("STOCK_API_KEY") # replace with custom api key
 STOCK_URL = "https://www.alphavantage.co/query"
+
+# NEWS CONSTANTS
+NEWS_API_KEY = os.environ.get("NEWS_API_KEY") # replace with custom api key
+NEWS_URL = "https://newsapi.org/v2/top-headlines" # top headlines
+
+# TWILIO CONSTANTS
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -45,11 +52,15 @@ if (percent_change >= 5):
 else:
     print("Nothing new to report")
 
-
-
-
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+news_paramters = {
+    "q": COMPANY_NAME,
+    "apiKey": NEWS_API_KEY,
+}
+
+new_response = requests.get(url=NEWS_URL, params=news_paramters)
+
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
