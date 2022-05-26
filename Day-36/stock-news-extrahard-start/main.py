@@ -75,7 +75,7 @@ top_news_stories = [news_data["articles"][i] for i in range(3)]
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number.
-for i in range(len(top_news_stories) - 1):
+for i in range(len(top_news_stories)):
     article_headline = top_news_stories[i]["title"]
     article_description = top_news_stories[i]["description"]
     article_url = top_news_stories[i]["url"]
@@ -85,14 +85,14 @@ for i in range(len(top_news_stories) - 1):
         if (percent_change > 0):
             message = client.messages \
                         .create(
-                            body=f"{STOCK}: 🔺{percent_change}%\nHeadline: {article_headline}\nBrief: {article_description}\nRead More: {article_url}",
+                            body=f"{STOCK}: 🔺{percent_change}%\n\nHeadline: {article_headline}\n\nBrief: {article_description}\n\nRead More: {article_url}",
                             from_="+12058582732",
                             to="+16464278840"
                         )
         else:
             message = client.messages \
                         .create(
-                            body=f"{STOCK}: 🔻{percent_change}%\nHeadline: {article_headline}\nBrief: {article_description}\nRead More: {article_url}",
+                            body=f"{STOCK}: 🔻{percent_change}%\n\nHeadline: {article_headline}\n\nBrief: {article_description}\n\nRead More: {article_url}",
                             from_="+12058582732",
                             to="+16464278840"
                         )
