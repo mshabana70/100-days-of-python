@@ -36,8 +36,14 @@ day_before_stock = stock_data["Time Series (Daily)"][day_before_date]
 # Calculate percentage change between yesterday's close price to the day before
 yesterday_price = float(yesterday_stock["4. close"])
 day_before_price = float(day_before_stock["4. close"])
-percent_change = round(abs(day_before_price - yesterday_price) / day_before_price, 2)
+percent_change = round(abs(day_before_price - yesterday_price) / day_before_price, 2) # using round() for testing
+percent_change *= 100 # convert to ones place
 
+# If percent change in price is 5% or greater, print 'Get News'
+if (percent_change >= 5):
+    print("Get News")
+else:
+    print("Nothing new to report")
 
 
 
