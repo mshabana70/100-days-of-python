@@ -48,7 +48,11 @@ yesterday_price = float(yesterday_stock["4. close"])
 day_before_price = float(day_before_stock["4. close"])
 percent_change = round((yesterday_price - day_before_price) / yesterday_price, 2) # using round() for testing
 percent_change *= 100 # convert to ones place
-#print(percent_change)
+up_down = None
+if percent_change > 0:
+    up_down = "🔺"
+elif percent_change < 0:
+    up_down = "🔻"
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
@@ -66,13 +70,6 @@ news_response.raise_for_status()
 news_data = news_response.json()
 top_news_stories = news_data["articles"][:3]
 
-# # If percent change in price is 5% or greater, print 'Get News'
-# if (percent_change >= 5):
-#     #print("Get News")
-#     print(top_news_stories)
-# else:
-#     print("Nothing new to report")
-
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number.
 for i in range(len(top_news_stories)):
@@ -82,32 +79,13 @@ for i in range(len(top_news_stories)):
 
     if (percent_change >= 5) or (percent_change <= -5):
         client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_KEY)
-        if (percent_change > 0):
-            message = client.messages \
-                        .create(
-                            body=f"{STOCK}: 🔺{percent_change}%\n\nHeadline: {article_headline}\n\nBrief: {article_description}\n\nRead More: {article_url}",
-                            from_="+12058582732",
-                            to="+16464278840"
-                        )
-        else:
-            message = client.messages \
-                        .create(
-                            body=f"{STOCK}: 🔻{percent_change}%\n\nHeadline: {article_headline}\n\nBrief: {article_description}\n\nRead More: {article_url}",
-                            from_="+12058582732",
-                            to="+16464278840"
-                        )
+        message = client.messages \
+                    .create(
+                        body=f"{STOCK}: {up_down}{percent_change}%\n\nHeadline: {article_headline}\n\nBrief: {article_description}\n\nRead More: {article_url}",
+                        from_="+12058582732",
+                        to="+16464278840"
+                    )
     # Make sure the message was sent successfully
     print(message.status)
 
-
-#Optional: Format the SMS message like this: 
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
 
