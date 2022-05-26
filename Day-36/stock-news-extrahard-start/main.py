@@ -14,6 +14,8 @@ NEWS_API_KEY = os.environ.get("NEWS_API_KEY") # replace with custom api key
 NEWS_URL = "https://newsapi.org/v2/top-headlines" # top headlines
 
 # TWILIO CONSTANTS
+TWILIO_ACCOUNT_SID = "AC6b18ea2b02ea95a18ea6b6526b1cae5f"
+TWILIO_AUTH_KEY = os.environ.get("TWILIO_AUTH_KEY")
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -63,12 +65,12 @@ news_response.raise_for_status()
 news_data = news_response.json()
 top_news_stories = [news_data["articles"][i] for i in range(3)]
 
-# If percent change in price is 5% or greater, print 'Get News'
-if (percent_change >= 5):
-    #print("Get News")
-    print(top_news_stories)
-else:
-    print("Nothing new to report")
+# # If percent change in price is 5% or greater, print 'Get News'
+# if (percent_change >= 5):
+#     #print("Get News")
+#     print(top_news_stories)
+# else:
+#     print("Nothing new to report")
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
