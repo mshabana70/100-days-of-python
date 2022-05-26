@@ -46,12 +46,6 @@ day_before_price = float(day_before_stock["4. close"])
 percent_change = round(abs(day_before_price - yesterday_price) / day_before_price, 2) # using round() for testing
 percent_change *= 100 # convert to ones place
 
-# If percent change in price is 5% or greater, print 'Get News'
-if (percent_change >= 5):
-    print("Get News")
-else:
-    print("Nothing new to report")
-
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 news_paramters = {
@@ -60,10 +54,20 @@ news_paramters = {
 }
 
 news_response = requests.get(url=NEWS_URL, params=news_paramters)
-news_response.raise_for_status()
-news_data = news_response.json()
-print(news_data)
 
+# Raise exception for invalid response codes
+news_response.raise_for_status()
+
+# Get top 3 news headlines regarding or company's stock
+news_data = news_response.json()
+top_news_stories = [news_data["articles"][i] for i in range(3)]
+
+# If percent change in price is 5% or greater, print 'Get News'
+if (percent_change >= 5):
+    #print("Get News")
+    print(top_news_stories)
+else:
+    print("Nothing new to report")
 
 ## STEP 3: Use https://www.twilio.com
 # Send a seperate message with the percentage change and each article's title and description to your phone number. 
