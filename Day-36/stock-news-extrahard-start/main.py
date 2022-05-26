@@ -77,7 +77,7 @@ for i in range(len(top_news_stories)):
     article_description = top_news_stories[i]["description"]
     article_url = top_news_stories[i]["url"]
 
-    if (percent_change >= 5) or (percent_change <= -5):
+    if (abs(percent_change) >= 5):
         client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_KEY)
         message = client.messages \
                     .create(
