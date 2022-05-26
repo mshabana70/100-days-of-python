@@ -46,8 +46,9 @@ day_before_stock = stock_data["Time Series (Daily)"][day_before_date]
 # Calculate percentage change between yesterday's close price to the day before
 yesterday_price = float(yesterday_stock["4. close"])
 day_before_price = float(day_before_stock["4. close"])
-percent_change = round(abs(day_before_price - yesterday_price) / day_before_price, 2) # using round() for testing
+percent_change = round((yesterday_price - day_before_price) / yesterday_price, 2) # using round() for testing
 percent_change *= 100 # convert to ones place
+#print(percent_change)
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
