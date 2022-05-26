@@ -74,7 +74,30 @@ top_news_stories = [news_data["articles"][i] for i in range(3)]
 #     print("Nothing new to report")
 
 ## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
+# Send a seperate message with the percentage change and each article's title and description to your phone number.
+for i in range(len(top_news_stories) - 1):
+    article_headline = top_news_stories[i]["title"]
+    article_description = top_news_stories[i]["description"]
+    article_url = top_news_stories[i]["url"]
+
+    if (percent_change >= 5) or (percent_change <= -5):
+        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_KEY)
+        if (percent_change > 0):
+            message = client.messages \
+                        .create(
+                            body=f"{STOCK}: 🔺{percent_change}%\nHeadline: {article_headline}\nBrief: {article_description}\nRead More: {article_url}",
+                            from_="+12058582732",
+                            to="+16464278840"
+                        )
+        else:
+            message = client.messages \
+                        .create(
+                            body=f"{STOCK}: 🔻{percent_change}%\nHeadline: {article_headline}\nBrief: {article_description}\nRead More: {article_url}",
+                            from_="+12058582732",
+                            to="+16464278840"
+                        )
+    # Make sure the message was sent successfully
+    print(message.status)
 
 
 #Optional: Format the SMS message like this: 
