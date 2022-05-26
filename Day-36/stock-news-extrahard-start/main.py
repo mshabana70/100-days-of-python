@@ -1,9 +1,23 @@
+import requests
+import os
+
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 STOCK_API_KEY = "D3TOUPNM675LM8QI"
+STOCK_URL = "https://www.alphavantage.co/query"
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+stock_parameters = {
+    "function": "TIME_SERIES_DAILY",
+    "symbol": STOCK,
+    "datatype": "json",
+    "apikey": STOCK_API_KEY,
+}
+
+stock_response = requests.get(url=STOCK_URL, params=stock_parameters)
+
+
 
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
