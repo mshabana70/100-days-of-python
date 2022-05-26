@@ -11,11 +11,18 @@ STOCK_URL = "https://www.alphavantage.co/query"
 stock_parameters = {
     "function": "TIME_SERIES_DAILY",
     "symbol": STOCK,
+    "outsize": "compact",
     "datatype": "json",
     "apikey": STOCK_API_KEY,
 }
 
 stock_response = requests.get(url=STOCK_URL, params=stock_parameters)
+
+# Raise exception for invalid error codes
+stock_response.raise_for_status()
+
+# get json data
+stock_data = stock_response.json()
 
 
 
