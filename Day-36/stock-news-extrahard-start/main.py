@@ -34,9 +34,11 @@ yesterday_stock = stock_data["Time Series (Daily)"][yesterday_date]
 day_before_stock = stock_data["Time Series (Daily)"][day_before_date]
 
 # Calculate percentage change between yesterday's close price to the day before
+yesterday_price = float(yesterday_stock["4. close"])
+day_before_price = float(day_before_stock["4. close"])
+percent_change = round(abs(day_before_price - yesterday_price) / day_before_price, 2)
 
-percent_change = abs(float(day_before_stock["4. close"]) - float(yesterday_stock["4. close"])) / float(day_before_stock["4. close"])
-print(percent_change)
+
 
 
 
