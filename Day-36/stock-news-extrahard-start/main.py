@@ -25,14 +25,18 @@ stock_response.raise_for_status()
 # get json data
 stock_data = stock_response.json()
 
-# Get today's date in "YYYY-MM-DD" format
-today_date = str(datetime.datetime.now() - datetime.timedelta(days=1)).split(" ")[0]
-yesterday_date = str(datetime.datetime.now() - datetime.timedelta(days=2)).split(" ")[0]
+# Get today's & yesterday's date in "YYYY-MM-DD" format
+yesterday_date = str(datetime.datetime.now() - datetime.timedelta(days=1)).split(" ")[0]
+day_before_date = str(datetime.datetime.now() - datetime.timedelta(days=2)).split(" ")[0]
 
 # Get stock_data for today
-today_stock = stock_data["Time Series (Daily)"][today_date]
 yesterday_stock = stock_data["Time Series (Daily)"][yesterday_date]
-print(today_stock, yesterday_stock)
+day_before_stock = stock_data["Time Series (Daily)"][day_before_date]
+
+# Calculate percentage change between yesterday's close price to the day before
+
+percent_change = abs(float(day_before_stock["4. close"]) - float(yesterday_stock["4. close"])) / float(day_before_stock["4. close"])
+print(percent_change)
 
 
 
