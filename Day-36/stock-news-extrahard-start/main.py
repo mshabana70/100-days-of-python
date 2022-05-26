@@ -1,9 +1,10 @@
 import requests
 import os
+import datetime
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-STOCK_API_KEY = os.environ.get("STOCK_API_KEY")
+STOCK_API_KEY = os.environ.get("STOCK_API_KEY") # replace with custom api key
 STOCK_URL = "https://www.alphavantage.co/query"
 
 ## STEP 1: Use https://www.alphavantage.co
@@ -23,7 +24,15 @@ stock_response.raise_for_status()
 
 # get json data
 stock_data = stock_response.json()
-print(stock_data)
+
+# Get today's date in "YYYY-MM-DD" format
+today_date = str(datetime.datetime.now() - datetime.timedelta(days=1)).split(" ")[0]
+yesterday_date = str(datetime.datetime.now() - datetime.timedelta(days=2)).split(" ")[0]
+
+# Get stock_data for today
+today_stock = stock_data["Time Series (Daily)"][today_date]
+yesterday_stock = stock_data["Time Series (Daily)"][yesterday_date]
+print(today_stock, yesterday_stock)
 
 
 
