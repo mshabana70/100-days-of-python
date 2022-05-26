@@ -3,7 +3,7 @@ import os
 
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-STOCK_API_KEY = "D3TOUPNM675LM8QI"
+STOCK_API_KEY = os.environ.get("STOCK_API_KEY")
 STOCK_URL = "https://www.alphavantage.co/query"
 
 ## STEP 1: Use https://www.alphavantage.co
@@ -23,6 +23,7 @@ stock_response.raise_for_status()
 
 # get json data
 stock_data = stock_response.json()
+print(stock_data)
 
 
 
