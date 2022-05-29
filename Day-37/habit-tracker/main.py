@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 PIXELA_USERNAME = "mshabana70"
 PIXELA_TOKEN = "isjaogoy328o3896sgh"
@@ -42,11 +43,15 @@ header = {
 
 PIXEL_ENDPOINT = f"{GRAPH_ENDPOINT}/{PIXELA_GRAPH_ID}"
 
+today = datetime.now()
+# print(today.strftime("%Y%m%d"))
+
+
 pixel_config = {
-    "date": "20220529",
-    "quantity": "2",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "4.5",
 }
 
-response = requests.post(url=PIXEL_ENDPOINT, json=pixel_config, headers=header)
-print(response.text)
+# response = requests.post(url=PIXEL_ENDPOINT, json=pixel_config, headers=header)
+# print(response.text)
 
