@@ -44,11 +44,12 @@ header = {
 PIXEL_ENDPOINT = f"{GRAPH_ENDPOINT}/{PIXELA_GRAPH_ID}"
 
 today = datetime.now()
+GRAPH_DATE = today.strftime("%Y%m%d")
 # print(today.strftime("%Y%m%d"))
 
 
 pixel_config = {
-    "date": today.strftime("%Y%m%d"),
+    "date": GRAPH_DATE,
     "quantity": "4.5",
 }
 
@@ -57,4 +58,13 @@ pixel_config = {
 # print(response.text)
 
 # Update a pixel using put
+
+UPDATE_PIXEL_ENDPOINT = f"{PIXEL_ENDPOINT}/{GRAPH_DATE}"
+
+update_pixel = {
+    "quantity": "7.5",
+}
+
+response = requests.put(url=UPDATE_PIXEL_ENDPOINT, json=update_pixel, headers=header)
+print(response.text)
 
