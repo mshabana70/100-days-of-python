@@ -9,4 +9,5 @@ user_params = {
     "notMinor": "yes",
 }
 
-requests.post()
+# passing in json data for user parameters
+requests.post(url=PIXELA_ENDPOINT, json=user_params)
