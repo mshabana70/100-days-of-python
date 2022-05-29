@@ -19,14 +19,21 @@ user_params = {
 GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/{PIXELA_USERNAME}/graphs"
 
 graph_config = {
-    "id": "graph1",
+    "id": "graph123",
     "name": "Running Graph",
     "unit": "Km",
     "type": "float",
     "color": "ajisai",
 }
 
-request.post()
+# Headers are more secure than parameters
+# (how to authenticate using headers)
+header = {
+    "X-USER-TOKEN": PIXELA_TOKEN
+}
+
+response = requests.post(url=GRAPH_ENDPOINT, json=graph_config, headers=header)
+print(response.text)
 
 
 
