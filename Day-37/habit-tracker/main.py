@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 
+# Habit tracker link "https://pixe.la/v1/users/mshabana70/graphs/graph123.html"
+
 PIXELA_USERNAME = "mshabana70"
 PIXELA_TOKEN = "isjaogoy328o3896sgh"
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
@@ -50,7 +52,7 @@ GRAPH_DATE = today.strftime("%Y%m%d")
 
 pixel_config = {
     "date": GRAPH_DATE,
-    "quantity": "4.5",
+    "quantity": input("How many kilometers did you run today?"),
 }
 
 # Post a pixel on graph
