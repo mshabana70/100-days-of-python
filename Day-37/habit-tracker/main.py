@@ -16,4 +16,17 @@ user_params = {
 # response = requests.post(url=PIXELA_ENDPOINT, json=user_params)
 # print(response.text)
 
-GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/"
+GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/{PIXELA_USERNAME}/graphs"
+
+graph_config = {
+    "id": "graph1",
+    "name": "Running Graph",
+    "unit": "Km",
+    "type": "float",
+    "color": "ajisai",
+}
+
+request.post()
+
+
+
