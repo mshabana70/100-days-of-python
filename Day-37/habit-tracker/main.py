@@ -52,6 +52,9 @@ pixel_config = {
     "quantity": "4.5",
 }
 
+# Post a pixel on graph
 # response = requests.post(url=PIXEL_ENDPOINT, json=pixel_config, headers=header)
 # print(response.text)
+
+# Update a pixel using put
 
