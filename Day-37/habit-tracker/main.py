@@ -1,10 +1,12 @@
 import requests
 
+PIXELA_USERNAME = "mshabana70"
+PIXELA_TOKEN = "isjaogoy328o3896sgh"
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
 
 user_params = {
-    "token": "isjaogoy328o3896sgh",
-    "username": "mshabana70",
+    "token": PIXELA_TOKEN,
+    "username": PIXELA_USERNAME,
     "agreeTermsOfService": "yes",
     "notMinor": "yes",
 }
@@ -13,3 +15,5 @@ user_params = {
 # Comment out code below once user is created
 # response = requests.post(url=PIXELA_ENDPOINT, json=user_params)
 # print(response.text)
+
+GRAPH_ENDPOINT = f"{PIXELA_ENDPOINT}/"
