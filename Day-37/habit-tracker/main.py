@@ -65,6 +65,12 @@ update_pixel = {
     "quantity": "7.5",
 }
 
-response = requests.put(url=UPDATE_PIXEL_ENDPOINT, json=update_pixel, headers=header)
-print(response.text)
+# Comment out once you updated pixel
+# response = requests.put(url=UPDATE_PIXEL_ENDPOINT, json=update_pixel, headers=header)
+# print(response.text)
 
+DELETE_PIXEL_ENDPOINT = f"{PIXEL_ENDPOINT}/20220528"
+
+# Comment out once deleted pixel is successful
+# response = requests.delete(url=DELETE_PIXEL_ENDPOINT, headers=header)
+# print(response.text)
