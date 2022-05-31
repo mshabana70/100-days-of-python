@@ -35,4 +35,8 @@ request_body = {
 # request body must be in json format
 exercise_response = requests.post(url=exercise_endpoint, json=request_body, headers=request_headers)
 print(exercise_response.raise_for_status())
-print(exercise_response.text)
+
+# Grab returned response
+exercise_data = exercise_response.json()
+
+
