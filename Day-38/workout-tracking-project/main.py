@@ -44,8 +44,8 @@ exercise_data = exercise_response.json()["exercises"]
 current = datetime.now()
 current_date = current.strftime("%d/%m/%Y")
 current_time = current.strftime("%H:%M:%S")
-print(current_date)
-print(current_time)
+# print(current_date)
+# print(current_time)
 
 # for every exercise:
 for exercise in exercise_data:
