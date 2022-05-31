@@ -41,8 +41,8 @@ print(exercise_response.raise_for_status())
 exercise_data = exercise_response.json()["exercises"]
 
 # Get current date and time
-current = datetime().now()
-current_date = current.strftime("%d%m%Y")
+current = datetime.now()
+current_date = current.strftime("%d/%m/%Y")
 current_time = current.strftime("%H:%M:%S")
 print(current_date)
 print(current_time)
