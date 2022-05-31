@@ -17,6 +17,7 @@ request_headers = {
     "Content-Type": "application/json",
 }
 
+# User input
 exercise_query = str(input("How did you exercise today?"))
 user_gender = str(input("What is your gender? (male/female)"))
 user_weight = float(input("How much do you weigh? (kg)"))
