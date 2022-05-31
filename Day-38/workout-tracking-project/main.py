@@ -1,6 +1,7 @@
 # Day 38 Project - Workout Tracking
 import requests
 import os
+from datetime import datetime
 
 # APP CONSTANTS
 WORKOUT_APP_ID = os.environ.get("WORKOUT_APP_ID")
@@ -37,6 +38,23 @@ exercise_response = requests.post(url=exercise_endpoint, json=request_body, head
 print(exercise_response.raise_for_status())
 
 # Grab returned response
-exercise_data = exercise_response.json()
+exercise_data = exercise_response.json()["exercises"]
+
+# Get current date and time
+current = datetime().now()
+current_date = current.strftime("%d%m%Y")
+current_time = current.strftime("%H:%M:%S")
+print(current_date)
+print(current_time)
+
+# for every exercise:
+for exercise in exercise_data:
+
+    # Format data for spreadsheet
+    exercise_name = exercise["name"]
+    exercise_duration = exercise["duration_min"]
+    exercise_calories = exercise["nf_calories"]
+
+    #print(f"Name: {exercise_name}, duration: {exercise_duration}, calories burned: {exercise_calories}")
 
 
