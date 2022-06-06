@@ -15,7 +15,7 @@ class DataManager:
         }
         self.response = ""
     
-    def getCities(self):
+    def get_cities(self):
         self.response = requests.request('GET', url=self.endpoint, headers=self.sheety_header)
         return self.response.text
 
@@ -23,4 +23,4 @@ class DataManager:
     pass
 
 dm = DataManager()
-print(dm.getCities())
+print(dm.get_cities())
