@@ -3,6 +3,7 @@ import os
 
 SHEETY_ENDPOINT = os.environ.get("SHEETY_ENDPOINT")
 SHEETY_AUTH = os.environ.get("SHEETY_AUTH")
+FLIGHT_AUTH = os.environ.get("FLIGHT_AUTH")
 
 
 class DataManager:
@@ -17,7 +18,11 @@ class DataManager:
     
     def get_data(self):
         self.response = requests.request('GET', url=self.endpoint, headers=self.sheety_header)
-        return self.response.text
+        return self.response.json()
+    
+    def get_IATA(self):
+        
+
 
 
     pass
