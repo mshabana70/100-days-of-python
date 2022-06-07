@@ -36,6 +36,8 @@ class DataManager:
         self.response = request.post(url=location_endpoint, params=flight_parameters)
         return self.response.json()
     
-    
+    def add_IATA(self):
+        
+
 
     pass
