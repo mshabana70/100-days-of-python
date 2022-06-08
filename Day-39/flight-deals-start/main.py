@@ -2,8 +2,13 @@
 
 from data_manager import DataManager
 
-
+# Get Data from our google spread sheets
 dt = DataManager()
-
 sheet_data = dt.get_data()
-print(sheet_data)
+
+# Check if IATA codes exist in our data
+for city in sheet_data:
+    if city["iataCode"] is not None:
+        print(city)
+    else:
+        
