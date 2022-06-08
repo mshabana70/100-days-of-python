@@ -1,5 +1,6 @@
 import requests
 import os
+from pprint import pprint
 
 SHEETY_ENDPOINT = os.environ.get("SHEETY_ENDPOINT")
 SHEETY_AUTH = os.environ.get("SHEETY_AUTH")
@@ -37,7 +38,9 @@ class DataManager:
         return self.response.json()
     
     def add_IATA(self):
-        
+
 
 
     pass
+
+
