@@ -23,6 +23,14 @@ class DataManager:
         return self.response.json()["prices"]
     
     def update_data(self, column, value):
+        '''Update a record in our Flight sheet'''
+        post_params = {
+            "prices": {
+                f"{column}": f"{value}"
+            }
+        }
+        self.response = requests.post(url=self.endpoint, headers=self.sheety_header, json=post_params)
+        return self.response.json()
 
     
     # def get_IATA(self):

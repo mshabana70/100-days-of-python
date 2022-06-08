@@ -11,4 +11,6 @@ for city in sheet_data:
     if city["iataCode"] is not None:
         print(city)
     else:
-        
+        sheet_data = sheet_data.update_data("iataCode", "TESTING")
+
+print(sheet_data)
