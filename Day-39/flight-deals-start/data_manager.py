@@ -20,7 +20,7 @@ class DataManager:
     def get_data(self):
         '''Get all records in our Flight sheet'''
         self.response = requests.get(url=self.endpoint, headers=self.sheety_header)
-        return self.response.json()
+        return self.response.json()["prices"]
     
     def get_IATA(self):
         '''Returns the IATA of each city in our sheets'''
@@ -37,10 +37,6 @@ class DataManager:
         self.response = request.post(url=location_endpoint, params=flight_parameters)
         return self.response.json()
     
-    def add_IATA(self):
 
-
-
-    pass
 
 
