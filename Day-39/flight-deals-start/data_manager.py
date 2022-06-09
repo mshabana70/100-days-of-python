@@ -31,7 +31,7 @@ class DataManager:
                 "lowestPrice": lowestPrice
             }
         }
-        self.response = requests.post(url=self.endpoint, headers=self.sheety_header, json=post_params)
+        self.response = requests.put(url=self.endpoint, headers=self.sheety_header, json=post_params)
         return self.response.json()
 
     
