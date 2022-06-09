@@ -31,7 +31,7 @@ class DataManager:
                 "lowestPrice": dict["lowestPrice"]
             }
         }
-        self.response = requests.put(url=f"self.endpoint{dict['id']}", headers=self.sheety_header, json=put_params)
+        self.response = requests.put(url=f"{self.endpoint}/{dict['id']}", headers=self.sheety_header, json=put_params)
         return self.response.json()
 
     
