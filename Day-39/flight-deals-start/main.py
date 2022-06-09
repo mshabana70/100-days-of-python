@@ -13,4 +13,7 @@ for city in sheet_data:
     if city["iataCode"] != "":
         print(city)
     else:
-        
+        iataCode = fs.get_IATA(city["city"])
+        sheet_data = dt.update_data(city["city"], iataCode, city["lowestPrice"])
+
+print(sheet_data)

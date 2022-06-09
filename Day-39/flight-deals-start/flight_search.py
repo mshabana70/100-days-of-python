@@ -11,6 +11,6 @@ class FlightSearch:
         self.city = ""
         self.endpoint = FLIGHT_URL
     
-    def get_IATA(self, city):
-        
+    def get_IATA(self, city_name):
+        return "TESTING"
 

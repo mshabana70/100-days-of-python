@@ -27,8 +27,8 @@ class DataManager:
         post_params = {
             "price": {
                 "city": cityValue,
-                "iata code": iataValue,
-                "lowest price": lowestPrice
+                "iataCode": iataValue,
+                "lowestPrice": lowestPrice
             }
         }
         self.response = requests.post(url=self.endpoint, headers=self.sheety_header, json=post_params)
