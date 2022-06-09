@@ -12,6 +12,6 @@ class FlightSearch:
         self.endpoint = FLIGHT_URL
     
     def get_IATA(self, city_name):
-        '''
+        '''Get IATA Code from Tequila Flight 
         return "TESTING"
 
