@@ -17,4 +17,7 @@ for city in sheet_data:
         city["iataCode"] = iataCode
 
 for row in sheet_data:
-    response = sheet
+    response = dt.update_data(row)
+
+sheet_data = dt.get_data()
+print(sheet_data)
