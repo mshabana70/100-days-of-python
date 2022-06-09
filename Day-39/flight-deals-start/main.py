@@ -14,8 +14,7 @@ for city in sheet_data:
         print(city)
     else:
         iataCode = fs.get_IATA(city["city"])
-        dt.update_data(city["city"], iataCode, city["lowestPrice"])
+        city["iataCode"] = iataCode
 
-sheet_data = dt.get_data()
-
-print(sheet_data)
+for row in sheet_data:
+    response = sheet
