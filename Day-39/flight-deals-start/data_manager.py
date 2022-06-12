@@ -24,16 +24,14 @@ class DataManager:
     
     def update_data_codes(self):
         '''Update a record in our Flight sheet'''
-
-        put_params = {
-            "price": {
-                "city": dict["city"],
-                "iataCode": dict["iataCode"],
-                "lowestPrice": dict["lowestPrice"]
+        for city in self.data:
+            put_params = {
+                "price": {
+                    "iataCode": city["iataCode"],
+                }
             }
-        }
-        self.response = requests.put(url=f"{self.endpoint}/{dict['id']}", headers=self.sheety_header, json=put_params)
-        return self.response.json()
+            response = requests.put(url=f"{self.endpoint}/{dict['id']}", headers=self.sheety_header, json=put_params)
+            return response.text
 
     
     # def get_IATA(self):
