@@ -22,8 +22,9 @@ class DataManager:
         self.data = response.json()["prices"]
         return self.data
     
-    def update_data(self, dict):
+    def update_data_codes(self):
         '''Update a record in our Flight sheet'''
+
         put_params = {
             "price": {
                 "city": dict["city"],

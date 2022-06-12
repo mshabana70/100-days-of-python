@@ -13,5 +13,6 @@ class FlightSearch:
     
     def get_IATA(self, city_name):
         '''Get IATA Code from Tequila Flight Search API'''
-        return "Code from Flight Search"
+        code = "TESTING"
+        return code
 
