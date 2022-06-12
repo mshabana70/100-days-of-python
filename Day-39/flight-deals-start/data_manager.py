@@ -11,7 +11,6 @@ class DataManager:
     #This class is responsible for talking to the Google Sheet.
 
     def __init__(self):
-        self.endpoint = SHEETY_ENDPOINT
         self.sheety_header = {
             "Authorization": f"Bearer {SHEETY_AUTH}"
         }
