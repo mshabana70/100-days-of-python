@@ -27,10 +27,10 @@ class DataManager:
         for city in self.data:
             put_params = {
                 "price": {
-                    "iataCode": city["iataCode"],
+                    "iataCode": city["iataCode"]
                 }
             }
-            response = requests.put(url=f"{SHEETY_ENDPOINT}/{dict['id']}", headers=self.sheety_header, json=put_params)
+            response = requests.put(url=f"{SHEETY_ENDPOINT}/{city['id']}", headers=self.sheety_header, json=put_params)
             print(response.text)
 
     
