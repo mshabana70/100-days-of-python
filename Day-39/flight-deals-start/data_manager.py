@@ -14,11 +14,12 @@ class DataManager:
         self.sheety_header = {
             "Authorization": f"Bearer {SHEETY_AUTH}"
         }
-        self.response = ""
+        self.data = {}
     
     def get_data(self):
         '''Get all records in our Flight sheet'''
-        self.response = requests.get(url=self.endpoint, headers=self.sheety_header)
+        response = requests.get(url=self.endpoint, headers=self.sheety_header)
+        self.data = 
         return self.response.json()["prices"]
     
     def update_data(self, dict):
