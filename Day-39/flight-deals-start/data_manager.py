@@ -31,7 +31,7 @@ class DataManager:
                 }
             }
             response = requests.put(url=f"{self.endpoint}/{dict['id']}", headers=self.sheety_header, json=put_params)
-            return response.text
+            print(response.text
 
     
     # def get_IATA(self):

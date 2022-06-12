@@ -16,8 +16,7 @@ for city in sheet_data:
         iataCode = fs.get_IATA(city["city"])
         city["iataCode"] = iataCode
 
-for row in sheet_data:
-    response = dt.update_data(row)
 
-sheet_data = dt.get_data()
-print(sheet_data)
+response = sheet_data.update_data()
+
+print(sheet_data.data)
