@@ -9,7 +9,7 @@ fs = FlightSearch()
 sheet_data.get_data()
 
 # Check if IATA codes exist in our data
-for city in sheet_data:
+for city in sheet_data.data:
     if city["iataCode"] != "":
         print(city)
     else:
@@ -17,6 +17,6 @@ for city in sheet_data:
         city["iataCode"] = iataCode
 
 
-sheet_data.update_data()
+sheet_data.update_data_codes()
 
 print(sheet_data.data)
