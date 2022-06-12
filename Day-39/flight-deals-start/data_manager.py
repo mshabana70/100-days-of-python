@@ -19,8 +19,8 @@ class DataManager:
     def get_data(self):
         '''Get all records in our Flight sheet'''
         response = requests.get(url=self.endpoint, headers=self.sheety_header)
-        self.data = 
-        return self.response.json()["prices"]
+        self.data = response.json()["prices"]
+        return self.data
     
     def update_data(self, dict):
         '''Update a record in our Flight sheet'''
