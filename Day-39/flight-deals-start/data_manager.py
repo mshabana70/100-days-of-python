@@ -18,7 +18,7 @@ class DataManager:
     
     def get_data(self):
         '''Get all records in our Flight sheet'''
-        response = requests.get(url=self.endpoint, headers=self.sheety_header)
+        response = requests.get(url=SHEETY_ENDPOINT, headers=self.sheety_header)
         self.data = response.json()["prices"]
         return self.data
     
@@ -30,7 +30,7 @@ class DataManager:
                     "iataCode": city["iataCode"],
                 }
             }
-            response = requests.put(url=f"{self.endpoint}/{dict['id']}", headers=self.sheety_header, json=put_params)
+            response = requests.put(url=f"{SHEETY_ENDPOINT}/{dict['id']}", headers=self.sheety_header, json=put_params)
             print(response.text
 
     
