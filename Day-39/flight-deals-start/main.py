@@ -4,9 +4,9 @@ from data_manager import DataManager
 from flight_search import FlightSearch
 
 # Get Data from our google spread sheets
-dt = DataManager()
+sheet_data = DataManager()
 fs = FlightSearch()
-sheet_data = dt.get_data()
+sheet_data.get_data()
 
 # Check if IATA codes exist in our data
 for city in sheet_data:
@@ -17,6 +17,6 @@ for city in sheet_data:
         city["iataCode"] = iataCode
 
 
-response = sheet_data.update_data()
+sheet_data.update_data()
 
 print(sheet_data.data)
