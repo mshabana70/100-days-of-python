@@ -8,6 +8,11 @@ FLIGHT_AUTH = os.environ.get("FLIGHT_AUTH")
 
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.
+    def __init__(self):
+        self.departure_city_code = "NYC"
+        self.departure_city = "New York City"
+        self.price = 600
+
     def get_IATA(self, city_name):
         '''Get IATA Code from Tequila Flight Search API'''
         #code = "TESTING"
@@ -23,4 +28,6 @@ class FlightSearch:
         response = requests.get(url = FLIGHT_URL, params = query_params, headers=query_header)
         code = response.json()["locations"][0]["code"]
         return code
+    
+    def get_flight_price(self, dest_city, date_from, date_to):
 
