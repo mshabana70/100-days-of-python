@@ -16,11 +16,14 @@ class FlightSearch:
         '''Get IATA Code from Tequila Flight Search API'''
         #code = "TESTING"
         # We need to make a get call to the flight search api
-        query_params = {
-            "apiKey": FLIGHT_AUTH,
-            "term": city_name,
-            "location_types": "city"
+        query_header = {
+            "apiKey": FLIGHT_AUTH
         }
-        response = requests.get(url = FLIGHT_URL, json = query_params)
+
+        query_params = {
+            "term": city_name,
+            "location_types": "city",
+        }
+        response = requests.get(url = FLIGHT_URL, json = query_params, headers=query_header)
         return response.text
 
