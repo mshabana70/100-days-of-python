@@ -20,7 +20,6 @@ class FlightSearch:
             "apiKey": FLIGHT_AUTH,
             "term": city_name
         }
-        response = requests.get(url = FLIGHT_URL, json = FLIGHT_AUTH)
-        print(response.text)
-        return code
+        response = requests.get(url = FLIGHT_URL, json = query_params)
+        return response.text
 

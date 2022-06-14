@@ -14,9 +14,10 @@ for city in sheet_data.data:
         print(city)
     else:
         iataCode = fs.get_IATA(city["city"])
-        city["iataCode"] = iataCode
+        # city["iataCode"] = iataCode
+        print(iataCode)
 
 
-sheet_data.update_data_codes()
+# sheet_data.update_data_codes()
 
-print(sheet_data.data)
+# print(sheet_data.data)
