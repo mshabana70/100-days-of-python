@@ -2,16 +2,12 @@ import requests
 import os
 from data_manager import DataManager
 
-FLIGHT_URL = "https://tequila-api.kiwi.com/v2/search"
+FLIGHT_URL = "https://tequila-api.kiwi.com/locations/query"
 FLIGHT_AUTH = os.environ.get("FLIGHT_AUTH")
 
 
 class FlightSearch:
     #This class is responsible for talking to the Flight Search API.
-    def __init__(self):
-        self.city = ""
-        self.endpoint = FLIGHT_URL
-    
     def get_IATA(self, city_name):
         '''Get IATA Code from Tequila Flight Search API'''
         #code = "TESTING"
@@ -22,8 +18,9 @@ class FlightSearch:
 
         query_params = {
             "term": city_name,
-            "location_types": "city",
+            "location-types": "city"
         }
-        response = requests.get(url = FLIGHT_URL, json = query_params, headers=query_header)
-        return response.text
+        response = requests.get(url = FLIGHT_URL, params = query_params, headers=query_header)
+        code = response.json()["locations"][0]["code"]
+        return code
 
