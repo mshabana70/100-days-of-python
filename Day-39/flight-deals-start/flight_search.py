@@ -18,7 +18,8 @@ class FlightSearch:
         # We need to make a get call to the flight search api
         query_params = {
             "apiKey": FLIGHT_AUTH,
-            "term": city_name
+            "term": city_name,
+            "location_types": "city"
         }
         response = requests.get(url = FLIGHT_URL, json = query_params)
         return response.text
