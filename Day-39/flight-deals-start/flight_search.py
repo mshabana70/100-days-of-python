@@ -3,7 +3,7 @@ import os
 from data_manager import DataManager
 
 FLIGHT_URL = "https://tequila-api.kiwi.com/v2/search"
-FLIGHT_AUTH
+FLIGHT_AUTH = ""
 
 
 class FlightSearch:
