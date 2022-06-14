@@ -4,7 +4,7 @@ from pprint import pprint
 
 SHEETY_ENDPOINT = os.environ.get("SHEETY_ENDPOINT")
 SHEETY_AUTH = os.environ.get("SHEETY_AUTH")
-FLIGHT_AUTH = os.environ.get("FLIGHT_AUTH")
+
 
 
 class DataManager:
