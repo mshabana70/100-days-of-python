@@ -11,14 +11,16 @@ sheet_data.get_data()
 
 now_date = datetime.now()
 six_months_date = now_date + timedelta(days=183)
+week_date = now_date + timedelta(weeks=1)
+four_week_date = now_date + timedelta(weeks=4)
 
 # Departure dates
 flight_date_from = now_date.strftime("%m/%d/%Y")
 flight_date_to = six_months_date.strftime("%m/%d/%Y")
 
 # Return dates
-
-
+flight_return_date_from = week_date.strftime("%m/%d/%Y")
+flight_return_date_to = four_week_date.strftime("%m/%d/%Y")
 
 # Check if IATA codes exist in our data
 for city in sheet_data.data:
@@ -28,8 +30,8 @@ for city in sheet_data.data:
             dest_city=city["city"], 
             date_from=flight_date_from, 
             date_to=flight_date_to, 
-            return_date_from, 
-            return_date_to
+            return_date_from=flight_return_date_from, 
+            return_date_to=flight_return_date_to
         ) 
         print(flight_price)
     else:
