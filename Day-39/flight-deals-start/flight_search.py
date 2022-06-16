@@ -37,7 +37,8 @@ class FlightSearch:
             "apiKey": FLIGHT_AUTH
         }
         query_params = {
-            "flight_from": 
+            "fly_from": self.departure_city_code,
+            "fly_to": dest_city
         }
 
 
