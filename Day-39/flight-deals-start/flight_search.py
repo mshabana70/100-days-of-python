@@ -36,6 +36,8 @@ class FlightSearch:
         query_header = {
             "apiKey": FLIGHT_AUTH
         }
-        query
+        query_params = {
+            "flight_from": 
+        }
 
 
