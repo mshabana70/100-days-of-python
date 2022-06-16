@@ -33,5 +33,6 @@ class FlightSearch:
     
     def get_flight_price(self, dest_city, date_from, date_to):
         search_endpoint = f"{FLIGHT_URL}/v2/search"
-        
+        query
+
 
