@@ -11,6 +11,7 @@ class FlightSearch:
     def __init__(self):
         self.departure_city_code = "NYC"
         self.departure_city = "New York City"
+        self.currency = "USD"
         self.price = 600
 
     def get_IATA(self, city_name):
@@ -31,7 +32,7 @@ class FlightSearch:
         code = response.json()["locations"][0]["code"]
         return code
     
-    def get_flight_price(self, dest_city, date_from, date_to):
+    def get_flight_price(self, dest_city, date_from, date_to, return_date_from, return_date_to):
         search_endpoint = f"{FLIGHT_URL}/v2/search"
         query_header = {
             "apiKey": FLIGHT_AUTH
@@ -41,6 +42,12 @@ class FlightSearch:
             "fly_to": dest_city,
             "date_from": date_from,
             "date_to": date_to,
+            "return_from": return_date_from,
+            "return_to": return_date_to,
+            "flight_type": "round",
+            "curr": self.currency,
+            "price_to": self.price,
+            "max_stopovers": 0
         }
 
 
