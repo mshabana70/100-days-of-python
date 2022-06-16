@@ -16,6 +16,9 @@ six_months_date = now_date + timedelta(days=183)
 flight_date_from = now_date.strftime("%m/%d/%Y")
 flight_date_to = six_months_date.strftime("%m/%d/%Y")
 
+# Return dates
+
+
 
 # Check if IATA codes exist in our data
 for city in sheet_data.data:
