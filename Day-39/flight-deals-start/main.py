@@ -12,8 +12,10 @@ sheet_data.get_data()
 now_date = datetime.now()
 six_months_date = now_date + timedelta(days=183)
 
+# Departure dates
 flight_date_from = now_date.strftime("%m/%d/%Y")
 flight_date_to = six_months_date.strftime("%m/%d/%Y")
+
 
 # Check if IATA codes exist in our data
 for city in sheet_data.data:
@@ -21,8 +23,8 @@ for city in sheet_data.data:
         # Parse through city codes to get flight pricing
         flight_price = fs.get_flight_price(
             dest_city=city["city"], 
-            date_from=, 
-            date_to, 
+            date_from=flight_date_from, 
+            date_to=flight_date_to, 
             return_date_from, 
             return_date_to
         ) 
