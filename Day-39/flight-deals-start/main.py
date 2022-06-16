@@ -11,6 +11,7 @@ sheet_data.get_data()
 # Check if IATA codes exist in our data
 for city in sheet_data.data:
     if city["iataCode"] != "":
+        # Parse through city codes to get flight pricing 
         print(city)
     else:
         iataCode = fs.get_IATA(city["city"])
@@ -18,3 +19,5 @@ for city in sheet_data.data:
 
 sheet_data.update_data_codes()
 #print(sheet_data.data)
+
+
