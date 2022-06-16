@@ -58,7 +58,7 @@ class FlightSearch:
         # Get flight price from response
         flight_price = response.json()["data"]["price"]
 
-        return flight_price
+        return f"{dest_city}: {flight_price}"
 
 
 
