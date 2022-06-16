@@ -52,5 +52,14 @@ class FlightSearch:
             "max_stopovers": 0
         }
 
+        # Create Get request and grab response
+        response = requests.get(url=search_endpoint, headers=query_header, params=query_params)
+
+        # Get flight price from response
+        flight_price = response.json()["data"]["price"]
+
+        return flight_price
+
+
 
 
