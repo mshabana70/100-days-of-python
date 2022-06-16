@@ -33,6 +33,8 @@ class FlightSearch:
         return code
     
     def get_flight_price(self, dest_city, date_from, date_to, return_date_from, return_date_to):
+        '''Get Flight price for specified trip.'''
+        # Set up request headers and body
         search_endpoint = f"{FLIGHT_URL}/v2/search"
         query_header = {
             "apiKey": FLIGHT_AUTH
@@ -49,5 +51,6 @@ class FlightSearch:
             "price_to": self.price,
             "max_stopovers": 0
         }
+
 
 
