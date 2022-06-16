@@ -56,6 +56,7 @@ class FlightSearch:
         response = requests.get(url=search_endpoint, headers=query_header, params=query_params)
 
         # Get flight price from response
+        print(response.json())
         flight_price = response.json()["data"]["price"]
 
         return f"{dest_city}: {flight_price}"
