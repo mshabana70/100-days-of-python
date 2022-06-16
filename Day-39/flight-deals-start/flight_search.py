@@ -38,7 +38,9 @@ class FlightSearch:
         }
         query_params = {
             "fly_from": self.departure_city_code,
-            "fly_to": dest_city
+            "fly_to": dest_city,
+            "date_from": date_from,
+            "date_to": date_to,
         }
 
 
