@@ -33,7 +33,8 @@ for city in sheet_data.data:
             date_to=flight_date_to, 
             return_date_from=flight_return_date_from, 
             return_date_to=flight_return_date_to
-        ) 
+        )
+         
         print(flight_price)
     else:
         iataCode = fs.get_IATA(city["city"])
