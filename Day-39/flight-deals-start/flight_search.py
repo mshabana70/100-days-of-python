@@ -14,7 +14,7 @@ class FlightSearch:
         self.departure_city = "New York City"
         self.currency = "USD"
         self.price = 1000
-        self.flight_data
+        self.flight_data = ""
 
     def get_IATA(self, city_name):
         '''Get IATA Code from Tequila Flight Search API'''
