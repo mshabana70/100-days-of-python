@@ -46,20 +46,18 @@ class FlightSearch:
             "date_from": date_from,
             "date_to": date_to,
             "nights_in_dst_from": 7,
-            "return_from": return_date_from,
-            "return_to": return_date_to,
-            "flight_type": "oneway",
+            "nights_in_dst_to": 28,
+            "flight_type": "round",
             "curr": self.currency,
-            "price_to": self.price,
-            "sort": "price",
-            "max_stopovers": 0
+            "max_stopovers": 0,
+            "one_for_city": 1
         }
 
         # Create Get request and grab response
         response = requests.get(url=search_endpoint, headers=query_header, params=query_params)
 
         # Get flight price from response
-        # print(response.json())
+        # Append response to flight data object
         flight_price = response.json()["data"][0]["price"]
 
         return f"{dest_city}: {flight_price}"
