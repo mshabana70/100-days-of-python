@@ -33,6 +33,7 @@ for city in sheet_data.data:
             date_from=flight_date_from, 
             date_to=flight_date_to
         )
+        # Send sms message once flight data is retrieved
         print(flight_price)
     else:
         iataCode = fs.get_IATA(city["city"])
