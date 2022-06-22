@@ -31,7 +31,7 @@ class DataManager:
                 }
             }
             response = requests.put(url=f"{SHEETY_ENDPOINT}/{city['id']}", headers=self.sheety_header, json=put_params)
-            print(response.text)
+            #print(response.text)
 
     
 
