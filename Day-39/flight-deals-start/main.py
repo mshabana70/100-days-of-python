@@ -30,11 +30,9 @@ for city in sheet_data.data:
         flight_price = fs.get_flight_price(
             dest_city=city["iataCode"], 
             date_from=flight_date_from, 
-            date_to=flight_date_to, 
-            return_date_from=flight_return_date_from, 
-            return_date_to=flight_return_date_to
+            date_to=flight_date_to
         )
-         
+
         print(flight_price)
     else:
         iataCode = fs.get_IATA(city["city"])
