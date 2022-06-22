@@ -1,6 +1,7 @@
 import requests
 import os
 from data_manager import DataManager
+from flight_data import FlightData
 
 FLIGHT_URL = "https://tequila-api.kiwi.com"
 FLIGHT_AUTH = os.environ.get("FLIGHT_AUTH")
@@ -57,10 +58,24 @@ class FlightSearch:
         response = requests.get(url=search_endpoint, headers=query_header, params=query_params)
 
         # Get flight price from response
-        # Append response to flight data object
-        flight_price = response.json()["data"][0]["price"]
+        try:
+            data = response.json()["data"][0]
+        except:
+            print(f"No flights found for {dest_city}.")
+            return None
 
-        return f"{dest_city}: {flight_price}"
+        # Append response to flight data object
+        flight_data = FlightData(
+            price=data["price"],
+            origin_city=self.departure_city,
+            origin_airport=data["route"][0]["flyFrom"],
+            destination_city=data["route"][0]["cityTo"],
+            destination_airport=data["route"][0]["flyTo"],
+            out_data=data["route"][0]["local_departure"].split("T")[0],
+            return_date=data["route"][1]["local_departure"].split("T")[0]
+        )
+
+        return f"{flight_data.destination_city}: ${flight_data.price}"
 
 
 
