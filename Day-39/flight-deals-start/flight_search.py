@@ -45,6 +45,7 @@ class FlightSearch:
             "fly_to": dest_city,
             "date_from": date_from,
             "date_to": date_to,
+            "nights_in_dst_from": 7,
             "return_from": return_date_from,
             "return_to": return_date_to,
             "flight_type": "oneway",
