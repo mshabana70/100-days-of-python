@@ -9,8 +9,9 @@ class NotificationManager:
     def __init__(self):
         self.sender_num = "+12058582732"
         self.recepient_num = "+16464278840"
-        self.body = ""
 
     def send_sms(self, price, departure_city, departure_code, arrival_city, arrival_code, out_date, in_date):
-             
+        body = f""
+        client = Client(API_SID, API_KEY)
+
     pass
