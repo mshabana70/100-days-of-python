@@ -66,7 +66,7 @@ class FlightSearch:
             return None
 
         # Append response to flight data object
-        self.flight_data = FlightData(
+        flight_data = FlightData(
             price=data["price"],
             origin_city=self.departure_city,
             origin_airport=data["route"][0]["flyFrom"],
@@ -76,7 +76,9 @@ class FlightSearch:
             return_date=data["route"][1]["local_departure"].split("T")[0]
         )
 
-        return f"{self.flight_data.destination_city}: ${self.flight_data.price}"
+        #return f"{self.flight_data.destination_city}: ${self.flight_data.price}"
+        # Return FlightData object
+        return flight_data
 
 
 
