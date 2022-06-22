@@ -14,6 +14,7 @@ class FlightSearch:
         self.departure_city = "New York City"
         self.currency = "USD"
         self.price = 1000
+        self.flight_data
 
     def get_IATA(self, city_name):
         '''Get IATA Code from Tequila Flight Search API'''
@@ -65,7 +66,7 @@ class FlightSearch:
             return None
 
         # Append response to flight data object
-        flight_data = FlightData(
+        self.flight_data = FlightData(
             price=data["price"],
             origin_city=self.departure_city,
             origin_airport=data["route"][0]["flyFrom"],
@@ -75,7 +76,7 @@ class FlightSearch:
             return_date=data["route"][1]["local_departure"].split("T")[0]
         )
 
-        return f"{flight_data.destination_city}: ${flight_data.price}"
+        return f"{self.flight_data.destination_city}: ${self.flight_data.price}"
 
 
 

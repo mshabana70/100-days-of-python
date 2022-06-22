@@ -1,4 +1,4 @@
-from twilio import Client
+from twilio.rest import Client
 import os
 
 API_SID = os.environ.get("TWILIO_SID")

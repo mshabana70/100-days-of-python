@@ -3,6 +3,7 @@
 from data_manager import DataManager
 from flight_search import FlightSearch
 from datetime import datetime, timedelta
+from notification_manager import NotificationManager
 
 # Get Data from our google spread sheets
 sheet_data = DataManager()
