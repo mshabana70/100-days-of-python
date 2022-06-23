@@ -33,17 +33,19 @@ for city in sheet_data.data:
             date_from=flight_date_from, 
             date_to=flight_date_to
         )
-        # Send sms message once flight data is retrieved
-        messenger = NotificationManager()
-        messenger.send_sms(
-            price=flight_data.price, 
-            departure_city=flight_data.origin_city, 
-            departure_code=flight_data.origin_airport, 
-            arrival_city=flight_data.destination_city, 
-            arrival_code=flight_data.destination_airport, 
-            out_date=flight_data.out_date, 
-            in_date=flight_data.in_date
-        )
+
+        if flight_data.price < city["lowestPrice"]:
+            # Send sms message once flight data is retrieved
+            messenger = NotificationManager()
+            messenger.send_sms(
+                price=flight_data.price, 
+                departure_city=flight_data.origin_city, 
+                departure_code=flight_data.origin_airport, 
+                arrival_city=flight_data.destination_city, 
+                arrival_code=flight_data.destination_airport, 
+                out_date=flight_data.out_date, 
+                in_date=flight_data.in_date
+            )
     else:
         iataCode = fs.get_IATA(city["city"])
         city["iataCode"] = iataCode
