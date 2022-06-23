@@ -41,7 +41,7 @@ for city in sheet_data.data:
             departure_code=flight_data.origin_airport, 
             arrival_city=flight_data.destination_city, 
             arrival_code=flight_data.destination_airport, 
-            out_date, 
+            out_date=flight_data.out_date, 
             in_date
         )
     else:
