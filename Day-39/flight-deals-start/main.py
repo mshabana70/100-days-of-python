@@ -33,8 +33,7 @@ for city in sheet_data.data:
             date_from=flight_date_from, 
             date_to=flight_date_to
         )
-        price = flight_data.price
-        if (price is not None) and (flight_data.price < city["lowestPrice"]):
+        if (flight_data.price is not None) and (flight_data.price < city["lowestPrice"]):
             # Send sms message once flight data is retrieved
             messenger = NotificationManager()
             messenger.send_sms(
