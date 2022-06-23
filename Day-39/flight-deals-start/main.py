@@ -38,8 +38,8 @@ for city in sheet_data.data:
         messenger.send_sms(
             price=flight_data.price, 
             departure_city=flight_data.origin_city, 
-            departure_code, 
-            arrival_city, 
+            departure_code=flight_data.origin_airport, 
+            arrival_city=flight_data.destination_city, 
             arrival_code, 
             out_date, 
             in_date
