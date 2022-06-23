@@ -42,7 +42,7 @@ for city in sheet_data.data:
             arrival_city=flight_data.destination_city, 
             arrival_code=flight_data.destination_airport, 
             out_date=flight_data.out_date, 
-            in_date
+            in_date=flight_data.in_date
         )
     else:
         iataCode = fs.get_IATA(city["city"])
