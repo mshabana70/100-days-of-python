@@ -50,6 +50,5 @@ for city in sheet_data.data:
         city["iataCode"] = iataCode
 
 sheet_data.update_data_codes()
-#print(sheet_data.data)
 
 
