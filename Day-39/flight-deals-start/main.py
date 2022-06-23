@@ -40,7 +40,7 @@ for city in sheet_data.data:
             departure_city=flight_data.origin_city, 
             departure_code=flight_data.origin_airport, 
             arrival_city=flight_data.destination_city, 
-            arrival_code, 
+            arrival_code=flight_data.destination_airport, 
             out_date, 
             in_date
         )
