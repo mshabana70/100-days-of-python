@@ -28,13 +28,22 @@ flight_return_date_to = str(four_week_date.strftime("%d/%m/%Y"))
 for city in sheet_data.data:
     if city["iataCode"] != "":
         # Parse through city codes to get flight pricing
-        flight_price = fs.get_flight_price(
+        flight_data = fs.get_flight_price(
             dest_city=city["iataCode"], 
             date_from=flight_date_from, 
             date_to=flight_date_to
         )
         # Send sms message once flight data is retrieved
-        print(flight_price)
+        messenger = NotificationManager()
+        messenger.send_sms(
+            price=flight_data.price, 
+            departure_city=flight_data.origin_city, 
+            departure_code, 
+            arrival_city, 
+            arrival_code, 
+            out_date, 
+            in_date
+        )
     else:
         iataCode = fs.get_IATA(city["city"])
         city["iataCode"] = iataCode
