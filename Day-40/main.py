@@ -20,7 +20,7 @@ while not (does_match):
     print("Sorry! the email does not match.")
 
 post_params = {
-    "users": {
+    "user": {
         "firstName": first_name,
         "lastName": last_name,
         "email": email
