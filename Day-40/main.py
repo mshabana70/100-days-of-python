@@ -10,3 +10,8 @@ last_name = input("What is your last name?\n").capitalize()
 does_match = False
 email = input("what is your email?")
 while not (does_match):
+  validate_email = input("Type your email again.")
+  if validate_email == email:
+    does_match = True
+  else:
+    print("Sorry! the email does not match.")
