@@ -15,6 +15,7 @@ while not (does_match):
   validate_email = input("Type your email again.\n")
   if validate_email == email:
     does_match = True
+    print("You're in the club!")
   else:
     print("Sorry! the email does not match.")
 
