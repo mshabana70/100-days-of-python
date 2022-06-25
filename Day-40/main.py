@@ -19,9 +19,11 @@ while not (does_match):
     print("Sorry! the email does not match.")
 
 post_params = {
-    "firstName": first_name,
-    "lastName": last_name,
-    "email": email
+    "users": {
+        "firstName": first_name,
+        "lastName": last_name,
+        "email": email
+    } 
 }
 
 response = requests.post(url=SHEETY_ENDPOINT, json=post_params)
