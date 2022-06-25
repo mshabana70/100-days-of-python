@@ -24,3 +24,5 @@ post_params = {
     "email": email
 }
 
+response = requests.post(url=SHEETY_ENDPOINT, json=post_params)
+response.raise_for_status()
