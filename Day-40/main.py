@@ -1,6 +1,8 @@
 # Starting File for Part 2 of Flight deals project
 import requests
 
+SHEETY_ENDPOINT = "https://api.sheety.co/dfe6f6bfa0c16bea1d2f73e164d47a7c/flightDeals/users"
+
 # Starting console print
 print("Welcome to Mahmoud's Flight Club!\nWe find the best flight deals and email it to you.")
 
@@ -15,4 +17,10 @@ while not (does_match):
     does_match = True
   else:
     print("Sorry! the email does not match.")
+
+post_params = {
+    "firstName": first_name,
+    "lastName": last_name,
+    "email": email
+}
 
