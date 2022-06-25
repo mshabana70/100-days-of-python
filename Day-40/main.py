@@ -6,3 +6,7 @@ print("Welcome to Mahmoud's Flight Club!\nWe find the best flight deals and emai
 
 first_name = input("What is your first name?\n").capitalize()
 last_name = input("What is your last name?\n").capitalize()
+
+does_match = False
+email = input("what is your email?")
+while not (does_match):
