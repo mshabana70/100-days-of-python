@@ -1,5 +1,6 @@
 import requests
 import os
+import pprint
 from data_manager import DataManager
 from flight_data import FlightData
 
@@ -65,6 +66,7 @@ class FlightSearch:
             print(f"No flights found for {dest_city}.")
             query_params["max_stopovers"] = 1
             response = requests.get(url=search_endpoint, headers=query_header, params=stop_query_parameters)
+
         else:
             # Append response to flight data object
             flight_data = FlightData(
