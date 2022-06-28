@@ -39,15 +39,13 @@ for city in sheet_data.data:
 
         if (flight_data is not None) and (flight_data.price < city["lowestPrice"]):
             # Send sms message once flight data is retrieved
+            message = f"Low Price Alert! Only ${flight_data.price} to fly from {flight_data.departure_city}-{flight_data.departure_code} to {flight_data.arrival_city}-{flight_data.arrival_code}, from {flight_data.out_date} to {flight_data.in_date}."
+            if flight_data.stop_overs > 0:
+                message += f"\nFlight has {flight_data.stop_overs} stop over, via {flight_data.via_city}."
+    
             messenger = NotificationManager()
             messenger.send_sms(
-                price=flight_data.price, 
-                departure_city=flight_data.origin_city, 
-                departure_code=flight_data.origin_airport, 
-                arrival_city=flight_data.destination_city, 
-                arrival_code=flight_data.destination_airport, 
-                out_date=flight_data.out_date, 
-                in_date=flight_data.return_date
+                messageBody=message
             )
     else:
         iataCode = fs.get_IATA(city["city"])
