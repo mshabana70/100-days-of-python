@@ -33,7 +33,7 @@ for city in sheet_data.data:
             date_from=flight_date_from, 
             date_to=flight_date_to
         )
-        
+        # Can using this if check rather than an 'and' statment
         if (flight_data is not None) and (flight_data.price < city["lowestPrice"]):
             # Send sms message once flight data is retrieved
             messenger = NotificationManager()
