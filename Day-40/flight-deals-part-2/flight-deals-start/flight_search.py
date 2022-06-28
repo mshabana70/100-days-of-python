@@ -65,7 +65,7 @@ class FlightSearch:
             print(f"No flights found for {dest_city}.")
             return None
         else:
-        # Append response to flight data object
+            # Append response to flight data object
         flight_data = FlightData(
             price=data["price"],
             origin_city=self.departure_city,
