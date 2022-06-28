@@ -37,16 +37,27 @@ for city in sheet_data.data:
         # if flight_data is None:
         #     continue
 
+        # EMAIL INFO
+        users = sheet_data.get_customer_emails()
+        emails = [row["email"] for row in users]
+        names = [row["firstName"] for row in users]
+
         if (flight_data is not None) and (flight_data.price < city["lowestPrice"]):
             # Send sms message once flight data is retrieved
             message = f"Low Price Alert! Only ${flight_data.price} to fly from {flight_data.departure_city}-{flight_data.departure_code} to {flight_data.arrival_city}-{flight_data.arrival_code}, from {flight_data.out_date} to {flight_data.in_date}."
             if flight_data.stop_overs > 0:
                 message += f"\nFlight has {flight_data.stop_overs} stop over, via {flight_data.via_city}."
-    
-            messenger = NotificationManager()
-            messenger.send_sms(
-                messageBody=message
-            )
+
+            # SMS Functionality
+            # messenger = NotificationManager()
+            # messenger.send_sms(
+            #     messageBody=message
+            # )
+
+            # Email Functionality
+            link = f"https://www.google.co.uk/flights?hl=en#flt={flight.origin_airport}.{flight.destination_airport}.{flight.out_date}*{flight.destination_airport}.{flight.origin_airport}.{flight.return_date}"
+            emailer = NotificationManager()
+            emailer.send_email(emails=emails, message=message, link=link)
     else:
         iataCode = fs.get_IATA(city["city"])
         city["iataCode"] = iataCode

@@ -15,6 +15,7 @@ class DataManager:
             "Authorization": f"Bearer {SHEETY_AUTH}"
         }
         self.data = {}
+        self.customer_data = {}
     
     def get_data(self):
         '''Get all records in our Flight sheet'''
@@ -32,6 +33,13 @@ class DataManager:
             }
             response = requests.put(url=f"{SHEETY_ENDPOINT}/{city['id']}", headers=self.sheety_header, json=put_params)
             #print(response.text)
+    
+    def get_customer_emails(self):
+        customers_endpoint = SHEETY_ENDPOINT
+        response = requests.get(url=customers_endpoint)
+        data = response.json()
+        self.customer_data = data["users"]
+        return self.customer_data
 
     
 
