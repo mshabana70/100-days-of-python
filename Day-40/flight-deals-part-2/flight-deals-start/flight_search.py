@@ -76,9 +76,9 @@ class FlightSearch:
                 return_date=data["route"][1]["local_departure"].split("T")[0]
             )
 
-        #return f"{self.flight_data.destination_city}: ${self.flight_data.price}"
-        # Return FlightData object
-        return flight_data
+            #return f"{self.flight_data.destination_city}: ${self.flight_data.price}"
+            # Return FlightData object
+            return flight_data
 
 
 
