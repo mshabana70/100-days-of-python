@@ -66,7 +66,19 @@ class FlightSearch:
             print(f"No flights found for {dest_city}.")
             query_params["max_stopovers"] = 1
             response = requests.get(url=search_endpoint, headers=query_header, params=query_params)
-            pprint.pprint(response.json()["all_stopover_airports"])
+            data = response.json()["data"][0]
+            flight_data = FlightData(
+                price=data["price"],
+                origin_city=self.departure_city,
+                origin_airport=data["route"][0]["flyFrom"],
+                destination_city=data["route"][0]["cityTo"],
+                destination_airport=data["route"][0]["flyTo"],
+                out_date=data["route"][0]["local_departure"].split("T")[0],
+                return_date=data["route"][1]["local_departure"].split("T")[0],
+                stop_over=1,
+                via_city=data["route"][0]["cityTo"]
+            )
+            return flight_data
         else:
             # Append response to flight data object
             flight_data = FlightData(
