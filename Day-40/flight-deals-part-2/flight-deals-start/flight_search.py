@@ -64,7 +64,7 @@ class FlightSearch:
         except:
             print(f"No flights found for {dest_city}.")
             return None
-
+        else:
         # Append response to flight data object
         flight_data = FlightData(
             price=data["price"],
